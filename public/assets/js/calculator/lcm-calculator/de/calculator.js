@@ -1,0 +1,1 @@
+function calculate(){const numbers=input.get('numbers').natural_numbers().vals();if(numbers.length==1)input.error('numbers','Die Anzahl muss größer als 1 sein');if(!input.valid())return;const lcm=math.lcm(...numbers);_('lcm').innerHTML=lcm;}

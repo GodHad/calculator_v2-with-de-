@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+ <head>
+  <title>
+   Refinanzierungs-Rechner
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <meta content="This free and comprehensive refinance calculator can help you calculate monthly payments, amortization, total purchase price, and more." name="description"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-regular.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-500.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-600.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-800.woff2" rel="preload" type="font/woff2"/>
+  <link href="./assets/css/main.min.css" rel="stylesheet"/>
+  <script type="text/javascript">
+   window._ = document.getElementById.bind(document);
+            window.$ = document.querySelector.bind(document);
+            window.$$ = document.querySelectorAll.bind(document);
+            window.defaultSystem = "imperial";
+            localStorage.setItem("theme", "light");
+  </script>
+  <script defer="" src="./assets/js/all-de-calculators.js">
+  </script>
+ </head>
+ <body style="background-color: transparent !important; min-height: 0 !important">
+  <div class="modal-window" style="opacity: 0; pointer-events: none;">
+   <div class="modal-share">
+    <div class="modal-share__container">
+     <div class="modal-share__header">
+      <label class="modal-share__button modal-share__button--active" for="share-widget">
+       Widget
+      </label>
+      <label class="modal-share__button" for="share-url">
+       Link
+      </label>
+      <label class="modal-share__button" for="share-text">
+       Text
+      </label>
+      <label class="modal-share__button" for="share-html">
+       HTML
+      </label>
+     </div>
+     <div class="modal-share__content modal-share__content--active">
+      <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="refinance-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://www.size.ly/embed/refinance-calculator/de" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/refinance-calculator/de" style="text-decoration:none;" target="_blank"><font font size="1" color="#333">https://www.size.ly/refinance-calculator/de</font></a></center></textarea>
+      <div onclick="window.open('https://www.size.ly/embed/refinance-calculator/de','Refinanzierungs-Rechner','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+       Vorschau Refinanzierungs-Rechner Widget
+      </div>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/refinance-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-text">Dieser kostenlose und umfassende Refinanzierungsrechner hilft Ihnen bei der Berechnung der monatlichen Zahlungen, der Amortisation, des Gesamtkaufpreises und mehr.: https://www.size.ly/refinance-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/refinance-calculator/de" title="Refinanzierungs-Rechner" target="_blank"&gt;Refinanzierungs-Rechner&lt;/a&gt;</textarea>
+     </div>
+    </div>
+    <div class="modal-share__footer">
+     <button class="button button--copy" onclick="copyWidget(this)">
+      In die Zwischenablage kopieren
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="calculator">
+   <div class="calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+     <div class="calculator-settings">
+      <div class="calculator-settings" id="calculator_form">
+       <div class="calculator-setting">
+        <div class="calculator-content calculator-content--options col calculator-content--active">
+         <div class="calculator-content-head row">
+          <p class="calculator-content-head__title">
+           Aktuelles Darlehen
+          </p>
+          <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+           <path clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF" fill-rule="evenodd">
+           </path>
+          </svg>
+         </div>
+         <div class="calculator-content-body col">
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Ursprüngliche Höhe des aktuellen Darlehens
+            </p>
+            <div class="input-field row">
+             <span class="input-field__hint">
+              $
+             </span>
+             <input class="input-field__input" id="amount" placeholder="" type="text" value="300000"/>
+            </div>
+           </label>
+          </div>
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Laufzeit des Darlehens
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="loan_term" placeholder="" type="text" value="30"/>
+             <span class="input-field__hint">
+              Jahre
+             </span>
+            </div>
+           </label>
+           <label class="input col">
+            <p class="input__title">
+             Zinssatz
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="interest_rate" placeholder="" type="text" value="6"/>
+             <span class="input-field__hint">
+              %
+             </span>
+            </div>
+           </label>
+          </div>
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Verbleibende Zeit
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="time_remaining_years" placeholder="" type="text" value="25"/>
+             <span class="input-field__hint">
+              Jahre
+             </span>
+            </div>
+           </label>
+           <label class="input col">
+            <div class="input-field row">
+             <input class="input-field__input" id="time_remaining_months" placeholder="" type="text" value=""/>
+             <span class="input-field__hint">
+              Monate
+             </span>
+            </div>
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--options col">
+         <div class="calculator-content-head row">
+          <p class="calculator-content-head__title">
+           Neues Darlehen
+          </p>
+          <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+           <path clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF" fill-rule="evenodd">
+           </path>
+          </svg>
+         </div>
+         <div class="calculator-content-body col">
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Neue Darlehenslaufzeit
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="new_loan_term_years" placeholder="" type="text" value="25"/>
+             <span class="input-field__hint">
+              Jahre
+             </span>
+            </div>
+           </label>
+           <label class="input col">
+            <div class="input-field row">
+             <input class="input-field__input" id="new_loan_term_months" placeholder="" type="text" value=""/>
+             <span class="input-field__hint">
+              Monate
+             </span>
+            </div>
+           </label>
+          </div>
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Zinssatz
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="interest_rate_2" placeholder="" type="text" value="4.5"/>
+             <span class="input-field__hint">
+              %
+             </span>
+            </div>
+           </label>
+           <label class="input col">
+            <p class="input__title">
+             Punkte
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="points" placeholder="" type="text" value="2"/>
+            </div>
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--options col">
+         <div class="calculator-content-head row">
+          <p class="calculator-content-head__title">
+           Bargeldauszahlung und Kosten
+          </p>
+          <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+           <path clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF" fill-rule="evenodd">
+           </path>
+          </svg>
+         </div>
+         <div class="calculator-content-body col">
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Auszahlungsbetrag
+            </p>
+            <div class="input-field row">
+             <span class="input-field__hint">
+              $
+             </span>
+             <input class="input-field__input" id="cash_out" placeholder="" type="text" value=""/>
+            </div>
+           </label>
+          </div>
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Kosten
+            </p>
+            <div class="input-field row">
+             <span class="input-field__hint">
+              $
+             </span>
+             <input class="input-field__input" id="costs" placeholder="" type="text" value="1000"/>
+            </div>
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate" id="action-button" onclick="calculate(this);">
+          Berechnen
+         </button>
+        </div>
+        <script defer="" src="./assets/js/calculator/refinance-calculator/de/calculator.js" type="text/javascript">
+        </script>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+     <div class="calculator-result col">
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo" colspan="4">
+           Umschuldung
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <th>
+           Einsparungen für das neue Darlehen
+          </th>
+          <td class="animate" colspan="3" id="saving-month">
+           $278.00/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Lebenszeiteinsparungen für das neue Darlehen
+          </th>
+          <td class="animate" colspan="3" id="lifetime-saving">
+           $83,400.00
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Vorauskosten
+          </th>
+          <td class="animate" colspan="3" id="upfront-cost">
+           $6,583.26
+          </td>
+         </tr>
+         <tr>
+          <th class="dark indigo">
+          </th>
+          <th class="dark indigo">
+           AKTUELLES DARLEHEN
+          </th>
+          <th class="dark indigo">
+           NEUES DARLEHEN
+          </th>
+          <th class="dark indigo">
+           UNTERSCHIED
+          </th>
+         </tr>
+         <tr class="animate">
+          <th>
+           Hauptbetrag/Darlehensbetrag
+          </th>
+          <td id="original-remaining-amount">
+           $279,163.18
+          </td>
+          <td id="new-remaining-amount">
+           $273,579.92
+          </td>
+          <td id="amount-diff">
+           $-5,583.26
+          </td>
+         </tr>
+         <tr class="animate">
+          <th>
+           Länge
+          </th>
+          <td id="remaining-months">
+           300 Monate
+          </td>
+          <td id="new-loan-months">
+           300 Monate
+          </td>
+          <td id="months-diff">
+           0 Monate
+          </td>
+         </tr>
+         <tr class="animate">
+          <th>
+           Zinssatz
+          </th>
+          <td id="original-interest">
+           6%
+          </td>
+          <td id="new-interest">
+           4.5%
+          </td>
+          <td id="interest-diff">
+           1.5%
+          </td>
+         </tr>
+         <tr class="animate">
+          <th>
+           Monatliche Zahlung
+          </th>
+          <td id="origin-monthly-payment">
+           $1,798.65
+          </td>
+          <td id="new-monthly-payment">
+           $1,520.65
+          </td>
+          <td id="monthly-payment-diff">
+           $-278.00
+          </td>
+         </tr>
+         <tr class="animate">
+          <th>
+           Gesamtzahlungen
+          </th>
+          <td id="total-payment">
+           $539,595.00
+          </td>
+          <td id="new-total-payment">
+           $456,195.00
+          </td>
+          <td id="total-payment-diff">
+           $-83,400.00
+          </td>
+         </tr>
+         <tr class="animate">
+          <th>
+           Gesamtzinsen
+          </th>
+          <td id="total-interest">
+           $260,431.82
+          </td>
+          <td id="new-total-interest">
+           $182,615.08
+          </td>
+          <td id="total-interest-diff">
+           $-77,816.74
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Punkte Äquivalent Zu
+          </th>
+          <td>
+          </td>
+          <td class="animate" id="points-cost">
+           $5,583.26
+          </td>
+          <td>
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Kosten + Punkte (Voraus)
+          </th>
+          <td>
+          </td>
+          <td class="animate" colspan="2" id="points-with-cost">
+           $6,583.26
+          </td>
+         </tr>
+         <tr class="hidden" id="cash-out-info">
+          <th>
+           Bargeldauszahlung
+          </th>
+          <td>
+          </td>
+          <td class="animate" colspan="2" id="cash-out-val">
+           NA
+          </td>
+         </tr>
+         <tr class="hidden" id="take-home-amount-info">
+          <th>
+           Auszahlungsbetrag nach Kosten/Punkt
+          </th>
+          <td>
+          </td>
+          <td class="animate" colspan="2" id="take-home-amount-val">
+           NA
+          </td>
+         </tr>
+         <tr id="time-recovery">
+          <th>
+           Zeit zur Kostenerstattung/Punkt
+          </th>
+          <td>
+          </td>
+          <td class="animate" colspan="2" id="recovery-time-val">
+           23,68 Monate
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result calculator-result--error col" id="error-box">
+      <div class="row">
+       <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path class="dark:fill-red-200" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+									7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+									12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+									11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" fill-rule="evenodd">
+        </path>
+       </svg>
+       <p class="calculator-error__title">
+        Es gab einen Fehler bei Ihrer Berechnung.
+       </p>
+      </div>
+      <div class="col" id="error-list">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script async="" src="./assets/js/lib/math.min.js">
+  </script>
+  <script async="" src="./assets/js/app.js">
+  </script>
+  <script defer="" src="./assets/js/functions-de.js">
+  </script>
+ </body>
+</html>

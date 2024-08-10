@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+ <head>
+  <title>
+   Rechner für rechtwinklige Dreiecke
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <meta content="Right triangle calculator finds missing triangle measurements. It calculates side lengths, angles, perimeter, area, altitude-to-hypotenuse, inradius, and circumradius." name="description"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-regular.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-500.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-600.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-800.woff2" rel="preload" type="font/woff2"/>
+  <link href="./assets/css/main.min.css" rel="stylesheet"/>
+  <script type="text/javascript">
+   window._ = document.getElementById.bind(document);
+            window.$ = document.querySelector.bind(document);
+            window.$$ = document.querySelectorAll.bind(document);
+            window.defaultSystem = "imperial";
+            localStorage.setItem("theme", "light");
+  </script>
+  <script defer="" src="./assets/js/all-de-calculators.js">
+  </script>
+ </head>
+ <body style="background-color: transparent !important; min-height: 0 !important">
+  <div class="modal-window" style="opacity: 0; pointer-events: none;">
+   <div class="modal-share">
+    <div class="modal-share__container">
+     <div class="modal-share__header">
+      <label class="modal-share__button modal-share__button--active" for="share-widget">
+       Widget
+      </label>
+      <label class="modal-share__button" for="share-url">
+       Link
+      </label>
+      <label class="modal-share__button" for="share-text">
+       Text
+      </label>
+      <label class="modal-share__button" for="share-html">
+       HTML
+      </label>
+     </div>
+     <div class="modal-share__content modal-share__content--active">
+      <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="right-triangle-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://www.size.ly/embed/right-triangle-calculator/de" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/right-triangle-calculator/de" style="text-decoration:none;" target="_blank"><font font size="1" color="#333">https://www.size.ly/right-triangle-calculator/de</font></a></center></textarea>
+      <div onclick="window.open('https://www.size.ly/embed/right-triangle-calculator/de','Rechner für rechtwinklige Dreiecke','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+       Vorschau Rechner für rechtwinklige Dreiecke Widget
+      </div>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/right-triangle-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-text">Der Rechner für rechtwinklige Dreiecke findet fehlende Dreiecksmaße. Er berechnet Seitenlängen, Winkel, Umfang, Fläche, Höhe-zu-Hypotenuse, Innenradius und Umfangsradius.: https://www.size.ly/right-triangle-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/right-triangle-calculator/de" title="Rechner für rechtwinklige Dreiecke" target="_blank"&gt;Rechner für rechtwinklige Dreiecke&lt;/a&gt;</textarea>
+     </div>
+    </div>
+    <div class="modal-share__footer">
+     <button class="button button--copy" onclick="copyWidget(this)">
+      In die Zwischenablage kopieren
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="calculator">
+   <div class="calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+     <div class="calculator-settings">
+      <div class="calculator-settings" id="calculator_form">
+       <div class="calculator-setting">
+        <div class="calculator-content col">
+         <div class="calculator-content__geometry">
+          <svg fill="none" height="125" viewbox="0 0 272 125" width="272" xmlns="http://www.w3.org/2000/svg">
+           <defs>
+           </defs>
+           <path d="M44.6404 124.5L228.5 0.938447L228.5 124.5L44.6404 124.5Z" fill="#F5F3FF" stroke="#A78BFA">
+           </path>
+           <path clip-rule="evenodd" d="M62.0643 124.998C62.0686 124.924 62.0708 124.849 62.0708 124.773C62.0708 121.835 58.7686 119.284 53.9227 118L53 118.801C54.5631 119.165 55.9652 119.661 57.1476 120.253C59.8054 121.585 61.0708 123.241 61.0708 124.773C61.0708 124.848 61.0678 124.923 61.0617 124.998H62.0643Z" fill="#A78BFA" fill-rule="evenodd">
+           </path>
+           <path clip-rule="evenodd" d="M211.876 12L211 12.7606C213.484 13.6357 216.511 14.1495 219.778 14.1495C223.045 14.1495 226.072 13.6357 228.556 12.7606L227.68 12C225.423 12.7214 222.713 13.1495 219.778 13.1495C216.843 13.1495 214.133 12.7214 211.876 12Z" fill="#A78BFA" fill-rule="evenodd">
+           </path>
+           <path d="M70.4913 118.136C69.9459 118.131 69.47 117.983 69.0638 117.693C68.6575 117.401 68.3422 116.999 68.1178 116.487C67.8933 115.976 67.7811 115.389 67.7811 114.727C67.7811 114.071 67.899 113.491 68.1348 112.989C68.3734 112.483 68.7016 112.087 69.1192 111.8C69.5368 111.513 70.0169 111.369 70.5595 111.369C70.9573 111.369 71.301 111.446 71.5908 111.599C71.8805 111.75 72.1263 111.96 72.328 112.23C72.5325 112.5 72.7044 112.81 72.8436 113.159H73.2357L73.3891 114.71L74.2413 118H73.3038L72.5027 114.71C72.4601 114.503 72.3948 114.261 72.3067 113.986C72.2186 113.71 72.1007 113.442 71.953 113.18C71.8053 112.919 71.6163 112.703 71.3862 112.533C71.159 112.359 70.8834 112.273 70.5595 112.273C70.2129 112.273 69.9061 112.378 69.6391 112.588C69.372 112.798 69.1632 113.089 69.0127 113.462C68.8621 113.834 68.7868 114.261 68.7868 114.744C68.7868 115.216 68.8578 115.641 68.9999 116.018C69.1419 116.393 69.3408 116.69 69.5965 116.909C69.8521 117.125 70.1504 117.233 70.4913 117.233C70.8067 117.233 71.0808 117.146 71.3138 116.973C71.5467 116.797 71.7428 116.577 71.9019 116.312C72.0609 116.045 72.1888 115.771 72.2854 115.49C72.3848 115.206 72.4573 114.957 72.5027 114.744L73.2186 111.455H74.1561L73.3891 114.744L73.2357 116.347H72.8948C72.747 116.699 72.5624 117.011 72.3408 117.284C72.122 117.554 71.8592 117.764 71.5524 117.915C71.2484 118.065 70.8948 118.139 70.4913 118.136Z" fill="#7C3AED">
+           </path>
+           <path d="M 182.094 86.063 L 182.094 90 L 181.088 90 L 181.088 81.273 L 182.094 81.273 L 182.094 84.477 L 182.179 84.477 C 182.332 84.139 182.562 83.871 182.869 83.672 C 183.179 83.47 183.591 83.369 184.105 83.369 C 184.551 83.369 184.942 83.459 185.277 83.638 C 185.612 83.814 185.872 84.085 186.057 84.452 C 186.244 84.815 186.338 85.278 186.338 85.841 L 186.338 90 L 185.332 90 L 185.332 85.909 C 185.332 85.389 185.197 84.987 184.927 84.703 C 184.66 84.416 184.29 84.273 183.815 84.273 C 183.486 84.273 183.19 84.342 182.929 84.482 C 182.67 84.621 182.466 84.824 182.315 85.091 C 182.167 85.358 182.094 85.682 182.094 86.063 Z" fill="#7C3AED">
+           </path>
+           <path d="M216.017 21.9545H216.869C217.466 21.9545 217.952 22.081 218.327 22.3338C218.705 22.5866 218.982 22.9077 219.158 23.2969C219.337 23.6861 219.426 24.0852 219.426 24.4943C219.426 24.9886 219.311 25.4347 219.081 25.8324C218.851 26.2273 218.534 26.5412 218.131 26.7741C217.727 27.0043 217.267 27.1193 216.75 27.1193C216.435 27.1193 216.122 27.0611 215.812 26.9446C215.506 26.8253 215.233 26.5994 214.994 26.267L214.926 26.3011V24.6307C214.926 24.9091 214.994 25.1662 215.131 25.402C215.27 25.6378 215.466 25.8267 215.719 25.9688C215.974 26.1108 216.278 26.1818 216.631 26.1818C217 26.1818 217.318 26.1037 217.585 25.9474C217.852 25.7912 218.058 25.5852 218.203 25.3295C218.348 25.0739 218.42 24.7955 218.42 24.4943C218.42 24.2102 218.355 23.9418 218.224 23.6889C218.097 23.4332 217.915 23.2259 217.679 23.0668C217.446 22.9048 217.17 22.8239 216.852 22.8239H216.017V21.9545ZM216.511 18.1534C216.918 18.1534 217.277 18.2187 217.589 18.3494C217.905 18.4801 218.17 18.6562 218.386 18.8778C218.605 19.0966 218.77 19.3423 218.881 19.6151C218.994 19.8878 219.051 20.1676 219.051 20.4545C219.051 20.8125 218.96 21.169 218.778 21.5241C218.597 21.8764 218.318 22.1705 217.943 22.4062C217.568 22.6392 217.091 22.7557 216.511 22.7557H216.017V21.8864H216.494C216.824 21.8864 217.105 21.8182 217.338 21.6818C217.574 21.5455 217.753 21.3679 217.875 21.1491C218 20.9304 218.062 20.6989 218.062 20.4545C218.062 20.0625 217.912 19.7372 217.611 19.4787C217.313 19.2202 216.946 19.0909 216.511 19.0909C216.222 19.0909 215.956 19.1506 215.714 19.2699C215.476 19.3892 215.284 19.5554 215.139 19.7685C214.997 19.9815 214.926 20.2273 214.926 20.5057V29.4545H213.92V20.5057C213.92 20.0568 214.031 19.6548 214.253 19.2997C214.477 18.9446 214.784 18.6648 215.173 18.4602C215.565 18.2557 216.011 18.1534 216.511 18.1534Z" fill="#7C3AED">
+           </path>
+           <rect fill="#A78BFA" height="1" width="7" x="221" y="117">
+           </rect>
+           <rect fill="#A78BFA" height="1" transform="rotate(-90 220 124)" width="7" x="220" y="124">
+           </rect>
+           <rect height="0.5" stroke="#A78BFA" stroke-dasharray="3 3" stroke-width="0.5" transform="rotate(-130 227.231 123.082)" width="100.5" x="227.231" y="123.082">
+           </rect>
+           <path d="M 224.922 69.311 Q 224.239 69.893 223.606 70.132 Q 222.974 70.371 222.249 70.371 Q 221.053 70.371 220.41 69.787 Q 219.768 69.202 219.768 68.293 Q 219.768 67.76 220.011 67.319 Q 220.253 66.878 220.646 66.611 Q 221.039 66.345 221.532 66.208 Q 221.894 66.112 222.625 66.023 Q 224.116 65.846 224.82 65.6 Q 224.826 65.347 224.826 65.278 Q 224.826 64.526 224.478 64.219 Q 224.006 63.802 223.076 63.802 Q 222.208 63.802 221.795 64.106 Q 221.381 64.41 221.183 65.183 L 219.98 65.019 Q 220.144 64.246 220.52 63.771 Q 220.896 63.296 221.607 63.04 Q 222.318 62.783 223.254 62.783 Q 224.184 62.783 224.765 63.002 Q 225.346 63.221 225.619 63.552 Q 225.893 63.884 226.002 64.39 Q 226.064 64.704 226.064 65.524 L 226.064 67.165 Q 226.064 68.881 226.142 69.335 Q 226.221 69.79 226.453 70.207 L 225.168 70.207 Q 224.977 69.824 224.922 69.311 Z M 224.82 66.563 Q 224.15 66.837 222.81 67.028 Q 222.051 67.138 221.737 67.274 Q 221.422 67.411 221.251 67.674 Q 221.08 67.937 221.08 68.259 Q 221.08 68.751 221.453 69.079 Q 221.825 69.407 222.543 69.407 Q 223.254 69.407 223.808 69.096 Q 224.362 68.785 224.621 68.245 Q 224.82 67.828 224.82 67.015 Z" fill="#7C3AED">
+           </path>
+           <path d="M 144.427 116.386 L 143.285 116.386 L 143.285 106.365 L 144.515 106.365 L 144.515 109.94 Q 145.295 108.962 146.505 108.962 Q 147.175 108.962 147.773 109.232 Q 148.371 109.502 148.757 109.991 Q 149.143 110.48 149.362 111.17 Q 149.581 111.861 149.581 112.647 Q 149.581 114.513 148.658 115.532 Q 147.735 116.55 146.443 116.55 Q 145.158 116.55 144.427 115.477 Z M 144.413 112.701 Q 144.413 114.007 144.768 114.588 Q 145.349 115.538 146.341 115.538 Q 147.147 115.538 147.735 114.838 Q 148.323 114.137 148.323 112.749 Q 148.323 111.327 147.759 110.651 Q 147.195 109.974 146.395 109.974 Q 145.589 109.974 145.001 110.675 Q 144.413 111.375 144.413 112.701 Z" fill="#7C3AED" transform="matrix(1, 0, 0, 1, 0, 3.637058)">
+           </path>
+           <path fill="#7C3AED" transform="matrix(1, 0, 0, 1, 0, 3.637058)">
+           </path>
+           <path d="M 148.029 113.727 L 149.239 113.884 Q 149.041 115.135 148.224 115.843 Q 147.407 116.55 146.218 116.55 Q 144.727 116.55 143.822 115.576 Q 142.916 114.602 142.916 112.783 Q 142.916 111.608 143.306 110.726 Q 143.695 109.844 144.492 109.403 Q 145.288 108.962 146.224 108.962 Q 147.407 108.962 148.159 109.56 Q 148.911 110.158 149.123 111.259 L 147.927 111.444 Q 147.756 110.712 147.322 110.343 Q 146.888 109.974 146.272 109.974 Q 145.343 109.974 144.762 110.64 Q 144.181 111.307 144.181 112.749 Q 144.181 114.212 144.741 114.875 Q 145.302 115.538 146.204 115.538 Q 146.929 115.538 147.414 115.094 Q 147.899 114.65 148.029 113.727 Z" fill="#7C3AED" transform="matrix(1, 0, 0, 1, -12.989623, -56.37447)">
+           </path>
+           <path fill="#7C3AED" transform="matrix(1, 0, 0, 1, -12.989623, -56.37447)">
+           </path>
+          </svg>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            a
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="side_a" placeholder="" type="text" value="3"/>
+           </div>
+          </label>
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            b
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="side_b" placeholder="" type="text" value="4"/>
+           </div>
+          </label>
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            c
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="side_c" placeholder="" type="text" value=""/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            ∠α
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="angle_a" placeholder="" type="text" value=""/>
+            <span class="input-field__hint">
+             °
+            </span>
+           </div>
+          </label>
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            ∠β
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="angle_b" placeholder="" type="text" value=""/>
+            <span class="input-field__hint">
+             °
+            </span>
+           </div>
+          </label>
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            h
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="height" placeholder="" type="text" value=""/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            Fläche (S)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="area" placeholder="" type="text" value=""/>
+           </div>
+          </label>
+          <label class="input col triangle-calculator,pythagorean-theorem-calculator">
+           <p class="input__title">
+            Umfang (p)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="perimeter" placeholder="" type="text" value=""/>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate" id="action-button" onclick="calculate(this);">
+          Berechnen
+         </button>
+        </div>
+        <script async="" src="./assets/js/lib/math.min.js" type="text/javascript">
+        </script>
+        <script defer="" src="./assets/js/calculator/right-triangle-calculator/de/calculator.js" type="text/javascript">
+        </script>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+     <div class="calculator-result col">
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo" colspan="4">
+           Ergebnis
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <th>
+           a
+          </th>
+          <td class="animate" colspan="3" id="result_a">
+           3
+          </td>
+         </tr>
+         <tr>
+          <th>
+           b
+          </th>
+          <td class="animate" colspan="3" id="result_b">
+           4
+          </td>
+         </tr>
+         <tr>
+          <th>
+           c
+          </th>
+          <td class="animate" colspan="3" id="result_c">
+           5
+          </td>
+         </tr>
+         <tr>
+          <th>
+           h
+          </th>
+          <td class="animate" colspan="3" id="result_h">
+           2.4
+          </td>
+         </tr>
+         <tr>
+          <th>
+           α
+          </th>
+          <td class="animate" colspan="3" id="result_A">
+           36.8699° = 0.6435011 rad
+          </td>
+         </tr>
+         <tr>
+          <th>
+           β
+          </th>
+          <td class="animate" colspan="3" id="result_B">
+           53.1301° = 0.9272952 rad
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Fläche
+          </th>
+          <td class="animate" id="result_S">
+           6
+          </td>
+          <th>
+           Inkreisradius
+          </th>
+          <td class="animate" id="result_r">
+           1
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Umfang
+          </th>
+          <td class="animate" id="result_p">
+           12
+          </td>
+          <th>
+           Umkreisradius
+          </th>
+          <td class="animate" id="result_R">
+           2.5
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result calculator-result--error col" id="error-box">
+      <div class="row">
+       <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path class="dark:fill-red-200" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+									7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+									12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+									11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" fill-rule="evenodd">
+        </path>
+       </svg>
+       <p class="calculator-error__title">
+        Es gab einen Fehler bei Ihrer Berechnung.
+       </p>
+      </div>
+      <div class="col" id="error-list">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script async="" src="./assets/js/lib/math.min.js">
+  </script>
+  <script async="" src="./assets/js/app.js">
+  </script>
+  <script defer="" src="./assets/js/functions-de.js">
+  </script>
+ </body>
+</html>

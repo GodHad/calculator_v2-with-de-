@@ -1,0 +1,1 @@
+function calculate(){const number=input.get('number').number().val();if(!input.valid())return;const result=math.cbrt(number);_('result').innerHTML=`${number} = ${result}`;}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" >
+<head>
+    <title>Bra Size Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="To get a bra that fits properly, it is vital to measure your bra size. This free calculator will tell you how to measure your breast size.">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+	<div class="modal-window" style="opacity: 0; pointer-events: none;">	
+		<div class="modal-share">
+			<div class="modal-share__container">
+				<div class="modal-share__header">
+					<button class="modal-share__button modal-share__button--active">Widget</button>
+					<button class="modal-share__button">Link</button>
+					<button class="modal-share__button">Text</button>
+					<button class="modal-share__button">HTML</button>
+				</div>
+				<div class="modal-share__content modal-share__content--active">
+					<textarea class="modal-share__textarea"
+						id="share-widget">
+<iframe class="bra-size-calculator iframe" src="https://calc.size.ly/embed/bra-size-calculator/" frameborder="0" width="100%" style="height:200px;" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' scrolling="no"></iframe>
+<br/><center><a href="https://www.size.ly/calculator/bra-size-calculator/" target="_blank" style="text-decoration:none;"><font size="1" color="#333">Size.ly/Calculator</font></a></center></textarea>
+					<div style="padding-top: 15px;color:#336BFF;cursor:pointer;"
+						onclick="window.open('https://calc.size.ly/embed/bra-size-calculator/','Bra Size Calculator','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;"
+						data-cf-modified-b5610d4f5cdb9e85f3657130->Preview Bra Size Calculator Widget</div>
+				</div>
+				<div class="modal-share__content">
+					<textarea class="modal-share__textarea"
+						id="share-url">https://www.size.ly/calculator/bra-size-calculator/</textarea>
+				</div>
+				<div class="modal-share__content">
+					<textarea class="modal-share__textarea"
+						id="share-text">To get a bra that fits properly, it is vital to measure your bra size. This free calculator will tell you how to measure your breast size.: https://www.size.ly/calculator/bra-size-calculator/</textarea>
+				</div>
+				<div class="modal-share__content">
+					<textarea class="modal-share__textarea"
+						id="share-html">&lt;a href="https://www.size.ly/calculator/bra-size-calculator/" title="Bra Size Calculator" target="_blank"&gt;Bra Size Calculator&lt;/a&gt;</textarea>
+				</div>
+			</div>
+			<div class="modal-share__footer">
+				<button class="button button--copy" onclick="copyWidget(this)"
+					data-cf-modified-b5610d4f5cdb9e85f3657130->Copy to Clipboard</button>
+		
+			</div>
+		</div>
+	</div>	
+	<div class="calculator">
+		<div class=" calculator__container calculator__container--main row">
+			<div class="calculator-aside col">
+				<div class="calculator-settings">
+					<div class="calculator-setting" id="calculator_form">
+						<div class="calculator-content calculator-content--bookmarks">
+							<button class="tab-item tab-item--active" onclick="switchTab(event, 0)">Calculator</button>
+							<button class="tab-item" onclick="switchTab(event, 1)">Converter</button>
+						</div>
+						<div class="calculator-content col tab tab--active" data-tab="0">
+							<div class="input-wrapper row">
+								<label class="input col ">
+									<p class="input__title">Band Size</p>
+									<div class="input-field row">
+										
+										<input type="text" class="input-field__input imperial-system-item" id="band_size_imperial" data-target="band_size" data-formula="value * 0.393701" value="32.28" onchange="sysnumconv(this)"  />
+										<span class="input-field__hint imperial-system-item">inches</span>
+								
+										
+										<input type="text" class="input-field__input metric-system-item system-item-hidden" id="band_size" data-target="band_size" data-formula="value / 0.393701" value="82" onchange="sysnumconv(this)"  />
+										<span class="input-field__hint metric-system-item system-item-hidden">cm</span>
+									</div>
+								</label>
+								<label class="input col ">
+									<p class="input__title">Bust Size</p>
+									<div class="input-field row">
+										
+										<input type="text" class="input-field__input imperial-system-item" id="bust_size_imperial" data-target="bust_size" data-formula="value * 0.393701" value="37.40" onchange="sysnumconv(this)"  />
+										<span class="input-field__hint imperial-system-item">inches</span>
+								
+										
+										<input type="text" class="input-field__input metric-system-item system-item-hidden" id="bust_size" data-target="bust_size" data-formula="value / 0.393701" value="95" onchange="sysnumconv(this)"  />
+										<span class="input-field__hint metric-system-item system-item-hidden">cm</span>
+									</div>
+								</label>
+							</div>
+						</div>
+						<div class="calculator-content col tab" data-tab="1">
+							<div class="input-wrapper row">
+								<label class="input col ">
+									<p class="input__title">Location</p>
+									<div class="dropdown-wrapper">
+										<div class="input-field row " tabindex="0">
+											<select class="input-field__text" onchange="selectLocation(this)" id="location">
+													<option value="Europe (EU) &amp; International (Int)" selected>
+													Europe (EU) &amp; International (Int)
+													</option>
+													<option value="USA (US)" >
+													USA (US)
+													</option>
+													<option value="UK (UK)" >
+													UK (UK)
+													</option>
+													<option value="France (FR) &amp; Spain (ES) &amp; Belgium (BE)" >
+													France (FR) &amp; Spain (ES) &amp; Belgium (BE)
+													</option>
+													<option value="Italy (IT)" >
+													Italy (IT)
+													</option>
+													<option value="Australia (AU) &amp; New Zealand (NZ)" >
+													Australia (AU) &amp; New Zealand (NZ)
+													</option>
+													<option value="Japan (JP) &amp; South Korea (KO)" >
+													Japan (JP) &amp; South Korea (KO)
+													</option>
+											</select>
+										</div>
+									</div>
+								</label>	</div>
+							<div class="input-wrapper row">
+								<label class="input col ">
+									<p class="input__title">Size</p>
+									<div class="dropdown-wrapper">
+										<div class="input-field row " tabindex="0">
+											<select class="input-field__text" onchange="toggleRelatedInputs(this)" id="size">
+													<option value="55" >
+													55
+													</option>
+													<option value="60" >
+													60
+													</option>
+													<option value="65" >
+													65
+													</option>
+													<option value="70" >
+													70
+													</option>
+													<option value="75" >
+													75
+													</option>
+													<option value="80" selected>
+													80
+													</option>
+													<option value="85" >
+													85
+													</option>
+													<option value="90" >
+													90
+													</option>
+													<option value="95" >
+													95
+													</option>
+													<option value="100" >
+													100
+													</option>
+													<option value="105" >
+													105
+													</option>
+													<option value="110" >
+													110
+													</option>
+													<option value="115" >
+													115
+													</option>
+													<option value="120" >
+													120
+													</option>
+													<option value="125" >
+													125
+													</option>
+													<option value="130" >
+													130
+													</option>
+													<option value="135" >
+													135
+													</option>
+													<option value="140" >
+													140
+													</option>
+													<option value="145" >
+													145
+													</option>
+													<option value="150" >
+													150
+													</option>
+											</select>
+										</div>
+									</div>
+								</label>		<label class="input col ">
+									<p class="input__title">Cup</p>
+									<div class="dropdown-wrapper">
+										<div class="input-field row " tabindex="0">
+											<select class="input-field__text" onchange="toggleRelatedInputs(this)" id="cup">
+													<option value="AA" >
+													AA
+													</option>
+													<option value="A" selected>
+													A
+													</option>
+													<option value="B" >
+													B
+													</option>
+													<option value="C" >
+													C
+													</option>
+													<option value="D" >
+													D
+													</option>
+													<option value="E" >
+													E
+													</option>
+													<option value="F" >
+													F
+													</option>
+													<option value="G" >
+													G
+													</option>
+													<option value="H" >
+													H
+													</option>
+													<option value="I" >
+													I
+													</option>
+													<option value="J" >
+													J
+													</option>
+													<option value="K" >
+													K
+													</option>
+													<option value="L" >
+													L
+													</option>
+													<option value="M" >
+													M
+													</option>
+													<option value="N" >
+													N
+													</option>
+													<option value="O" >
+													O
+													</option>
+													<option value="P" >
+													P
+													</option>
+													<option value="R" >
+													R
+													</option>
+													<option value="S" >
+													S
+													</option>
+													<option value="T" >
+													T
+													</option>
+											</select>
+										</div>
+									</div>
+								</label>	</div>
+						</div>
+						<div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row  " >
+							<button class="button button--icon js-modal-open" data-modal="share">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+									<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+									<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+									<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</button>
+						
+								<button class="system-switcher" onclick="toggleSystem(this)">
+									<div class="system-switcher__circle"></div>
+									<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.5 9.5H10C9.44772 9.5 9 9.05228 9 8.5V2.5M4.5 2.5H3.5C2.94772 2.5 2.5 2.94772 2.5 3.5L2.5 9.5M7.5 4.5L10.5 4.5M1.5 5.5L4.5 5.5" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+						</svg>
+									<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2 3.5L2 8.5M2 8L2 5.5C2 4.39543 2.89543 3.5 4 3.5C5.10457 3.5 6 4.39543 6 5.5M6 5.5L6 8.5M6 5.5L6 8M6 5.5C6 4.39543 6.89543 3.5 8 3.5C9.10457 3.5 10 4.39543 10 5.5V8.5" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+						</svg>
+								</button>
+						
+								<script type="text/javascript">
+									$$(".imperial-system-item, .metric-system-item").forEach(function(element, index){
+										element.classList.remove("system-item-hidden");
+									});
+									$$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function(element, index){
+										element.classList.add("system-item-hidden");
+									});
+									if(defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
+								</script>
+						
+						
+							<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+						</div>
+						
+						
+						
+						
+							<script type="text/javascript" src="./assets/js/calculator/bra-size-calculator/calculator.js"></script>
+					</div>
+				</div>
+			</div>
+			<div class="calculator-main col" id="result-container">
+				<div class="calculator-result calculator-result--error col" id="error-box">
+					<div class="row">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+												7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+												12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+												11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+						</svg>
+						<p class="calculator-error__title">There was an error with your calculation.</p>
+					</div>
+					<div class="col" id="error-list">
+					</div>
+				</div>        
+				<span id="calculator_result">
+					<div class="calculator-result col tab tab--active">
+						<div class="result-table__wrapper"> 
+							<table class="result-table">
+								<thead >
+									<tr>
+										<th class="dark indigo">LOCATION</th>
+										<th class="dark indigo">SIZE</th>
+										<th class="dark indigo">CUP</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>EU</th>
+										<td id="result_eu_band">80</td>
+										<td id="result_eu_bust">A or B</td>
+									</tr>
+									<tr>
+										<th>US</th>
+										<td id="result_us_band">36</td>
+										<td id="result_us_bust">B</td>
+									</tr>
+									<tr>
+										<th>UK</th>
+										<td id="result_uk_band">36</td>
+										<td id="result_uk_bust">B</td>
+									</tr>
+									<tr>
+										<th>FR/ES/BE</th>
+										<td id="result_fr_band">95</td>
+										<td id="result_fr_bust">A or B</td>
+									</tr>
+									<tr>
+										<th>IT</th>
+										<td id="result_it_band">4</td>
+										<td id="result_it_bust">A or B</td>
+									</tr>
+									<tr>
+										<th>AU/NZ</th>
+										<td id="result_au_band">14</td>
+										<td id="result_au_bust">A or B</td>
+									</tr>
+									<tr>
+										<th>JP/KO</th>
+										<td id="result_jp_band">80</td>
+										<td id="result_jp_bust">B</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</span>
+			</div>
+		</div>
+	</div>
+<script async src="./assets/js/lib/math.min.js"></script>
+<script defer src="./assets/js/app.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>

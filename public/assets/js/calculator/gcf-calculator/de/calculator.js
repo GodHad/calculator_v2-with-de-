@@ -1,0 +1,1 @@
+function calculate(){const numbers=input.get('numbers').natural_numbers().vals();if(!input.valid())return;const gcf=math.gcd(...numbers);_('gcf').innerHTML=gcf;}

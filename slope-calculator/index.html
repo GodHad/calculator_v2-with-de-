@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Slope Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="The slope calculator finds the slope of a line using the slope formula. It can also find point coordinates, incline angle, and length if the slope and one point are known.">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+<div class="modal-window" style="opacity: 0; pointer-events: none;">
+<div class="modal-share">
+ <div class="modal-share__container">
+  <div class="modal-share__header">
+   <button class="modal-share__button modal-share__button--active">
+    Widget
+   </button>
+   <button class="modal-share__button">
+    Link
+   </button>
+   <button class="modal-share__button">
+    Text
+   </button>
+   <button class="modal-share__button">
+    HTML
+   </button>
+  </div>
+  <div class="modal-share__content modal-share__content--active">
+   <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="slope-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://calc.size.ly/embed/slope-calculator/" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/slope-calculator/" style="text-decoration:none;" target="_blank"><font color="#333" size="1">Size.ly/Calculator</font></a></center></textarea>
+   <div onclick="window.open('https://calc.size.ly/embed/slope-calculator/','Slope Calculator','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+    Preview Slope Calculator Widget
+   </div>
+  </div>
+  <div class="modal-share__content">
+   <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/slope-calculator/</textarea>
+  </div>
+  <div class="modal-share__content">
+   <textarea class="modal-share__textarea" id="share-text">The slope calculator finds the slope of a line using the slope formula. It can also find point coordinates, incline angle, and length if the slope and one point are known.: https://www.size.ly/slope-calculator/</textarea>
+  </div>
+  <div class="modal-share__content">
+   <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/slope-calculator/" title="Slope Calculator" target="_blank"&gt;Slope Calculator&lt;/a&gt;</textarea>
+  </div>
+ </div>
+ <div class="modal-share__footer">
+  <button class="button button--copy" onclick="copyWidget(this)">
+   Copy to Clipboard
+  </button>
+ </div>
+</div>
+
+</div>
+
+<div class="calculator">
+	<div class=" calculator__container calculator__container--main row">
+		<div class="calculator-aside col">
+        <div class="calculator-settings">
+            <div class="calculator-setting" id="calculator_form">
+                <div class="calculator-content col">
+                	<div class="calculator-content__geometry">
+                		<svg width="272" height="113" viewBox="0 0 272 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<g clip-path="url(#clip0_4324_64127)">
+                		<path d="M128.392 50.1364C127.847 50.1364 127.365 49.9986 126.947 49.723C126.53 49.4446 126.203 49.0526 125.967 48.5469C125.732 48.0384 125.614 47.4375 125.614 46.7443C125.614 46.0568 125.732 45.4602 125.967 44.9545C126.203 44.4489 126.531 44.0582 126.952 43.7827C127.372 43.5071 127.858 43.3693 128.409 43.3693C128.835 43.3693 129.172 43.4403 129.419 43.5824C129.669 43.7216 129.859 43.8807 129.99 44.0597C130.124 44.2358 130.227 44.3807 130.301 44.4943H130.386V41.2727H131.392V50H130.42V48.9943H130.301C130.227 49.1136 130.122 49.2642 129.986 49.446C129.849 49.625 129.655 49.7855 129.402 49.9276C129.149 50.0668 128.813 50.1364 128.392 50.1364ZM128.528 49.233C128.932 49.233 129.273 49.1278 129.551 48.9176C129.83 48.7045 130.041 48.4105 130.186 48.0355C130.331 47.6577 130.403 47.2216 130.403 46.7273C130.403 46.2386 130.332 45.8111 130.19 45.4446C130.048 45.0753 129.838 44.7884 129.56 44.5838C129.281 44.3764 128.938 44.2727 128.528 44.2727C128.102 44.2727 127.747 44.3821 127.463 44.6009C127.182 44.8168 126.97 45.1108 126.828 45.483C126.689 45.8523 126.619 46.267 126.619 46.7273C126.619 47.1932 126.69 47.6165 126.832 47.9972C126.977 48.375 127.19 48.6761 127.472 48.9006C127.756 49.1222 128.108 49.233 128.528 49.233Z" fill="#336BFF"></path>
+                		<path d="M95 96H175V16" stroke="#336bff" stroke-linecap="round"></path>
+                		<path d="M155.278 5.63636C155.278 4.5625 155.418 3.57528 155.696 2.67472C155.977 1.77131 156.378 0.940341 156.898 0.181818H157.784C157.58 0.463068 157.388 0.809659 157.209 1.22159C157.033 1.63068 156.878 2.08097 156.744 2.57244C156.611 3.06108 156.506 3.56676 156.429 4.08949C156.355 4.61222 156.318 5.12784 156.318 5.63636C156.318 6.3125 156.384 6.99858 156.514 7.6946C156.645 8.39062 156.821 9.03693 157.043 9.63352C157.264 10.2301 157.511 10.7159 157.784 11.0909H156.898C156.378 10.3324 155.977 9.50284 155.696 8.60227C155.418 7.69886 155.278 6.71023 155.278 5.63636ZM159.916 1.27273L162.166 4.90341H162.234L164.484 1.27273H165.728L162.984 5.63636L165.728 10H164.484L162.234 6.4375H162.166L159.916 10H158.672L161.484 5.63636L158.672 1.27273H159.916ZM166.643 11.5V10.8352L168.638 9.0625C168.837 8.88636 169.003 8.72869 169.136 8.58949C169.27 8.45028 169.371 8.31534 169.439 8.18466C169.507 8.05398 169.541 7.91477 169.541 7.76705C169.541 7.51136 169.443 7.30824 169.247 7.15767C169.051 7.0071 168.808 6.93182 168.518 6.93182C168.212 6.93182 167.964 7.0142 167.777 7.17898C167.589 7.34091 167.496 7.55398 167.496 7.81818H166.609C166.609 7.33239 166.79 6.94176 167.151 6.64631C167.511 6.34801 167.973 6.19886 168.536 6.19886C168.911 6.19886 169.24 6.26705 169.524 6.40341C169.808 6.53693 170.03 6.72159 170.189 6.95739C170.348 7.19034 170.428 7.45455 170.428 7.75C170.428 7.98295 170.381 8.19886 170.287 8.39773C170.193 8.59659 170.047 8.80256 169.848 9.01562C169.649 9.22869 169.393 9.47159 169.081 9.74432L167.973 10.7159V10.75H170.581V11.5H166.643ZM173.518 8.80682L173.45 9.26705C173.402 9.59091 173.328 9.9375 173.228 10.3068C173.132 10.6761 173.031 11.0241 172.926 11.3509C172.821 11.6776 172.734 11.9375 172.666 12.1307H171.899C171.936 11.9489 171.984 11.7088 172.044 11.4105C172.103 11.1122 172.163 10.7784 172.223 10.4091C172.285 10.0426 172.336 9.66761 172.376 9.28409L172.427 8.80682H173.518ZM178.143 1.27273H179.353L181.773 5.34659H181.876L184.296 1.27273H185.506L182.353 6.40341V10H181.296V6.40341L178.143 1.27273ZM186.413 11.5V10.8352L188.407 9.0625C188.606 8.88636 188.772 8.72869 188.906 8.58949C189.039 8.45028 189.14 8.31534 189.208 8.18466C189.277 8.05398 189.311 7.91477 189.311 7.76705C189.311 7.51136 189.213 7.30824 189.017 7.15767C188.821 7.0071 188.578 6.93182 188.288 6.93182C187.981 6.93182 187.734 7.0142 187.547 7.17898C187.359 7.34091 187.265 7.55398 187.265 7.81818H186.379C186.379 7.33239 186.559 6.94176 186.92 6.64631C187.281 6.34801 187.743 6.19886 188.305 6.19886C188.68 6.19886 189.01 6.26705 189.294 6.40341C189.578 6.53693 189.799 6.72159 189.958 6.95739C190.118 7.19034 190.197 7.45455 190.197 7.75C190.197 7.98295 190.15 8.19886 190.056 8.39773C189.963 8.59659 189.816 8.80256 189.618 9.01562C189.419 9.22869 189.163 9.47159 188.85 9.74432L187.743 10.7159V10.75H190.35V11.5H186.413ZM193.935 6.31818C193.935 7.39205 193.795 8.38068 193.513 9.28409C193.235 10.1847 192.836 11.0142 192.316 11.7727H191.43C191.634 11.4915 191.825 11.1449 192.001 10.733C192.18 10.3239 192.336 9.875 192.469 9.38636C192.603 8.89489 192.707 8.38778 192.781 7.86506C192.857 7.33949 192.896 6.82386 192.896 6.31818C192.896 5.64205 192.83 4.95597 192.7 4.25994C192.569 3.56392 192.393 2.91761 192.171 2.32102C191.95 1.72443 191.702 1.23864 191.43 0.863636H192.316C192.836 1.62216 193.235 2.45312 193.513 3.35653C193.795 4.2571 193.935 5.24432 193.935 6.31818Z" fill="#336BFF"></path>
+                		<path d="M77.2784 105.636C77.2784 104.562 77.4176 103.575 77.696 102.675C77.9773 101.771 78.3778 100.94 78.8977 100.182H79.7841C79.5795 100.463 79.3878 100.81 79.2088 101.222C79.0327 101.631 78.8778 102.081 78.7443 102.572C78.6108 103.061 78.5057 103.567 78.429 104.089C78.3551 104.612 78.3182 105.128 78.3182 105.636C78.3182 106.312 78.3835 106.999 78.5142 107.695C78.6449 108.391 78.821 109.037 79.0426 109.634C79.2642 110.23 79.5114 110.716 79.7841 111.091H78.8977C78.3778 110.332 77.9773 109.503 77.696 108.602C77.4176 107.699 77.2784 106.71 77.2784 105.636ZM81.9158 101.273L84.1658 104.903H84.234L86.484 101.273H87.7283L84.984 105.636L87.7283 110H86.484L84.234 106.438H84.1658L81.9158 110H80.6715L83.484 105.636L80.6715 101.273H81.9158ZM89.9134 111.5V107.196H89.8707L88.5241 108.091V107.188L89.9134 106.267H90.7997V111.5H89.9134ZM94.229 108.807L94.1609 109.267C94.1126 109.591 94.0387 109.938 93.9393 110.307C93.8427 110.676 93.7418 111.024 93.6367 111.351C93.5316 111.678 93.445 111.938 93.3768 112.131H92.6097C92.6467 111.949 92.695 111.709 92.7546 111.411C92.8143 111.112 92.8739 110.778 92.9336 110.409C92.9961 110.043 93.0472 109.668 93.087 109.284L93.1381 108.807H94.229ZM98.8537 101.273H100.064L102.484 105.347H102.587L105.007 101.273H106.217L103.064 106.403V110H102.007V106.403L98.8537 101.273ZM108.394 111.5V107.196H108.351L107.005 108.091V107.188L108.394 106.267H109.28V111.5H108.394ZM113.357 106.318C113.357 107.392 113.217 108.381 112.935 109.284C112.657 110.185 112.258 111.014 111.738 111.773H110.852C111.056 111.491 111.246 111.145 111.423 110.733C111.602 110.324 111.758 109.875 111.891 109.386C112.025 108.895 112.129 108.388 112.202 107.865C112.279 107.339 112.317 106.824 112.317 106.318C112.317 105.642 112.252 104.956 112.121 104.26C111.991 103.564 111.815 102.918 111.593 102.321C111.371 101.724 111.124 101.239 110.852 100.864H111.738C112.258 101.622 112.657 102.453 112.935 103.357C113.217 104.257 113.357 105.244 113.357 106.318Z" fill="#336BFF"></path>
+                		<path d="M123.335 86.2784V87.2159H119.176V86.2784H123.335ZM123.949 86.1761V87.2159C123.949 88.108 123.838 88.8423 123.616 89.419C123.395 89.9957 123.082 90.4233 122.679 90.7017C122.276 90.9801 121.801 91.1193 121.256 91.1193C120.71 91.1193 120.233 90.9801 119.824 90.7017C119.415 90.4233 119.097 89.9957 118.869 89.419C118.642 88.8423 118.528 88.108 118.528 87.2159V86.1761C118.528 85.2898 118.641 84.5639 118.865 83.9986C119.089 83.4332 119.405 83.0156 119.811 82.7457C120.217 82.4759 120.693 82.3409 121.239 82.3409C121.79 82.3409 122.268 82.4759 122.675 82.7457C123.081 83.0156 123.395 83.4332 123.616 83.9986C123.838 84.5639 123.949 85.2898 123.949 86.1761ZM122.926 87.4034V85.9886C122.926 85.4034 122.855 84.9062 122.713 84.4972C122.571 84.0881 122.374 83.777 122.121 83.5639C121.868 83.3509 121.574 83.2443 121.239 83.2443C120.744 83.2443 120.337 83.483 120.016 83.9602C119.695 84.4347 119.534 85.1108 119.534 85.9886V87.4034C119.534 88.2812 119.697 88.9702 120.024 89.4702C120.351 89.9673 120.761 90.2159 121.256 90.2159C121.591 90.2159 121.884 90.1037 122.134 89.8793C122.384 89.6548 122.578 89.3324 122.717 88.9119C122.857 88.4915 122.926 87.9886 122.926 87.4034Z" fill="#336BFF"></path>
+                		<path d="M156.307 62L159.511 53.2727H160.602L163.807 62H156.307ZM157.756 61.0625H162.358L160.091 54.6534H160.023L157.756 61.0625ZM165.678 64.4545C165.507 64.4545 165.355 64.4403 165.222 64.4119C165.088 64.3864 164.996 64.3608 164.945 64.3352L165.2 63.4489C165.445 63.5114 165.661 63.5341 165.848 63.517C166.036 63.5 166.202 63.4162 166.347 63.2656C166.494 63.1179 166.629 62.8778 166.751 62.5455L166.939 62.0341L164.518 55.4545H165.609L167.416 60.6705H167.484L169.291 55.4545H170.382L167.604 62.9545C167.479 63.2926 167.324 63.5724 167.139 63.794C166.955 64.0185 166.74 64.1847 166.496 64.2926C166.254 64.4006 165.982 64.4545 165.678 64.4545Z" fill="#336BFF"></path>
+                		<path d="M139.307 91L142.511 82.2727H143.602L146.807 91H139.307ZM140.756 90.0625H145.358L143.091 83.6534H143.023L140.756 90.0625ZM148.78 84.4545L150.348 87.1307L151.916 84.4545H153.075L150.962 87.7273L153.075 91H151.916L150.348 88.4602L148.78 91H147.621L149.7 87.7273L147.621 84.4545H148.78Z" fill="#336BFF"></path>
+                		<path d="M116 96H95L110 81C113.842 84.8417 116 90.0522 116 95.4853V96Z" stroke="#336bff" fill="#dae5ff"></path>
+                		<path d="M95 96L175 16" stroke="#336bff" stroke-width="2" stroke-linecap="round"></path>
+                	</g>
+                	<defs>
+                		<clipPath id="clip0_4324_64127">
+                			<rect width="120" height="113" fill="white" transform="translate(76)"></rect>
+                		</clipPath>
+                	</defs>
+                </svg>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                			<input type="hidden" value="two_points" id="given"/>
+                			<p class="input__title">Given</p>
+                			<button class="button-switcher button-switcher--active" type="button" onclick="switcher(this, 'given', '')" value="two_points" id="given-a">
+                				<span class="button-switcher__text button-switcher__text--active">Two Points</span>
+                			</button>
+                		</label>
+                		<label class="input col">
+                			<p class="input__title"></p>
+                			<button class="button-switcher" type="button" onclick="switcher(this, 'given', '')" value="slope" id="given-b">
+                				<span class="button-switcher__text">Slope</span>
+                			</button>
+                		</label>
+                		<label class="input col">
+                			<p class="input__title"></p>
+                			<button class="button-switcher" type="button" onclick="switcher(this, 'given', '')" value="angle" id="given-c">
+                				<span class="button-switcher__text">Angle</span>
+                			</button>
+                		</label>
+                	</div>
+                
+                	<div class="input-wrapper row tab--active given related-to-given-two_points">
+                		<label class="input col ">
+                			<p class="input__title">Point 1</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder="0" id="point_a_1_x" value="3"  />
+                				<span class="input-field__hint">X<sub>1</sub></span>
+                				
+                				<input type="text" class="input-field__input" placeholder="0" id="point_a_1_y" value="2"  />
+                				<span class="input-field__hint">Y<sub>1</sub></span>
+                			</div>
+                		</label>
+                		<label class="input col ">
+                			<p class="input__title">Point 2</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder="0" id="point_a_2_x" value="7"  />
+                				<span class="input-field__hint">X<sub>2</sub></span>
+                				
+                				<input type="text" class="input-field__input" placeholder="0" id="point_a_2_y" value="9"  />
+                				<span class="input-field__hint">Y<sub>2</sub></span>
+                			</div>
+                		</label>
+                	</div>
+                
+                	<div class="input-wrapper row given related-item-hidden related-to-given-slope">
+                		<label class="input col ">
+                			<p class="input__title">Point 1</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder="0" id="point_b_1_x" value="3"  />
+                				<span class="input-field__hint">X<sub>1</sub></span>
+                				
+                				<input type="text" class="input-field__input" placeholder="0" id="point_b_1_y" value="2"  />
+                				<span class="input-field__hint">Y<sub>1</sub></span>
+                			</div>
+                		</label>
+                		<label class="input col   ">
+                			<p class="input__title">Distance (d)</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="distance_b" value="7"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row given related-item-hidden related-to-given-slope">
+                		<label class="input col   ">
+                			<p class="input__title">Slope (m)</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="slope_b" value="5"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                
+                	<div class="input-wrapper row given related-item-hidden related-to-given-angle">
+                		<label class="input col ">
+                			<p class="input__title">Point 1</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder="0" id="point_c_1_x" value="3"  />
+                				<span class="input-field__hint">X<sub>1</sub></span>
+                				
+                				<input type="text" class="input-field__input" placeholder="0" id="point_c_1_y" value="2"  />
+                				<span class="input-field__hint">Y<sub>1</sub></span>
+                			</div>
+                		</label>
+                		<label class="input col   ">
+                			<p class="input__title">Distance (d)</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="distance_c" value="7"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row given related-item-hidden related-to-given-angle">
+                		<label class="input col   ">
+                			<p class="input__title">Angle (θ)</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="angle_c" value="45"  />
+                					<span class="input-field__hint">°</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                
+                </div>
+                
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row  ">
+                    <button class="button button--icon js-modal-open" data-modal="share">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+                            <path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+                            <path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+                            <path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+                </div>
+                
+                
+                
+                
+                	<script type="text/javascript" src="./assets/js/calculator/slope-calculator/calculator.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+        <div class="calculator-result calculator-result--error col" id="error-box">
+        	<div class="row">
+        		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        	<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+        						7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+        						12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+        						11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+        </svg>
+        		<p class="calculator-error__title">There was an error with your calculation.</p>
+        	</div>
+        	<div class="col" id="error-list">
+        	</div>
+        </div>        <span id="calculator_result"><div class="calculator-result col">
+	<div class="result-table__wrapper"> 
+		<table class="result-table">
+			<thead class="dark">
+				<tr>
+					<th class="dark indigo" colspan="2">Slope</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="semibold">Slope (m)</th>
+					<td class="semibold"><span id="result_slope">1.75</span></td>
+				</tr>
+				<tr>
+					<th>Angle (θ)</th>
+					<td><span id="result_angle">1.05165rad or 60.25512°</span></td>
+				</tr>
+				<tr>
+					<th>Distance (d)</th>
+					<td><span id="result_distance">8.062258</span></td>
+				</tr>
+				<tr>
+					<th>Delta x (Δx)</th>
+					<td><span id="result_deltaX">4</span></td>
+				</tr>
+				<tr>
+					<th>Delta y (Δy)</th>
+					<td><span id="result_deltaY">7</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div></span>
+    </div>
+</div>
+
+</div>
+<script async src="./assets/js/lib/math.min.js"></script>
+<script async src="./assets/js/app.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>

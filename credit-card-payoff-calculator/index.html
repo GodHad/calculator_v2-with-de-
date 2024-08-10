@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Credit Card Payoff Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="Free online credit card calculator that provides valuable information to users, including how to minimize debt and a credit payment calculator with recommended payment amounts.">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+<div class="modal-window" style="opacity: 0; pointer-events: none;">	
+	<div class="modal-share">
+		<div class="modal-share__container">
+			<div class="modal-share__header">
+				<button class="modal-share__button modal-share__button--active">Widget</button>
+				<button class="modal-share__button">Link</button>
+				<button class="modal-share__button">Text</button>
+				<button class="modal-share__button">HTML</button>
+			</div>
+			<div class="modal-share__content modal-share__content--active">
+				<textarea class="modal-share__textarea"
+					id="share-widget">
+<iframe class="credit-card-payoff-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://calc.size.ly/embed/credit-card-payoff-calculator/" style="height:200px;" width="100%"></iframe>
+	<br/><center><a href="https://www.size.ly/calculator/credit-card-payoff-calculator/" style="text-decoration:none;" target="_blank"><font size="1" color="#333">Size.ly/Calculator</font></a></center></textarea>
+				<div onclick="window.open('https://calc.size.ly/embed/credit-card-payoff-calculator/','Credit Card Payoff Calculator','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;"
+					style="padding-top: 15px;color:#336BFF;cursor:pointer;">Preview Credit Card Payoff Calculator Widget
+				</div>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-url">https://www.size.ly/calculator/credit-card-payoff-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-text">Free online credit card calculator that provides valuable information to users, including how to minimize debt and a credit payment calculator with recommended payment amounts.: https://www.size.ly/calculator/credit-card-payoff-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-html">&lt;a href="https://www.size.ly/calculator/credit-card-payoff-calculator/" title="Credit Card Payoff Calculator" target="_blank"&gt;Credit Card Payoff Calculator&lt;/a&gt;</textarea>
+			</div>
+		</div>
+		<div class="modal-share__footer">
+			<button class="button button--copy" onclick="copyWidget(this)">Copy to Clipboard</button>
+		</div>
+	</div>
+</div>
+<div class="calculator">
+	<div class=" calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+        <div class="calculator-settings">
+            <div class="calculator-setting" id="calculator_form">
+                <div class="calculator-content calculator-content--bookmarks">
+                	<button class="tab-item tab-item--active" onclick="switchTab(event, 0)">Certain Amount</button>
+                	<button class="tab-item" onclick="switchTab(event, 1)">Certain Timeframe</button>
+                </div>
+                <div class="calculator-content col tab tab--active" data-tab="0">
+                	<div class="input-wrapper row">
+                		<label class="input col  ">
+                			<p class="input__title">Card Balance</p>
+                			<div class="input-field row">
+                				<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder="" id="card_balance" value="10000" />
+                				
+                			</div>
+                		</label>		<label class="input col  ">
+                			<p class="input__title">Interest Rate</p>
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input" placeholder="" id="interest_rate" value="18" />
+                				<span class="input-field__hint">%</span>
+                			</div>
+                		</label>	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col  ">
+                			<p class="input__title">Your Payment</p>
+                			<div class="input-field row">
+                				<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder="" id="your_payment" value="300" />
+                				<span class="input-field__hint">per month</span>
+                			</div>
+                		</label>	</div>
+                </div>
+                
+                <div class="calculator-content col tab" data-tab="1">
+                	<div class="input-wrapper row">
+                		<label class="input col  ">
+                			<p class="input__title">Card Balance</p>
+                			<div class="input-field row">
+                				<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder="" id="card_balance_2" value="10000" />
+                				
+                			</div>
+                		</label>		<label class="input col  ">
+                			<p class="input__title">Interest Rate</p>
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input" placeholder="" id="interest_rate_2" value="18" />
+                				<span class="input-field__hint">%</span>
+                			</div>
+                		</label>	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col  ">
+                			<p class="input__title">Payback in</p>
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input" placeholder="" id="payback_year" value="3" />
+                				<span class="input-field__hint">years</span>
+                			</div>
+                			<div class="input-hints row">
+                					<button class="input-hints__hint" onclick="setValue('payback_year', '5')">5</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_year', '10')">10</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_year', '15')">15</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_year', '20')">20</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_year', '25')">25</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_year', '30')">30</button>
+                			</div>
+                		</label>		<label class="input col  ">
+                			
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input" placeholder="" id="payback_month" value="8" />
+                				<span class="input-field__hint">months</span>
+                			</div>
+                			<div class="input-hints row">
+                					<button class="input-hints__hint" onclick="setValue('payback_month', '0')">0</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_month', '3')">3</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_month', '6')">6</button>
+                					<span class="input-hints__hint input-hints__hint--comma">,</span>
+                					<button class="input-hints__hint" onclick="setValue('payback_month', '9')">9</button>
+                			</div>
+                		</label>	</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab tab--active" data-tab="0">
+					<button class="button button--icon js-modal-open" data-modal="share">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+							<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+							<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+							<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</button>
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+                </div>
+                
+                	<script type="text/javascript" src="./assets/js/calculator/credit-card-payoff-calculator/chart.js" id="chartjs_script"></script>
+                
+                
+                
+                	<script type="text/javascript" src="./assets/js/calculator/credit-card-payoff-calculator/calculator.js"></script>
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab " data-tab="1">
+						<button class="button button--icon js-modal-open" data-modal="share">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</button>
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate2(this)">Calculate</button>
+                </div>
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+        <div class="calculator-result calculator-result--error col" id="error-box">
+        	<div class="row">
+        		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        	<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+        						7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+        						12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+        						11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+        </svg>
+        		<p class="calculator-error__title">There was an error with your calculation.</p>
+        	</div>
+        	<div class="col" id="error-list">
+        	</div>
+        </div>        <span id="calculator_result"><style>
+    #chartDonutSmall {
+        max-width: 200px;
+        max-height: 200px;
+    }
+</style>
+<div class="calculator-result col">
+	<p class="table-cell table-cell--table-dark table-cell--only-title">Result</p>
+	<div class="row row--wrap">
+		<div class="result-table__wrapper">
+			<table class="result-table">
+				<thead>
+				<tr>
+					<th class="border-radius-top-left">Payment Amount</th>
+					<td class="border-right" id="payment-amount">$300.00</td>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th>Payback in</th>
+					<td class="border-right" id="payback-time">3 years 11 months</td>
+				</tr>
+				<tr>
+					<th class="border-bottom-none semibold">Total Interest</th>
+					<td class="border-bottom-none border-right semibold" id="total-interest">$3,967.21</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="chart-wrapper chart-wrapper--donut chart-wrapper--donut-row">
+			<canvas id="chartDonutSmall" class="chart chart--donut chart--donut-small" width="200px"
+					height="200px"></canvas>
+			<div class="chart__donut-legend chart__donut-legend--col">
+				<div class="chart__donut-legend-item">
+					<div class="result-chart result-chart--yellow"></div>
+					<p class="result-text result-text--small">Principal</p>
+				</div>
+				<div class="chart__donut-legend-item">
+					<div class="result-chart result-chart--purple"></div>
+					<p class="result-text result-text--small">Interest</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="chart-wrapper  chart-wrapper--padding-vertical">
+		<canvas id="chartLoanCard" class="chart chart--loan-credit" height="307px"></canvas>
+		<div class="chart__legend chart__legend--padding-horizontal" id="chart__legend"><p
+				class="result-text result-text--small">1 m</p>
+			<p class="result-text result-text--small">5 m</p>
+			<p class="result-text result-text--small">10 m</p>
+			<p class="result-text result-text--small">15 m</p>
+			<p class="result-text result-text--small">20 m</p>
+			<p class="result-text result-text--small">25 m</p>
+			<p class="result-text result-text--small">30 m</p>
+			<p class="result-text result-text--small">35 m</p>
+			<p class="result-text result-text--small">40 m</p>
+			<p class="result-text result-text--small">45 m</p>
+			<p class="result-text result-text--small">47 m</p>
+		</div>
+	</div>
+</div>
+
+<!-- <script src="./assets/js/chart.js"./assets/js/chart.js').then(e => switchTheme = e.default)
+</script> -->
+</span>
+    </div>
+</div>
+
+</div>
+
+<script async src="./assets/js/lib/math.min.js"></script>
+<script async src="./assets/js/app.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>

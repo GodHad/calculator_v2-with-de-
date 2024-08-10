@@ -1,0 +1,1 @@
+function calculate(){const percentage=input.get('percentage').number().raw();if(!input.valid())return;const fracPart=percentage.split('.')[1];const multiplier=fracPart?math.pow(10,fracPart.length):1;const result=math.fraction(percentage*multiplier,100*multiplier);Fractions.outputMixed(result,'result');}

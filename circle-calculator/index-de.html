@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+ <head>
+  <title>
+   Kreisrechner
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <meta content="Circle calculator finds missing characteristics of a circle. It includes a radius calculator, circumference calculator, diameter calculator, and circle area calculator." name="description"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-regular.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-500.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-600.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-800.woff2" rel="preload" type="font/woff2"/>
+  <link href="./assets/css/main.min.css" rel="stylesheet"/>
+  <script type="text/javascript">
+   window._ = document.getElementById.bind(document);
+            window.$ = document.querySelector.bind(document);
+            window.$$ = document.querySelectorAll.bind(document);
+            window.defaultSystem = "imperial";
+            localStorage.setItem("theme", "light");
+  </script>
+  <script defer="" src="./assets/js/all-de-calculators.js">
+  </script>
+ </head>
+ <body style="background-color: transparent !important; min-height: 0 !important">
+  <div class="modal-window" style="opacity: 0; pointer-events: none;">
+   <div class="modal-share">
+    <div class="modal-share__container">
+     <div class="modal-share__header">
+      <label class="modal-share__button modal-share__button--active" for="share-widget">
+       Widget
+      </label>
+      <label class="modal-share__button" for="share-url">
+       Link
+      </label>
+      <label class="modal-share__button" for="share-text">
+       Text
+      </label>
+      <label class="modal-share__button" for="share-html">
+       HTML
+      </label>
+     </div>
+     <div class="modal-share__content modal-share__content--active">
+      <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="circle-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://www.size.ly/embed/circle-calculator/de" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/circle-calculator/de" style="text-decoration:none;" target="_blank"><font font size="1" color="#333">https://www.size.ly/circle-calculator/de</font></a></center></textarea>
+      <div onclick="window.open('https://www.size.ly/embed/circle-calculator/de','Kreisrechner','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+       Vorschau Kreisrechner Widget
+      </div>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/circle-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-text">Der Kreisrechner ermittelt fehlende Merkmale eines Kreises. Er enthält einen Radius-Rechner, einen Umfangs-Rechner, einen Durchmesser-Rechner und einen Kreisflächen-Rechner.: https://www.size.ly/circle-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/circle-calculator/de" title="Kreisrechner" target="_blank"&gt;Kreisrechner&lt;/a&gt;</textarea>
+     </div>
+    </div>
+    <div class="modal-share__footer">
+     <button class="button button--copy" onclick="copyWidget(this)">
+      In die Zwischenablage kopieren
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="calculator">
+   <div class="calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+     <div class="calculator-settings">
+      <div class="calculator-settings" id="calculator_form">
+       <div class="calculator-setting">
+        <div class="calculator-content col">
+         <div class="calculator-content__geometry">
+          <svg fill="none" height="128" viewbox="0 0 272 128" width="272" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="136" cy="64" fill="#F5F3FF" r="63.5" stroke="#A78BFA">
+           </circle>
+           <path d="M133.333 64C133.333 65.4728 134.527 66.6667 136 66.6667C137.473 66.6667 138.667 65.4728 138.667 64C138.667 62.5272 137.473 61.3333 136 61.3333C134.527 61.3333 133.333 62.5272 133.333 64ZM136 64.5H137.969V63.5H136V64.5ZM141.906 64.5H145.844V63.5H141.906V64.5ZM149.781 64.5H153.719V63.5H149.781V64.5ZM157.656 64.5H161.594V63.5H157.656V64.5ZM165.531 64.5H169.469V63.5H165.531V64.5ZM173.406 64.5H177.344V63.5H173.406V64.5ZM181.281 64.5H185.219V63.5H181.281V64.5ZM189.156 64.5H193.094V63.5H189.156V64.5ZM197.031 64.5H199V63.5H197.031V64.5Z" fill="#A78BFA">
+           </path>
+           <path d="M136 128L136 -7.39098e-06" stroke="#A78BFA" stroke-dasharray="4 4">
+           </path>
+           <path d="M197.575 8.12926H196.024C195.964 7.79782 195.853 7.50615 195.691 7.25426C195.529 7.00237 195.33 6.78859 195.094 6.61293C194.859 6.43726 194.596 6.30469 194.304 6.2152C194.016 6.12571 193.709 6.08097 193.384 6.08097C192.798 6.08097 192.272 6.22846 191.808 6.52344C191.348 6.81842 190.983 7.25095 190.714 7.82102C190.449 8.3911 190.317 9.08712 190.317 9.90909C190.317 10.7377 190.449 11.437 190.714 12.0071C190.983 12.5772 191.349 13.008 191.813 13.2997C192.277 13.5914 192.799 13.7372 193.379 13.7372C193.701 13.7372 194.006 13.6941 194.294 13.608C194.586 13.5185 194.849 13.3875 195.085 13.2152C195.32 13.0429 195.519 12.8324 195.681 12.5838C195.847 12.3319 195.961 12.0436 196.024 11.7188L197.575 11.7237C197.492 12.2242 197.332 12.6849 197.093 13.1058C196.858 13.5234 196.554 13.8847 196.183 14.1896C195.815 14.4912 195.394 14.7249 194.92 14.8906C194.446 15.0563 193.929 15.1392 193.369 15.1392C192.488 15.1392 191.702 14.9304 191.013 14.5128C190.323 14.0919 189.78 13.4903 189.382 12.7081C188.988 11.9259 188.79 10.9929 188.79 9.90909C188.79 8.82197 188.989 7.88897 189.387 7.11008C189.785 6.32789 190.328 5.72798 191.018 5.31037C191.707 4.88944 192.491 4.67898 193.369 4.67898C193.91 4.67898 194.413 4.75687 194.881 4.91264C195.351 5.0651 195.774 5.29048 196.148 5.58878C196.523 5.88376 196.833 6.24503 197.078 6.67258C197.323 7.09683 197.489 7.58239 197.575 8.12926Z" fill="#7C3AED">
+           </path>
+           <path d="M165.999 59V51.3636H167.436V52.5767H167.516C167.655 52.1657 167.9 51.8426 168.251 51.6072C168.606 51.3686 169.007 51.2493 169.455 51.2493C169.547 51.2493 169.657 51.2526 169.783 51.2592C169.912 51.2659 170.013 51.2741 170.086 51.2841V52.706C170.026 52.6894 169.92 52.6712 169.768 52.6513C169.615 52.6281 169.463 52.6165 169.31 52.6165C168.959 52.6165 168.646 52.6911 168.371 52.8402C168.099 52.986 167.884 53.1899 167.724 53.4517C167.565 53.7102 167.486 54.0052 167.486 54.3366V59H165.999Z" fill="#7C3AED">
+           </path>
+           <path d="M125.858 35.1491C125.241 35.1491 124.691 34.9917 124.207 34.6768C123.727 34.3587 123.349 33.9062 123.074 33.3196C122.802 32.7296 122.666 32.022 122.666 31.1967C122.666 30.3714 122.804 29.6655 123.079 29.0788C123.357 28.4922 123.738 28.0431 124.222 27.7315C124.706 27.42 125.255 27.2642 125.868 27.2642C126.342 27.2642 126.723 27.3438 127.011 27.5028C127.303 27.6586 127.528 27.8409 127.688 28.0497C127.85 28.2585 127.976 28.4425 128.065 28.6016H128.155V24.8182H129.641V35H128.19V33.8118H128.065C127.976 33.9742 127.847 34.1598 127.678 34.3686C127.512 34.5774 127.283 34.7597 126.991 34.9155C126.7 35.0713 126.322 35.1491 125.858 35.1491ZM126.186 33.8814C126.614 33.8814 126.975 33.7687 127.27 33.5433C127.568 33.3146 127.794 32.9981 127.946 32.5938C128.102 32.1894 128.18 31.7187 128.18 31.1818C128.18 30.6515 128.103 30.1875 127.951 29.7898C127.799 29.392 127.575 29.0821 127.28 28.8601C126.985 28.638 126.62 28.527 126.186 28.527C125.739 28.527 125.366 28.643 125.067 28.875C124.769 29.107 124.544 29.4235 124.391 29.8246C124.242 30.2256 124.168 30.678 124.168 31.1818C124.168 31.6922 124.244 32.1513 124.396 32.5589C124.549 32.9666 124.774 33.2898 125.072 33.5284C125.374 33.7637 125.745 33.8814 126.186 33.8814Z" fill="#7C3AED">
+           </path>
+           <path d="M91.9787 76H90.348L94.0121 65.8182H95.7869L99.451 76H97.8203L94.9418 67.6676H94.8622L91.9787 76ZM92.2521 72.0128H97.5419V73.3054H92.2521V72.0128Z" fill="#7C3AED">
+           </path>
+          </svg>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col">
+           <input id="given" type="hidden" value="r"/>
+           <p class="input__title">
+            Gegeben
+           </p>
+           <button class="button-switcher button-switcher--active" id="given-1" onclick="switcher(this, 'given', '')" type="button" value="r">
+            <span class="button-switcher__text button-switcher__text--active">
+             r
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="given-2" onclick="switcher(this, 'given', '')" type="button" value="d">
+            <span class="button-switcher__text">
+             d
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="given-3" onclick="switcher(this, 'given', '')" type="button" value="a">
+            <span class="button-switcher__text">
+             A
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="given-4" onclick="switcher(this, 'given', '')" type="button" value="c">
+            <span class="button-switcher__text">
+             C
+            </span>
+           </button>
+          </label>
+         </div>
+         <div class="input-wrapper row tab--active given related-to-given-r">
+          <label class="input col">
+           <p class="input__title">
+            Radius (r)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="r" placeholder="" type="text" value="12"/>
+           </div>
+          </label>
+          <label class="input col area-calculator">
+           <div class="dropdown-wrapper">
+            <div class="input-field row input-field--gray" tabindex="0">
+             <select class="input-field__text" id="system-r" onchange="toggleRelatedInputs(this)">
+              <option value="Meter">
+               Meter
+              </option>
+              <option value="Zentimeter">
+               Zentimeter
+              </option>
+              <option value="Millimeter">
+               Millimeter
+              </option>
+              <option value="Meilen">
+               Meilen
+              </option>
+              <option value="Yards">
+               Yards
+              </option>
+              <option value="Fuß">
+               Fuß
+              </option>
+              <option value="Zoll">
+               Zoll
+              </option>
+             </select>
+            </div>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row given related-item-hidden related-to-given-d">
+          <label class="input col">
+           <p class="input__title">
+            Durchmesser (d)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="d" placeholder="" type="text" value="36"/>
+           </div>
+          </label>
+          <label class="input col area-calculator">
+           <div class="dropdown-wrapper">
+            <div class="input-field row input-field--gray" tabindex="0">
+             <select class="input-field__text" id="system-d" onchange="toggleRelatedInputs(this)">
+              <option value="Meter">
+               Meter
+              </option>
+              <option value="Zentimeter">
+               Zentimeter
+              </option>
+              <option value="Millimeter">
+               Millimeter
+              </option>
+              <option value="Meilen">
+               Meilen
+              </option>
+              <option value="Yards">
+               Yards
+              </option>
+              <option value="Fuß">
+               Fuß
+              </option>
+              <option value="Zoll">
+               Zoll
+              </option>
+             </select>
+            </div>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row given related-item-hidden related-to-given-a">
+          <label class="input col">
+           <p class="input__title">
+            Fläche (A)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="a" placeholder="" type="text" value="64"/>
+           </div>
+          </label>
+          <label class="input col area-calculator">
+           <div class="dropdown-wrapper">
+            <div class="input-field row input-field--gray" tabindex="0">
+             <select class="input-field__text" id="system-a" onchange="toggleRelatedInputs(this)">
+              <option value="Meter">
+               Meter
+              </option>
+              <option value="Zentimeter">
+               Zentimeter
+              </option>
+              <option value="Millimeter">
+               Millimeter
+              </option>
+              <option value="Meilen">
+               Meilen
+              </option>
+              <option value="Yards">
+               Yards
+              </option>
+              <option value="Fuß">
+               Fuß
+              </option>
+              <option value="Zoll">
+               Zoll
+              </option>
+             </select>
+            </div>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row given related-item-hidden related-to-given-c">
+          <label class="input col">
+           <p class="input__title">
+            Umfang (C)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="c" placeholder="" type="text" value="48"/>
+           </div>
+          </label>
+          <label class="input col area-calculator">
+           <div class="dropdown-wrapper">
+            <div class="input-field row input-field--gray" tabindex="0">
+             <select class="input-field__text" id="system-c" onchange="toggleRelatedInputs(this)">
+              <option value="Meter">
+               Meter
+              </option>
+              <option value="Zentimeter">
+               Zentimeter
+              </option>
+              <option value="Millimeter">
+               Millimeter
+              </option>
+              <option value="Meilen">
+               Meilen
+              </option>
+              <option value="Yards">
+               Yards
+              </option>
+              <option value="Fuß">
+               Fuß
+              </option>
+              <option value="Zoll">
+               Zoll
+              </option>
+             </select>
+            </div>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate" id="action-button" onclick="calculate(this);">
+          Berechnen
+         </button>
+        </div>
+        <script defer="" src="./assets/js/calculator/circle-calculator/de/calculator.js" type="text/javascript">
+        </script>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+     <div class="calculator-result col">
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo" colspan="2">
+           Ergebnis
+          </th>
+         </tr>
+        </thead>
+        <tbody class="animate">
+         <tr>
+          <th>
+           Radius
+          </th>
+          <td>
+           r =
+           <span id="radius">
+            12
+           </span>
+           <span class="unit">
+            meters
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Durchmesser
+          </th>
+          <td>
+           d =
+           <span id="diameter">
+            24
+           </span>
+           <span class="unit">
+            meters
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Umfang
+          </th>
+          <td>
+           C =
+           <span id="circumference">
+            24 π meters = 75.4 meters
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Fläche
+          </th>
+          <td>
+           A =
+           <span id="area">
+            144 π meters
+            <sup>
+             2
+            </sup>
+            = 452.39 meters
+            <sup>
+             2
+            </sup>
+           </span>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result calculator-result--error col" id="error-box">
+      <div class="row">
+       <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path class="dark:fill-red-200" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+									7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+									12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+									11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" fill-rule="evenodd">
+        </path>
+       </svg>
+       <p class="calculator-error__title">
+        Es gab einen Fehler bei Ihrer Berechnung.
+       </p>
+      </div>
+      <div class="col" id="error-list">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script async="" src="./assets/js/lib/math.min.js">
+  </script>
+  <script async="" src="./assets/js/app.js">
+  </script>
+  <script defer="" src="./assets/js/functions-de.js">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Pregnancy Weight Gain Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="This pregnancy weight gain calculator gives a recommended weight increase plan every week based on the user’s body weight before pregnancy and the parameters provided by the IOM (the Institute of Medicine).">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+<div class="modal-window" style="opacity: 0; pointer-events: none;">	
+	<div class="modal-share">
+		<div class="modal-share__container">
+			<div class="modal-share__header">
+				<button class="modal-share__button modal-share__button--active">Widget</button>
+				<button class="modal-share__button">Link</button>
+				<button class="modal-share__button">Text</button>
+				<button class="modal-share__button">HTML</button>
+			</div>
+			<div class="modal-share__content modal-share__content--active">
+				<textarea class="modal-share__textarea"
+					id="share-widget">
+<iframe class="pregnancy-weight-gain-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://calc.size.ly/embed/pregnancy-weight-gain-calculator/" style="height:200px;" width="100%"></iframe>
+	<br/><center><a href="https://www.size.ly/calculator/pregnancy-weight-gain-calculator/" style="text-decoration:none;" target="_blank"><font size="1" color="#333">Size.ly/Calculator</font></a></center></textarea>
+				<div onclick="window.open('https://calc.size.ly/embed/pregnancy-weight-gain-calculator/','Pregnancy Weight Gain Calculator','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;"
+					style="padding-top: 15px;color:#336BFF;cursor:pointer;">Preview Pregnancy Weight Gain Calculator Widget
+				</div>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-url">https://www.size.ly/calculator/pregnancy-weight-gain-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-text">This pregnancy weight gain calculator gives a recommended weight increase plan every week based on the user’s body weight before pregnancy and the parameters provided by the IOM (the Institute of Medicine).: https://www.size.ly/calculator/pregnancy-weight-gain-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-html">&lt;a href="https://www.size.ly/calculator/pregnancy-weight-gain-calculator/" title="Pregnancy Weight Gain Calculator" target="_blank"&gt;Pregnancy Weight Gain Calculator&lt;/a&gt;</textarea>
+			</div>
+		</div>
+		<div class="modal-share__footer">
+			<button class="button button--copy" onclick="copyWidget(this)">Copy to Clipboard</button>
+		</div>
+	</div>
+</div>
+<div class="calculator">
+	<div class=" calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+        <div class="calculator-settings">
+            <div class="calculator-setting" id="calculator_form">
+                <div class="calculator-content col">
+                	<div class="input-wrapper row">
+                		<label class="input col ">
+                			<p class="input__title">Your Current Pregnancy Stage</p>
+                			<div class="dropdown-wrapper">
+                				<div class="input-field row " tabindex="0">
+                					<select class="input-field__text" onchange="toggleRelatedInputs(this)" id="pregnancy_stage">
+                							<option value="Week 1" >
+                							Week 1
+                							</option>
+                							<option value="Week 2" >
+                							Week 2
+                							</option>
+                							<option value="Week 3" >
+                							Week 3
+                							</option>
+                							<option value="Week 4" >
+                							Week 4
+                							</option>
+                							<option value="Week 5" >
+                							Week 5
+                							</option>
+                							<option value="Week 6" >
+                							Week 6
+                							</option>
+                							<option value="Week 7" >
+                							Week 7
+                							</option>
+                							<option value="Week 8" >
+                							Week 8
+                							</option>
+                							<option value="Week 9" >
+                							Week 9
+                							</option>
+                							<option value="Week 10" >
+                							Week 10
+                							</option>
+                							<option value="Week 11" >
+                							Week 11
+                							</option>
+                							<option value="Week 12" >
+                							Week 12
+                							</option>
+                							<option value="Week 13" >
+                							Week 13
+                							</option>
+                							<option value="Week 14" >
+                							Week 14
+                							</option>
+                							<option value="Week 15" >
+                							Week 15
+                							</option>
+                							<option value="Week 16" >
+                							Week 16
+                							</option>
+                							<option value="Week 17" >
+                							Week 17
+                							</option>
+                							<option value="Week 18" >
+                							Week 18
+                							</option>
+                							<option value="Week 19" >
+                							Week 19
+                							</option>
+                							<option value="Week 20" selected>
+                							Week 20
+                							</option>
+                							<option value="Week 21" >
+                							Week 21
+                							</option>
+                							<option value="Week 22" >
+                							Week 22
+                							</option>
+                							<option value="Week 23" >
+                							Week 23
+                							</option>
+                							<option value="Week 24" >
+                							Week 24
+                							</option>
+                							<option value="Week 25" >
+                							Week 25
+                							</option>
+                							<option value="Week 26" >
+                							Week 26
+                							</option>
+                							<option value="Week 27" >
+                							Week 27
+                							</option>
+                							<option value="Week 28" >
+                							Week 28
+                							</option>
+                							<option value="Week 29" >
+                							Week 29
+                							</option>
+                							<option value="Week 30" >
+                							Week 30
+                							</option>
+                							<option value="Week 31" >
+                							Week 31
+                							</option>
+                							<option value="Week 32" >
+                							Week 32
+                							</option>
+                							<option value="Week 33" >
+                							Week 33
+                							</option>
+                							<option value="Week 34" >
+                							Week 34
+                							</option>
+                							<option value="Week 35" >
+                							Week 35
+                							</option>
+                							<option value="Week 36" >
+                							Week 36
+                							</option>
+                							<option value="Week 37" >
+                							Week 37
+                							</option>
+                							<option value="Week 38" >
+                							Week 38
+                							</option>
+                							<option value="Week 39" >
+                							Week 39
+                							</option>
+                							<option value="Week 40" >
+                							Week 40
+                							</option>
+                					</select>
+                				</div>
+                			</div>
+                		</label>	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                			<p class="input__title">Your Height</p>
+                			<div class="input-field input-field--height row">
+                				<input type="text" class="input-field__input imperial-system-item" id="height_ft" data-target="height" value="5" onchange="updateHeight(this)" />
+                				<span class="input-field__hint imperial-system-item">ft</span>
+                		
+                				<input type="text" class="input-field__input imperial-system-item" id="height_in" data-target="height"  value="11.65" onchange="updateHeight(this)" />
+                				<span class="input-field__hint imperial-system-item">in</span>
+                		
+                				<input type="text" class="input-field__input metric-system-item system-item-hidden" id="height" data-target="height"  value="182" onchange="updateHeight(this)" />
+                				<span class="input-field__hint metric-system-item">cm</span>
+                			</div>
+                		</label>
+                		<label class="input col ">
+                			<p class="input__title">Current weight</p>
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input imperial-system-item" id="weight_imperial" data-target="weight" data-formula="value * 2.20462262185" value="176.4" onchange="sysnumconv(this)"  />
+                				<span class="input-field__hint imperial-system-item">pounds</span>
+                		
+                				
+                				<input type="text" class="input-field__input metric-system-item system-item-hidden" id="weight" data-target="weight" data-formula="value / 2.20462262185" value="80" onchange="sysnumconv(this)"  />
+                				<span class="input-field__hint metric-system-item system-item-hidden">kg</span>
+                			</div>
+                		</label>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col ">
+                			<p class="input__title">Weight Before Pregnancy</p>
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input imperial-system-item" id="weight_before_imperial" data-target="weight_before" data-formula="value * 2.20462262185" value="165.35" onchange="sysnumconv(this)"  />
+                				<span class="input-field__hint imperial-system-item">pounds</span>
+                		
+                				
+                				<input type="text" class="input-field__input metric-system-item system-item-hidden" id="weight_before" data-target="weight_before" data-formula="value / 2.20462262185" value="75" onchange="sysnumconv(this)"  />
+                				<span class="input-field__hint metric-system-item system-item-hidden">kg</span>
+                			</div>
+                		</label>
+                	</div>
+                	<label class="checkbox">
+                		<input type="checkbox" class="checkbox__input" id="pregnant_twins"   />
+                		<span class="checkbox__box"></span>
+                			<span class="checkbox__title">Pregnant with Twins</span>
+                	</label></div>
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row  ">
+						<button class="button button--icon js-modal-open" data-modal="share">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</button>
+                
+                
+                		<button class="system-switcher" onclick="toggleSystem(this)">
+                			<div class="system-switcher__circle"></div>
+                			<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M10.5 9.5H10C9.44772 9.5 9 9.05228 9 8.5V2.5M4.5 2.5H3.5C2.94772 2.5 2.5 2.94772 2.5 3.5L2.5 9.5M7.5 4.5L10.5 4.5M1.5 5.5L4.5 5.5" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                			<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M2 3.5L2 8.5M2 8L2 5.5C2 4.39543 2.89543 3.5 4 3.5C5.10457 3.5 6 4.39543 6 5.5M6 5.5L6 8.5M6 5.5L6 8M6 5.5C6 4.39543 6.89543 3.5 8 3.5C9.10457 3.5 10 4.39543 10 5.5V8.5" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                		</button>
+                
+                		<script type="text/javascript">
+                			$$(".imperial-system-item, .metric-system-item").forEach(function(element, index){
+                				element.classList.remove("system-item-hidden");
+                			});
+                			$$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function(element, index){
+                				element.classList.add("system-item-hidden");
+                			});
+                			if(defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
+                		</script>
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+                </div>
+                
+                	<script type="text/javascript" src="./assets/js/calculator/pregnancy-weight-gain-calculator/chart.js" id="chartjs_script"></script>
+                
+                
+                
+                	<script type="text/javascript" src="./assets/js/calculator/pregnancy-weight-gain-calculator/calculator.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+        <div class="calculator-result calculator-result--error col" id="error-box">
+        	<div class="row">
+        		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        	<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+        						7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+        						12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+        						11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+        </svg>
+        		<p class="calculator-error__title">There was an error with your calculation.</p>
+        	</div>
+        	<div class="col" id="error-list">
+        	</div>
+        </div>        <span id="calculator_result"><div class="calculator-result col">
+	<div class="result-table__wrapper">
+		<table class="result-table">
+			<thead class="dark">
+			<tr>
+				<th class="dark indigo" colspan="2">RESULT</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Recommended weight range</td>
+				<td class="short" id="weight-range">172.7 - 177.7 lbs</td>
+			</tr>
+			<tr>
+				<td>Recommended weight range when delivering</td>
+				<td class="short" id="delivery-weight-range">190.5 - 200.3 lbs</td>
+			</tr>
+			<tr>
+				<td class="border-bottom">Your BMI before pregnancy</td>
+				<td class="short border-bottom" id="beforeBmi">22.6 kg/m2</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="chart-wrapper chart-wrapper--padding-horizontal">
+		<canvas id="chartC150" class="chart"></canvas>
+		<div class="chart__legend">
+			<p class="result-text result-text--small">0 week</p>
+			<p class="result-text result-text--small">5 week</p>
+			<p class="result-text result-text--small">10 week</p>
+			<p class="result-text result-text--small">15 week</p>
+			<p class="result-text result-text--small">20 week</p>
+			<p class="result-text result-text--small">25 week</p>
+			<p class="result-text result-text--small">30 week</p>
+			<p class="result-text result-text--small">35 week</p>
+			<p class="result-text result-text--small">40 week</p>
+		</div>
+	</div>
+	<div class="result-table__dialog">
+		<button class="result-table__open">
+			<p class="result-table__open-text">Body Weight Range Table</p>
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#312E81"></path>
+</svg>
+		</button>
+		<div class="result-table__wrapper">
+			<table class="result-table">
+				<thead>
+				<tr>
+					<th>Week</th>
+					<th class=" short">Recommended Weight Range</th>
+					<th class=" short">Recommended Weight Gain</th>
+				</tr>
+				</thead>
+				<tbody id="result-table">
+				<tr>
+					<td>Week 1</td>
+					<td class="short">165.3 - 165.3 lbs</td>
+					<td class="short">0.0 - 0.0 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 2</td>
+					<td class="short">165.44 - 165.75 lbs</td>
+					<td class="short">0.09 - 0.40 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 3</td>
+					<td class="short">165.5 - 166.0 lbs</td>
+					<td class="short">0.2 - 0.7 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 4</td>
+					<td class="short">165.6 - 166.4 lbs</td>
+					<td class="short">0.3 - 1.1 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 5</td>
+					<td class="short">165.7 - 166.8 lbs</td>
+					<td class="short">0.4 - 1.5 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 6</td>
+					<td class="short">165.8 - 167.1 lbs</td>
+					<td class="short">0.5 - 1.8 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 7</td>
+					<td class="short">165.9 - 167.5 lbs</td>
+					<td class="short">0.6 - 2.2 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 8</td>
+					<td class="short">165.9 - 167.9 lbs</td>
+					<td class="short">0.6 - 2.6 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 9</td>
+					<td class="short">166.0 - 168.2 lbs</td>
+					<td class="short">0.7 - 2.9 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 10</td>
+					<td class="short">166.1 - 168.6 lbs</td>
+					<td class="short">0.8 - 3.3 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 11</td>
+					<td class="short">166.2 - 169.0 lbs</td>
+					<td class="short">0.9 - 3.7 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 12</td>
+					<td class="short">166.3 - 169.3 lbs</td>
+					<td class="short">1.0 - 4.0 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 13</td>
+					<td class="short">166.4 - 169.7 lbs</td>
+					<td class="short">1.1 - 4.4 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 14</td>
+					<td class="short">167.3 - 170.9 lbs</td>
+					<td class="short">2.0 - 5.5 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 15</td>
+					<td class="short">168.2 - 172.0 lbs</td>
+					<td class="short">2.9 - 6.7 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 16</td>
+					<td class="short">169.1 - 173.1 lbs</td>
+					<td class="short">3.8 - 7.8 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 17</td>
+					<td class="short">170.0 - 174.3 lbs</td>
+					<td class="short">4.7 - 8.9 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 18</td>
+					<td class="short">170.9 - 175.4 lbs</td>
+					<td class="short">5.6 - 10.1 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 19</td>
+					<td class="short">171.8 - 176.5 lbs</td>
+					<td class="short">6.4 - 11.2 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 20</td>
+					<td class="short">172.7 - 177.7 lbs</td>
+					<td class="short">7.3 - 12.3 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 21</td>
+					<td class="short">173.6 - 178.8 lbs</td>
+					<td class="short">8.2 - 13.4 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 22</td>
+					<td class="short">174.5 - 179.9 lbs</td>
+					<td class="short">9.1 - 14.6 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 23</td>
+					<td class="short">175.3 - 181.0 lbs</td>
+					<td class="short">10.0 - 15.7 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 24</td>
+					<td class="short">176.2 - 182.2 lbs</td>
+					<td class="short">10.9 - 16.8 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 25</td>
+					<td class="short">177.1 - 183.3 lbs</td>
+					<td class="short">11.8 - 18.0 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 26</td>
+					<td class="short">178.0 - 184.4 lbs</td>
+					<td class="short">12.7 - 19.1 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 27</td>
+					<td class="short">178.9 - 185.6 lbs</td>
+					<td class="short">13.6 - 20.2 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 28</td>
+					<td class="short">179.8 - 186.7 lbs</td>
+					<td class="short">14.4 - 21.4 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 29</td>
+					<td class="short">180.7 - 187.8 lbs</td>
+					<td class="short">15.3 - 22.5 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 30</td>
+					<td class="short">181.6 - 189.0 lbs</td>
+					<td class="short">16.2 - 23.6 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 31</td>
+					<td class="short">182.5 - 190.1 lbs</td>
+					<td class="short">17.1 - 24.7 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 32</td>
+					<td class="short">183.4 - 191.2 lbs</td>
+					<td class="short">18.0 - 25.9 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 33</td>
+					<td class="short">184.2 - 192.3 lbs</td>
+					<td class="short">18.9 - 27.0 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 34</td>
+					<td class="short">185.1 - 193.5 lbs</td>
+					<td class="short">19.8 - 28.1 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 35</td>
+					<td class="short">186.0 - 194.6 lbs</td>
+					<td class="short">20.7 - 29.3 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 36</td>
+					<td class="short">186.9 - 195.7 lbs</td>
+					<td class="short">21.6 - 30.4 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 37</td>
+					<td class="short">187.8 - 196.9 lbs</td>
+					<td class="short">22.5 - 31.5 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 38</td>
+					<td class="short">188.7 - 198.0 lbs</td>
+					<td class="short">23.4 - 32.6 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 39</td>
+					<td class="short">189.6 - 199.1 lbs</td>
+					<td class="short">24.2 - 33.8 lbs</td>
+				</tr>
+				<tr>
+					<td>Week 40</td>
+					<td class="short">190.5 - 200.3 lbs</td>
+					<td class="short">25.1 - 34.9 lbs</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- <script src="./assets/js/chart.js"./assets/js/chart.js').then(e => switchTheme = e.default)
+</script> -->
+</span>
+    </div>
+</div>
+
+</div>
+
+<script async src="./assets/js/lib/math.min.js"></script>
+<script async src="./assets/js/app.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>

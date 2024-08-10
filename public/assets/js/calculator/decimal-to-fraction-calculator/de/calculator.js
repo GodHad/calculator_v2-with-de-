@@ -1,0 +1,1 @@
+function calculate(){const number=input.get('decimal_number').periodic().raw();if(!input.valid())return;const resultFrac=math.fraction(number);Fractions.outputMixed(resultFrac,'result');}

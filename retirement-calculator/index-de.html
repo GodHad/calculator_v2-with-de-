@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+ <head>
+  <title>
+   Ruhestands-Rechner
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <meta content="Retirement savings calculator that uses the formula FV = PV (1 + R)ⁿ to help users plan for retirement and calculate retirement income." name="description"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-regular.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-500.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-600.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-800.woff2" rel="preload" type="font/woff2"/>
+  <link href="./assets/css/main.min.css" rel="stylesheet"/>
+  <script type="text/javascript">
+   window._ = document.getElementById.bind(document);
+            window.$ = document.querySelector.bind(document);
+            window.$$ = document.querySelectorAll.bind(document);
+            window.defaultSystem = "imperial";
+            localStorage.setItem("theme", "light");
+  </script>
+  <script defer="" src="./assets/js/all-de-calculators.js">
+  </script>
+ </head>
+ <body style="background-color: transparent !important; min-height: 0 !important">
+  <div class="modal-window" style="opacity: 0; pointer-events: none;">
+   <div class="modal-share">
+    <div class="modal-share__container">
+     <div class="modal-share__header">
+      <label class="modal-share__button modal-share__button--active" for="share-widget">
+       Widget
+      </label>
+      <label class="modal-share__button" for="share-url">
+       Link
+      </label>
+      <label class="modal-share__button" for="share-text">
+       Text
+      </label>
+      <label class="modal-share__button" for="share-html">
+       HTML
+      </label>
+     </div>
+     <div class="modal-share__content modal-share__content--active">
+      <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="retirement-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://www.size.ly/embed/retirement-calculator/de" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/retirement-calculator/de" style="text-decoration:none;" target="_blank"><font font size="1" color="#333">https://www.size.ly/retirement-calculator/de</font></a></center></textarea>
+      <div onclick="window.open('https://www.size.ly/embed/retirement-calculator/de','Ruhestands-Rechner','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+       Vorschau Ruhestands-Rechner Widget
+      </div>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/retirement-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-text">Ruhestandsrechner, der die Formel FV = PV (1 + R)ⁿ verwendet, um den Benutzern bei der Planung des Ruhestands und der Berechnung des Ruhestandseinkommens zu helfen.: https://www.size.ly/retirement-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/retirement-calculator/de" title="Ruhestands-Rechner" target="_blank"&gt;Ruhestands-Rechner&lt;/a&gt;</textarea>
+     </div>
+    </div>
+    <div class="modal-share__footer">
+     <button class="button button--copy" onclick="copyWidget(this)">
+      In die Zwischenablage kopieren
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="calculator">
+   <div class="calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+     <div class="calculator-settings">
+      <div class="calculator-settings" id="calculator_form">
+       <div class="calculator-setting">
+        <div class="calculator-content col">
+         <div class="input-wrapper row">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <div class="dropdown-wrapper">
+            <div class="input-field row" tabindex="0">
+             <select class="input-field__text" id="retirement-calculator" onchange="switchTab(this)">
+              <option value="Wie viel um in Rente zu gehen">
+               Wie viel um in Rente zu gehen
+              </option>
+              <option value="Wie spart man für die Rente?">
+               Wie spart man für die Rente?
+              </option>
+              <option value="Wie viel kann abgehoben werden?">
+               Wie viel kann abgehoben werden?
+              </option>
+              <option value="Wie lange reicht Ihr Geld?">
+               Wie lange reicht Ihr Geld?
+              </option>
+             </select>
+            </div>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Aktuelles Alter
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="current_age" placeholder="" type="text" value="35"/>
+            <span class="input-field__hint">
+             Jahre
+            </span>
+           </div>
+          </label>
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Geplante Rente
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="planned_retirement" placeholder="" type="text" value="65"/>
+            <span class="input-field__hint">
+             Jahre
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Lebenserwartung
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="life_expectancy" placeholder="" type="text" value="85"/>
+            <span class="input-field__hint">
+             Durchschnittlich 79 in den USA
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Erwartetes Einkommen aus der Sozialversicherung
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="expected_social_security_income" placeholder="" type="text" value="1200"/>
+            <span class="input-field__hint">
+             pro Monat
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Anderes Einkommen nach der Rente
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="other_income_after_retirement" placeholder="" type="text" value="300"/>
+            <span class="input-field__hint">
+             pro Monat
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Durchschnittliche Anlagerendite
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="average_investment_return" placeholder="" type="text" value="6"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Inflationsrate (jährlich)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="inflation_rate" placeholder="" type="text" value="3"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Ihr aktuelles Einkommen
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="current_income" placeholder="" type="text" value="70000"/>
+            <span class="input-field__hint">
+             pro Jahr
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Benötigtes Einkommen nach der Rente
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="income_needed_after_retirement" placeholder="" type="text" value="70"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Ihre aktuellen Rentenersparnisse
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="current_income_savings" placeholder="" type="text" value=""/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab tab--active" data-tab="0">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Zukünftige Rentenersparnisse
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="future_retirement_savings" placeholder="" type="text" value="10"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="1">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Aktuelles Alter
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="current_age_2" placeholder="" type="text" value="35"/>
+            <span class="input-field__hint">
+             Jahre
+            </span>
+           </div>
+          </label>
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Geplante Rente
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="planned_retirement_2" placeholder="" type="text" value="65"/>
+            <span class="input-field__hint">
+             Jahre
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="1">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Benötigter Betrag im Rentenalter
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="amount_needed" placeholder="" type="text" value="800000"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="1">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Ihre Rentenersparnisse jetzt
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="retirement_saving" placeholder="" type="text" value="30000"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="1">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Durchschnittliche Anlagerendite
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="average_Investment_return_2" placeholder="" type="text" value="6"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Aktuelles Alter
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="current_age_3" placeholder="" type="text" value="35"/>
+            <span class="input-field__hint">
+             Jahre
+            </span>
+           </div>
+          </label>
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Geplante Rente
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="planned_retirement_3" placeholder="" type="text" value="65"/>
+            <span class="input-field__hint">
+             Jahre
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Lebenserwartung
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="life_expectancy_2" placeholder="" type="text" value="85"/>
+            <span class="input-field__hint">
+             Durchschnittlich 79 in den USA
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Ihre Rentenersparnisse jetzt
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="retirement_saving_2" placeholder="" type="text" value="30000"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Jährlicher Beitrag
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="annual_contribution" placeholder="" type="text" value="6000"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Monatlicher Beitrag
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="monthly_contribution" placeholder="" type="text" value=""/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Durchschnittliche Anlagerendite
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="average_Investment_return_3" placeholder="" type="text" value="6"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="2">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Inflationsrate (jährlich)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="inflation_rate_2" placeholder="" type="text" value="3"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="3">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Der Betrag, den Sie haben
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="amount_have" placeholder="" type="text" value="600000"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="3">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Sie planen abzuheben
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="plan_withdraw" placeholder="" type="text" value="5000"/>
+            <span class="input-field__hint">
+             pro Monat
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row tab" data-tab="3">
+          <label class="input col apr-calculator,401k-calculator,retirement-calculator,annuity-calculator">
+           <p class="input__title">
+            Durchschnittliche Anlagerendite
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="average_Investment_return_4" placeholder="" type="text" value="6"/>
+            <span class="input-field__hint">
+             %
+            </span>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab tab--active" data-tab="0">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate" id="action-button" onclick="calculate(this);">
+          Berechnen
+         </button>
+        </div>
+        <script src="./assets/js/lib/chartjs/chart.min.js" type="text/javascript"></script>
+<script defer="" id="chartjs_script" src="./assets/js/calculator/retirement-calculator/de/chart.js" type="text/javascript">
+        </script>
+        <script defer="" src="./assets/js/calculator/retirement-calculator/de/calculator.js" type="text/javascript">
+        </script>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab" data-tab="1">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate2" id="action-button" onclick="calculate2(this);">
+          Berechnen
+         </button>
+        </div>
+        <script src="./assets/js/lib/chartjs/chart.min.js" type="text/javascript"></script>
+<script defer="" id="chartjs_script" src="./assets/js/calculator/retirement-calculator/de/chart.js" type="text/javascript">
+        </script>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab" data-tab="2">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate3" id="action-button" onclick="calculate3(this);">
+          Berechnen
+         </button>
+        </div>
+        <script src="./assets/js/lib/chartjs/chart.min.js" type="text/javascript"></script>
+<script defer="" id="chartjs_script" src="./assets/js/calculator/retirement-calculator/de/chart.js" type="text/javascript">
+        </script>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab" data-tab="3">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate4" id="action-button" onclick="calculate4(this);">
+          Berechnen
+         </button>
+        </div>
+        <script src="./assets/js/lib/chartjs/chart.min.js" type="text/javascript"></script>
+<script defer="" id="chartjs_script" src="./assets/js/calculator/retirement-calculator/de/chart.js" type="text/javascript">
+        </script>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+     <div class="calculator-result col tab tab--active" data-tab="0">
+      <p class="table-cell table-cell--table-dark table-cell--only-title">
+       Ergebnis
+      </p>
+      <div class="table-cell table-cell--age table-cell--only row">
+       <div class="col chart__text animate">
+        <p class="result-text" id="total-saving">
+         $553,407 mit 65 Jahren
+        </p>
+        <p class="result-text result-text--small-loan" id="needed-total">
+         Benötigtes Sparguthaben mit 65: $1,516,653
+        </p>
+        <p class="result-text result-text--small-loan" id="total-without-inflation">
+         Gegenwärtige Kaufkraft: $624,841
+        </p>
+        <p class="result-text result-text--small-loan" id="lifestyle-after-retirement">
+         Lebensstil nach der Rente: $55,198
+        </p>
+       </div>
+       <div class="chart-wrapper chart-wrapper--donut chart-wrapper--donut-row">
+        <canvas class="chart chart--donut" height="200px" id="chartLoanSimple">
+        </canvas>
+        <div class="chart__donut-legend chart__donut-legend--col">
+         <div class="chart__donut-legend-item">
+          <div class="result-chart result-chart--yellow">
+          </div>
+          <p class="result-text result-text--small">
+           Sie werden haben
+          </p>
+         </div>
+         <div class="chart__donut-legend-item">
+          <div class="result-chart result-chart--purple">
+          </div>
+          <p class="result-text result-text--small">
+           Sie werden benötigen
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo animate" colspan="3" id="monthly-income-savings">
+           MONATLICHES EINKOMMEN NACH DER RENTE (WENN $553,407
+                                                            GESPART):
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <th>
+          </th>
+          <th>
+           TATSÄCHLICHER BETRAG
+          </th>
+          <th>
+           HEUTIGES GELD
+          </th>
+         </tr>
+         <tr>
+          <th>
+           Gesamt
+          </th>
+          <td class="animate" id="total-monthly">
+           $4,600
+          </td>
+          <td class="animate" id="total-monthly-2">
+           $1,895
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Aus Ersparnissen
+          </th>
+          <td class="animate" id="monthly-from-saving">
+           $3,100
+          </td>
+          <td class="animate" id="monthly-from-saving-2">
+           $1,277
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Aus der Sozialversicherung
+          </th>
+          <td class="animate" id="monthly-from-social">
+           $1,200
+          </td>
+          <td class="animate" id="monthly-from-social-2">
+           $494
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Aus anderem Einkommen
+          </th>
+          <td class="animate" id="monthly-from-other">
+           $300
+          </td>
+          <td class="animate" id="monthly-from-other-2">
+           $124
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo animate" colspan="3" id="monthly-income-needed">
+           MONATLICHES EINKOMMEN NACH DER RENTE (WENN $1,516,653
+                                                            GESPART):
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <th>
+          </th>
+          <th>
+           TATSÄCHLICHER BETRAG
+          </th>
+          <th>
+           HEUTIGES GELD
+          </th>
+         </tr>
+         <tr>
+          <th>
+           Gesamt
+          </th>
+          <td class="animate" id="total-monthly-needed">
+           $9,911
+          </td>
+          <td class="animate" id="total-monthly-needed-2">
+           $4,083
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Aus Ersparnissen
+          </th>
+          <td class="animate" id="monthly-from-saving-needed">
+           $8,411
+          </td>
+          <td class="animate" id="monthly-from-saving-needed-2">
+           $3,465
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Aus der Sozialversicherung
+          </th>
+          <td class="animate" id="monthly-from-social-needed">
+           $1,200
+          </td>
+          <td class="animate" id="monthly-from-social-needed-2">
+           $494
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Aus anderem Einkommen
+          </th>
+          <td class="animate" id="monthly-from-other-needed">
+           $300
+          </td>
+          <td class="animate" id="monthly-from-other-needed-2">
+           $124
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result col tab" data-tab="1">
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo" colspan="2" id="monthly-payment-2">
+           WENN SIE JEDEN MONAT BIS 65 SPAREN
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <th>
+           Betrag, der jeden Monat gespart werden soll
+          </th>
+          <td class="animate" id="save-every-month">
+           $644.11
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtkapital
+          </th>
+          <td class="animate" id="save-every-month-principal">
+           $261,880.23
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtzinsen
+          </th>
+          <td class="animate" id="save-every-month-interest">
+           $538,119.77
+          </td>
+         </tr>
+         <tr>
+          <th class="dark indigo" colspan="2" id="yearly-payment-2">
+           WENN SIE JEDEN JAHR BIS 65 SPAREN
+          </th>
+         </tr>
+         <tr>
+          <th>
+           Betrag, der jedes Jahr gespart werden soll
+          </th>
+          <td class="animate" id="save-every-year">
+           $7,939.66
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtkapital
+          </th>
+          <td class="animate" id="save-every-year-principal">
+           $268,189.86
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtzinsen
+          </th>
+          <td class="animate" id="save-every-year-interest">
+           $531,810.14
+          </td>
+         </tr>
+         <tr>
+          <th class="dark indigo" colspan="2">
+           WENN SIE ES JETZT HABEN
+          </th>
+         </tr>
+         <tr>
+          <th>
+           Zusätzlich benötigter Betrag
+          </th>
+          <td class="animate" id="you-have">
+           $109,288.10
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtkapital
+          </th>
+          <td class="animate" id="you-have-principal">
+           $139,288.10
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtzinsen
+          </th>
+          <td class="animate" id="you-have-interest">
+           $660,711.90
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result col tab" data-tab="2">
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo" colspan="2">
+           Ergebnis
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <th id="balance-retirement-title">
+           Guthaben im Rentenalter von 65
+          </th>
+          <td class="animate" id="balance-retirement">
+           $646,653.85
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Entspricht der aktuellen Kaufkraft von
+          </th>
+          <td class="animate" id="today-balance-retirement">
+           $266,412.83
+          </td>
+         </tr>
+         <tr>
+          <th id="withdraw-monthly-title">
+           Der Betrag, den Sie monatlich ab 65 abheben und jährlich um
+                                                            3% erhöhen können
+          </th>
+          <td class="animate" id="withdraw-monthly">
+           $3,573.24
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Entspricht der aktuellen Kaufkraft von
+          </th>
+          <td class="animate" id="today-withdraw-monthly">
+           $1,472.13
+          </td>
+         </tr>
+         <tr>
+          <th id="withdraw-monthly-title-65-85">
+           Der Betrag, den Sie monatlich von 65 bis 85 abheben können
+          </th>
+          <td class="animate" id="withdraw-monthly-65-85">
+           $4,573.73
+          </td>
+         </tr>
+         <tr>
+          <th id="withdraw-monthly-title-65">
+           Im Alter von 65, entspricht der aktuellen Kaufkraft von
+          </th>
+          <td class="animate" id="withdraw-monthly-65">
+           $1,884.32
+          </td>
+         </tr>
+         <tr>
+          <th id="withdraw-monthly-title-85">
+           Im Alter von 85, entspricht der aktuellen Kaufkraft von
+          </th>
+          <td class="animate" id="withdraw-monthly-85">
+           $1,043.30
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result col tab" data-tab="3">
+      <div class="result-table__wrapper">
+       <div class="result" id="result-4-wrap">
+        <p class="table-cell table-cell--table-dark table-cell--only-title">
+         Ergebnis
+        </p>
+        <div class="table-cell table-cell--age table-cell--only row">
+         <div class="col result-text animate" id="result-4">
+          Wenn $5,000 pro Monat abgehoben werden, können $600,000 15 Jahre
+                                                      und 0.7 Monate reichen.
+         </div>
+        </div>
+       </div>
+       <table class="result-table" id="result-table-4">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo">
+           ABHEBUNGSZEITRAUM
+          </th>
+          <th class="dark indigo">
+           ABHEBUNGSBETRAG
+          </th>
+         </tr>
+        </thead>
+        <tbody class="animate" id="withdraw-table">
+         <tr>
+          <th>
+           5 Jahre
+          </th>
+          <td>
+           $11,555.39/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           10 Jahre
+          </th>
+          <td>
+           $6,613.44/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           15 Jahre
+          </th>
+          <td>
+           $5,011.76/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           20 Jahre
+          </th>
+          <td>
+           $4,243.75/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           25 Jahre
+          </th>
+          <td>
+           $3,807.73/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           30 Jahre
+          </th>
+          <td>
+           $3,536.22/Monat
+          </td>
+         </tr>
+         <tr>
+          <th>
+           35 Jahre
+          </th>
+          <td>
+           $3,357.34/Monat
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="calculator-result calculator-result--error col" id="error-box">
+      <div class="row">
+       <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path class="dark:fill-red-200" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+									7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+									12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+									11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" fill-rule="evenodd">
+        </path>
+       </svg>
+       <p class="calculator-error__title">
+        Es gab einen Fehler bei Ihrer Berechnung.
+       </p>
+      </div>
+      <div class="col" id="error-list">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script async="" src="./assets/js/lib/math.min.js">
+  </script>
+  <script async="" src="./assets/js/app.js">
+  </script>
+  <script defer="" src="./assets/js/functions-de.js">
+  </script>
+ </body>
+</html>

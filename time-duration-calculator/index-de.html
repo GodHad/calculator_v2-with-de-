@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+ <head>
+  <title>
+   Zeit Dauer Rechner
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <meta content="Use our time duration calculator to determine how much time has passed between two events. It is perfect for tracking work time for your business." name="description"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-regular.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-500.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-600.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-800.woff2" rel="preload" type="font/woff2"/>
+  <link href="./assets/css/main.min.css" rel="stylesheet"/>
+  <script type="text/javascript">
+   window._ = document.getElementById.bind(document);
+            window.$ = document.querySelector.bind(document);
+            window.$$ = document.querySelectorAll.bind(document);
+            window.defaultSystem = "imperial";
+            localStorage.setItem("theme", "light");
+  </script>
+  <script defer="" src="./assets/js/all-de-calculators.js">
+  </script>
+ </head>
+ <body style="background-color: transparent !important; min-height: 0 !important">
+  <div class="modal-window" style="opacity: 0; pointer-events: none;">
+   <div class="modal-share">
+    <div class="modal-share__container">
+     <div class="modal-share__header">
+      <label class="modal-share__button modal-share__button--active" for="share-widget">
+       Widget
+      </label>
+      <label class="modal-share__button" for="share-url">
+       Link
+      </label>
+      <label class="modal-share__button" for="share-text">
+       Text
+      </label>
+      <label class="modal-share__button" for="share-html">
+       HTML
+      </label>
+     </div>
+     <div class="modal-share__content modal-share__content--active">
+      <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="time-duration-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://www.size.ly/embed/time-duration-calculator/de" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/time-duration-calculator/de" style="text-decoration:none;" target="_blank"><font font size="1" color="#333">https://www.size.ly/time-duration-calculator/de</font></a></center></textarea>
+      <div onclick="window.open('https://www.size.ly/embed/time-duration-calculator/de','Zeit Dauer Rechner','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+       Vorschau Zeit Dauer Rechner Widget
+      </div>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/time-duration-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-text">Mit unserem Zeit-Dauer-Rechner kann man feststellen, wie viel Zeit zwischen zwei Ereignissen vergangen ist – ideal für die Erfassung der Arbeitszeit in Unternehmen.: https://www.size.ly/time-duration-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/time-duration-calculator/de" title="Zeit Dauer Rechner" target="_blank"&gt;Zeit Dauer Rechner&lt;/a&gt;</textarea>
+     </div>
+    </div>
+    <div class="modal-share__footer">
+     <button class="button button--copy" onclick="copyWidget(this)">
+      In die Zwischenablage kopieren
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="calculator">
+   <div class="calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+     <div class="calculator-settings">
+      <div class="calculator-settings" id="calculator_form">
+       <div class="calculator-setting">
+        <div class="calculator-content calculator-content--bookmarks">
+         <button class="tab-item tab-item--active" onclick="switchTab(event, 0)">
+          Zeitdauer
+         </button>
+         <button class="tab-item" onclick="switchTab(event, 1)">
+          Zwischen Zwei Daten
+         </button>
+        </div>
+        <div class="calculator-content col tab tab--active" data-tab="0">
+         <div class="input-wrapper row">
+          <label class="input col">
+           <p class="input__title">
+            Startzeit
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" data-inputmask="'mask': '99:99:99', 'placeholder': 'hh:mm:ss'" id="start_time" placeholder="hh:mm:ss" type="text" value="08:52:00"/>
+            <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+             <path d="M10 6.66667V10L12.5 12.5M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#9CA3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+            </svg>
+           </div>
+           <div class="input-hints row">
+            <button class="input-hints__hint" onclick="setValue('start_time', now())">
+             Jetzt
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('start_time', '00:00:00')">
+             Mitternacht
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('start_time', '12:00:00')">
+             Mittag
+            </button>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col">
+           <p class="input__title">
+            Endzeit
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" data-inputmask="'mask': '99:99:99', 'placeholder': 'hh:mm:ss'" id="end_time" placeholder="hh:mm:ss" type="text" value="13:37:13"/>
+            <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+             <path d="M10 6.66667V10L12.5 12.5M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#9CA3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+            </svg>
+           </div>
+           <div class="input-hints row">
+            <button class="input-hints__hint" onclick="setValue('end_time', now())">
+             Jetzt
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('end_time', '00:00:00')">
+             Mitternacht
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('end_time', '12:00:00')">
+             Mittag
+            </button>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="calculator-content col tab" data-tab="1">
+         <div class="input-wrapper row">
+          <label class="input col">
+           <p class="input__title">
+            Startdatum
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input datepicker_us imperial-system-item" data-inputmask="'mask': '99/99/9999', 'placeholder': 'mm/dd/yyyy'" data-target="start_date" id="start_date_us" onchange="updateDate(this)" placeholder="mm/dd/yyyy" type="text" value=""/>
+            <input class="input-field__input datepicker metric-system-item system-item-hidden" data-inputmask="'mask': '9999-99-99', 'placeholder': 'yyyy-mm-dd'" data-target="start_date" id="start_date" onchange="updateDate(this)" placeholder="yyyy-mm-dd" type="text" value=""/>
+            <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+             <path d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+             <path d="M13.75 1.5625V3.125" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+             <path d="M6.25 1.5625V3.125" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+             <path d="M3.125 6.875H16.875" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+            </svg>
+           </div>
+           <div class="input-hints row">
+            <button class="input-hints__hint" onclick="setDate('start_date', 0)">
+             Heute
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setDate('start_date', -1)">
+             Gestern
+            </button>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col">
+           <p class="input__title">
+            Startzeit
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" data-inputmask="'mask': '99:99:99', 'placeholder': 'hh:mm:ss'" id="start_time_2" placeholder="hh:mm:ss" type="text" value="07:31:00"/>
+            <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+             <path d="M10 6.66667V10L12.5 12.5M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#9CA3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+            </svg>
+           </div>
+           <div class="input-hints row">
+            <button class="input-hints__hint" onclick="setValue('start_time_2', now())">
+             Jetzt
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('start_time_2', '00:00:00')">
+             Mitternacht
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('start_time_2', '12:00:00')">
+             Mittag
+            </button>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col">
+           <p class="input__title">
+            Enddatum
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input datepicker_us imperial-system-item" data-inputmask="'mask': '99/99/9999', 'placeholder': 'mm/dd/yyyy'" data-target="end_date" id="end_date_us" onchange="updateDate(this)" placeholder="mm/dd/yyyy" type="text" value=""/>
+            <input class="input-field__input datepicker metric-system-item system-item-hidden" data-inputmask="'mask': '9999-99-99', 'placeholder': 'yyyy-mm-dd'" data-target="end_date" id="end_date" onchange="updateDate(this)" placeholder="yyyy-mm-dd" type="text" value=""/>
+            <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+             <path d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+             <path d="M13.75 1.5625V3.125" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+             <path d="M6.25 1.5625V3.125" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+             <path d="M3.125 6.875H16.875" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+            </svg>
+           </div>
+           <div class="input-hints row">
+            <button class="input-hints__hint" onclick="setDate('end_date', 0)">
+             Heute
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setDate('end_date', -1)">
+             Gestern
+            </button>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row">
+          <label class="input col">
+           <p class="input__title">
+            Endzeit
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" data-inputmask="'mask': '99:99:99', 'placeholder': 'hh:mm:ss'" id="end_time_2" placeholder="hh:mm:ss" type="text" value="19:43:00"/>
+            <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+             <path d="M10 6.66667V10L12.5 12.5M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#9CA3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+             </path>
+            </svg>
+           </div>
+           <div class="input-hints row">
+            <button class="input-hints__hint" onclick="setValue('end_time_2', now())">
+             Jetzt
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('end_time_2', '00:00:00')">
+             Mitternacht
+            </button>
+            <span class="input-hints__hint input-hints__hint--comma">
+             ,
+            </span>
+            <button class="input-hints__hint" onclick="setValue('end_time_2', '12:00:00')">
+             Mittag
+            </button>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab tab--active" data-tab="0">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate" id="action-button" onclick="calculate(this);">
+          Berechnen
+         </button>
+        </div>
+        <link defer="" href="/assets/css/air-datepicker.min.css" rel="stylesheet"/>
+        <script defer="" id="datepicker_script" src="./assets/js/lib/air-datepicker.js" type="text/javascript">
+        </script>
+        <script defer="" src="./assets/js/calculator/time-duration-calculator/de/calculator.js" type="text/javascript">
+        </script>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab" data-tab="1">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button aria-label="System Wechseln" class="system-switcher system-switcher--format" onclick="toggleSystem(this)">
+          <div class="system-switcher__circle">
+          </div>
+          <svg fill="none" height="14" viewbox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+           <path d="M7.84254 5.61418C7.84254 4.72269 8.56524 4 9.45673 4C10.7869 4 11.5462 5.51856 10.7481 6.58269L7.84254 10.4567H11.4745M3 5.29135L4.08967 4.41961C4.30105 4.2505 4.61418 4.401 4.61418 4.6717V10.4567" stroke="#9CA3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+           </path>
+          </svg>
+          <svg fill="none" height="14" viewbox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+           <path d="M2 5.61418C2 4.72269 2.72269 4 3.61418 4C4.94434 4 5.70362 5.51856 4.90553 6.58269L2 10.4567H5.63191M11.1086 8.51971H7.64964V7.87404L10.4168 4H11.1086V8.51971ZM11.1086 8.51971H12.4922M11.1086 8.51971V10.4567" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+           </path>
+          </svg>
+         </button>
+         <script type="text/javascript">
+          $$(".imperial-system-item, .metric-system-item").forEach(function (element, index) {
+                                                            element.classList.remove("system-item-hidden");
+                                                      });
+                                                      $$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function (element, index) {
+                                                            element.classList.add("system-item-hidden");
+                                                      });
+                                                      if (defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
+         </script>
+         <button class="button button--primary ml-auto" data-action="calculateDate" id="action-button" onclick="calculateDate(this);">
+          Berechnen
+         </button>
+        </div>
+        <link defer="" href="/assets/css/air-datepicker.min.css" rel="stylesheet"/>
+        <script defer="" id="datepicker_script" src="./assets/js/lib/air-datepicker.js" type="text/javascript">
+        </script>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+     <div class="calculator-result col tab tab--active" data-tab="0">
+      <p class="table-cell table-cell--dark table-cell--only-title">
+       ZEIT
+      </p>
+      <p class="table-cell table-cell--only animate" id="result_a">
+       4 Stunden 45 Minuten 13 Sekunden
+      </p>
+     </div>
+     <div class="calculator-result col tab" data-tab="1">
+      <p class="table-cell table-cell--dark table-cell--only-title">
+       ZEIT
+      </p>
+      <p class="table-cell table-cell--only animate" id="result_b">
+       12 Stunden 12 Minuten
+      </p>
+     </div>
+     <div class="calculator-result calculator-result--error col" id="error-box">
+      <div class="row">
+       <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path class="dark:fill-red-200" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+									7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+									12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+									11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" fill-rule="evenodd">
+        </path>
+       </svg>
+       <p class="calculator-error__title">
+        Es gab einen Fehler bei Ihrer Berechnung.
+       </p>
+      </div>
+      <div class="col" id="error-list">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script async="" src="./assets/js/lib/math.min.js">
+  </script>
+  <script async="" src="./assets/js/app.js">
+  </script>
+  <script defer="" src="./assets/js/functions-de.js">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,938 @@
+[
+    {
+        "title": "Altersrechner",
+        "description": "Ein Online-Altersrechner berechnet Alter und Geburtsdatum durch Addition und Subtraktion von Zeit, einschließlich Jahren, Tagen, Stunden, Minuten und Sekunden.",
+        "uri": "/de/altersrechner/",
+        "image": "/age-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "BMI-Rechner",
+        "description": "Der kostenlose Body-Mass-Index-Rechner, auch bekannt als BMI, berechnet und klassifiziert den BMI für Kinder und Erwachsene anhand von Daten der WHO und des CDC.",
+        "uri": "/de/bmi-rechner/",
+        "image": "/bmi-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kalorienrechner",
+        "description": "Dieser Kalorienrechner berechnet, wie viele Kalorien täglich benötigt werden, um das Gewicht zu halten, abzunehmen oder zuzunehmen. Erfahren Sie mehr über die verschiedenen Arten von Kalorien und wie sie sich auf Sie auswirken.",
+        "uri": "/de/kalorienrechner/",
+        "image": "/calorie-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zeitrechner",
+        "description": "Mit diesem kostenlosen Zeitrechner können Sie Zeitwerte in Tagen, Stunden, Minuten und Sekunden addieren und subtrahieren. Hier erfährst du auch etwas über die verschiedenen Konzepte der Zeit.",
+        "uri": "/de/zeitrechner/",
+        "image": "/time-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Fahrzeug-Darlehen-Rechner",
+        "description": "Dieser kostenlose Kreditrechner berechnet die monatliche Rate und die Gesamtkosten eines Autokredits unter Berücksichtigung der Mehrwertsteuer, der Kosten, des Inzahlungnahmewerts und anderer Faktoren.",
+        "uri": "/de/fahrzeug-darlehen-rechner/",
+        "image": "/auto-loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Darlehensrechner",
+        "description": "Der kostenlose Darlehensrechner hilft bei der Ermittlung der Rückzahlungspläne, der Zinskosten und des Tilgungsplans für herkömmliche Tilgungsdarlehen, Darlehen mit Zahlungsaufschub und Anleihen.",
+        "uri": "/de/darlehensrechner/",
+        "image": "/loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Virtuelle Würfel",
+        "description": "Diese Online-Würfel sorgen mithilfe der Zufallszahlengenerierung ein digitales Würfelerlebnis für alle möglichen nützliche Anwendungen.",
+        "uri": "/de/virtuelle-würfel/",
+        "image": "/dice-roller/assets/images/icon-96.png"
+    },
+    {
+        "title": "Stundenrechner",
+        "description": "Dieser Online-Stundenrechner ist ideal zur Berechnung der geleisteten Arbeitsstunden, damit der Arbeitgeber das Gehalt genau bestimmen kann.",
+        "uri": "/de/stundenrechner/",
+        "image": "/hours-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Notenrechner",
+        "description": "Unser Notenrechner zeigt, welchen Durchschnitt man erreichen muss, um die gewünschte Endnote zu erhalten. Dies ist eine echte Zeitersparnis, wenn man nicht weiß, wie man den Notendurchschnitt ausrechnet!",
+        "uri": "/de/notenrechner/",
+        "image": "/grade-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Standard-Rechner",
+        "description": "Dieser Online-Rechner führt grundlegende mathematische Operationen wie Addition, Subtraktion, Division und Multiplikation aus. Sie können den Rechner auch verwenden, um Prozentsätze und Steuern zu ermitteln.",
+        "uri": "/de/standard-rechner/",
+        "image": "/basic-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Bruchrechner",
+        "description": "Probieren Sie diesen kostenlosen Online-Bruchrechner aus. Er kann mathematische Probleme wie Addition, Subtraktion, Multiplikation und Division von Brüchen lösen.",
+        "uri": "/de/bruchrechner/",
+        "image": "/fraction-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "BMR-Rechner",
+        "description": "Dieser kostenlose BMR-Rechner nutzt bekannte Algorithmen zur Berechnung des Grundumsatzes. Erfahre mehr über die Faktoren, die den BMR beeinflussen.",
+        "uri": "/de/bmr-rechner/",
+        "image": "/bmr-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Prozentrechner",
+        "description": "Dieser Prozentrechner berechnet den Prozentsatz einer Zahl, die prozentuale Veränderung und die Menge einer Zahl, deren Prozentsatz angegeben ist.",
+        "uri": "/de/prozentrechner/",
+        "image": "/percentage-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zufallszahlengenerator",
+        "description": "Zufallszahlengeneratoren haben eine Vielzahl von Einsatzmöglichkeiten, die über die Auswahl einer Zahl zur Ermittlung eines Gewinners hinausgehen. Finden Sie heraus, welche Situationen sich ideal für sie eignen und wie sie Probleme lösen.",
+        "uri": "/de/zufallszahlengenerator/",
+        "image": "/random-number-generator/assets/images/icon-96.png"
+    },
+    {
+        "title": "IP-Subnetz-Rechner",
+        "description": "Dieser IP-Subnetz-Rechner macht das Subnetting einfach und liefert vollständige Subnetz-Informationen wie IP-Bereiche, Subnetz-Masken und mehr aus nur grundlegenden Netzwerk-Informationen.",
+        "uri": "/de/ip-subnetz-rechner/",
+        "image": "/subnet-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Körperfett-Rechner",
+        "description": "Dieser kostenlose Körperfett-Rechner verwendet die Methoden der US Navy und des BMI, um den Körperfettanteil zu ermitteln. Er liefert die Informationen zur Gewichtsabnahme, um ein optimales Körperfett zu erreichen.",
+        "uri": "/de/körperfett-rechner/",
+        "image": "/body-fat-percentage-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Quadratmeterzahl-Rechner",
+        "description": "Der Quadratmeter-Rechner ermittelt die Fläche (Quadratmeter) verschiedener Formen und berechnet die damit verbundenen Baukosten. Er kann auch als Raumflächenrechner verwendet werden.",
+        "uri": "/de/quadratmeterzahl-rechner/",
+        "image": "/square-footage-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Prozentualer Anteil einer Zahl Rechner",
+        "description": "Prozentrechner zur Berechnung des Prozentsatzes einer Zahl. Der Rechner kann Prozentsätze ermitteln und Rabatte, Steuern und Trinkgelder berechnen.",
+        "uri": "/de/prozentualer-anteil-einer-zahl-rechner/",
+        "image": "/percentage-calculator-online/assets/images/icon-96.png"
+    },
+    {
+        "title": "GPA-Rechner",
+        "description": "Dieser GPA-Rechner berechnet Ihren GPA und erstellt einen Bericht auf der Grundlage Ihrer Studienleistungen und Noten. Es werden sowohl Nummerische als auch Buchstabennoten akzeptiert.",
+        "uri": "/de/gpa-rechner/",
+        "image": "/gpa-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für Standardabweichung und Fehlermarge",
+        "description": "Bei einem diskreten Datensatz berechnet der Rechner den Mittelwert, die Varianz und die Standardabweichung einer Stichprobe oder einer Grundgesamtheit und zeigt alle Zwischenschritte der Berechnungen an.",
+        "uri": "/de/rechner-für-standardabweichung-und-fehlermarge/",
+        "image": "/standard-deviation-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Mittelwert, Median, Modus-Rechner",
+        "description": "Rechner für Mittelwert, Median und Modus in der Statistik. Verwenden Sie diesen Rechner, um den Mittelwert, Median, Modus, Bereich und den Durchschnitt für jeden Datensatz zu ermitteln.",
+        "uri": "/de/mittelwert-median-modus-rechner/",
+        "image": "/mean-median-mode-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für quadratische Formeln",
+        "description": "Der Rechner für quadratische Formeln löst quadratische Gleichungen mit Hilfe der quadratischen Formel. Die quadratischen Gleichungen werden für reelle und komplexe Wurzeln gelöst.",
+        "uri": "/de/rechner-für-quadratische-formeln/",
+        "image": "/quadratic-formula-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zahlen-zu-Wort Konverter",
+        "description": "Wandeln Sie mit unserem Rechner Zahlen in Worte um, darunter Dezimalzahlen, wissenschaftliche Notation und jeden US-Dollar-Betrag.",
+        "uri": "/de/zahlen-zu-wort-konverter/",
+        "image": "/numbers-to-words-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zahlengenerator",
+        "description": "Der Zufallszahlengenerator liefert eine Reihe von Zufallszahlen nach benutzerdefinierten Optionen wie Bereich, Wiederholung und Sortierung.",
+        "uri": "/de/zahlengenerator/",
+        "image": "/number-generator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Idealgewicht-Rechner",
+        "description": "Auf der Grundlage vieler bekannter Gleichungen ermittelt dieser kostenlose Idealgewichtsrechner das optimale gesunde Körpergewicht auf der Grundlage von Alter, Geschlecht und Größe.",
+        "uri": "/de/idealgewicht-rechner/",
+        "image": "/ideal-weight-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Höhenrechner",
+        "description": "Auf der Grundlage der linearen Regressionsforschung schätzt dieser kostenlose Größenrechner die Erwachsenengröße eines Kindes. Er kann auch zwischen verschiedenen Größeneinheiten umrechnen.",
+        "uri": "/de/höhenrechner/",
+        "image": "/height-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Gehaltsrechner",
+        "description": "Dieser kostenlose Gehaltsrechner wechselt mühelos zwischen stündlicher, zweiwöchentlicher, monatlicher und jährlicher Bezahlung. Feiertage und Urlaubstage müssen besonders berücksichtigt und angepasst werden.",
+        "uri": "/de/gehaltsrechner/",
+        "image": "/salary-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rundungsrechner",
+        "description": "Dieser Rundungsrechner rundet Zahlen auf die nächste ganze Zahl, signifikante Ziffer oder Dezimalstelle. Sie können die Dezimalzahlen auf die nächsten Zehntel, Hundertstel oder Tausendstel runden.",
+        "uri": "/de/rundungsrechner/",
+        "image": "/rounding-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zeit Dauer Rechner",
+        "description": "Mit unserem Zeit-Dauer-Rechner kann man feststellen, wie viel Zeit zwischen zwei Ereignissen vergangen ist – ideal für die Erfassung der Arbeitszeit in Unternehmen.",
+        "uri": "/de/zeit-dauer-rechner/",
+        "image": "/time-duration-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Wissenschaftlicher Rechner",
+        "description": "Dieser wissenschaftliche Rechner ist ein kostenloses Tool, das komplexe mathematische Ausdrücke löst, indem es mehrere eingebaute Funktionen unterstützt.",
+        "uri": "/de/wissenschaftlicher-rechner/",
+        "image": "/scientific-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Amortisationsrechner",
+        "description": "Dieser Tilgungsrechner zeigt Ihnen, wie hoch Ihre monatlichen Zahlungen sein werden und wie sie sich zusammensetzen. Sie können auch eine Grafik und ein Tortendiagramm der Tilgung Ihres Kredits sehen.",
+        "uri": "/de/amortisationsrechner/",
+        "image": "/amortization-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Schwangerschaftsrechner",
+        "description": "Anhand des Fälligkeitsdatums, des Datums der letzten Periode, des Ultraschalldatums, des Empfängnisdatums oder des IVF-Transferdatums erstellt dieser Rechner einen voraussichtlichen Zeitplan für die Schwangerschaft.",
+        "uri": "/de/schwangerschaftsrechner/",
+        "image": "/pregnancy-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "BH-Größenrechner",
+        "description": "Um einen BH zu finden, der richtig sitzt, ist es wichtig, Ihre BH-Größe zu messen. Dieser kostenlose Rechner sagt Ihnen, wie Sie Ihre Brustgröße messen können.",
+        "uri": "/de/bh-größenrechner/",
+        "image": "/bra-size-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "TDEE-Rechner",
+        "description": "Der TDEE-Rechner liefert eine genaue Schätzung Ihres täglichen Kalorienverbrauchs anhand Ihres Grundumsatzes und verschiedener anderer persönlicher Merkmale. ",
+        "uri": "/de/tdee-rechner/",
+        "image": "/tdee-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Einheiten-Umrechner",
+        "description": "Dieses kostenlose Umrechnungstool konvertiert gängige Längen-, Temperatur-, Flächen-, Volumen-, Gewichts- und Zeiteinheiten.",
+        "uri": "/de/einheiten-umrechner/",
+        "image": "/unit-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für gemischte Zahlen",
+        "description": "Rechner für gemischte Zahlen hilft Ihnen, gemischte Zahlen zu addieren, zu subtrahieren, zu multiplizieren und zu dividieren. Rechner für gemischte Brüche wurde für die Durchführung mathematischer Operationen mit gemischten Zahlen entwickelt.",
+        "uri": "/de/rechner-für-gemischte-zahlen/",
+        "image": "/mixed-number-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Dezimal-zu-Bruch-Rechner",
+        "description": "Dezimal-zu-Bruch-Rechner konvertiert Dezimalzahlen in Brüche oder gemischte Zahlen. Der Bruchrechner funktioniert sowohl für abschließende als auch für wiederkehrende Dezimalzahlen.",
+        "uri": "/de/dezimal-zu-bruch-rechner/",
+        "image": "/decimal-to-fraction-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Bruchrechner für die Vereinfachung von Brüchen",
+        "description": "Rechner zur Vereinfachung von Brüchen, um Brüche zu reduzieren. Vereinfachen Sie echte und unechte Brüche und wandeln Sie unechte Brüche in gemischte Zahlen um.",
+        "uri": "/de/bruchrechner-für-die-vereinfachung-von-brüchen/",
+        "image": "/simplifying-fractions-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Investment-Rechner",
+        "description": "Dieser kostenlose Investitionsrechner berücksichtigt bei der Bewertung verschiedener Investitionssituationen die Anfangs- und Endsalden, die Rendite und die Investitionsdauer.",
+        "uri": "/de/investment-rechner/",
+        "image": "/investment-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Einfacher Zinsrechner",
+        "description": "Der einfache Zinsrechner kann für eine schnelle und genaue Berechnung der Zinsen für ein Darlehen oder eine Investition verwendet werden.",
+        "uri": "/de/einfacher-zinsrechner/",
+        "image": "/simple-interest-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Standardabweichung Rechner",
+        "description": "Bei einem diskreten Datensatz berechnet der Rechner den Mittelwert, die Varianz und die Standardabweichung einer Stichprobe oder einer Grundgesamtheit und zeigt alle Zwischenschritte der Berechnungen an.",
+        "uri": "/de/standardabweichung-rechner/",
+        "image": "/standard-deviation/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zinseszins-Rechner",
+        "description": "Zinseszinsrechner, der die Zinsformel (A &#x3D; P(1 + r/n)ⁿᵗ) verwendet, um die Auswirkungen von Zinseszinsen und Geldwachstum im Laufe der Zeit zu verstehen.",
+        "uri": "/de/zinseszins-rechner/",
+        "image": "/compound-interest-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Steigungsrechner",
+        "description": "Der Steigungsrechner ermittelt die Steigung einer Linie mit Hilfe der Steigungsformel. Er kann auch Punktkoordinaten, Neigungswinkel und Länge ermitteln, wenn die Steigung und ein Punkt bekannt sind.",
+        "uri": "/de/steigungsrechner/",
+        "image": "/slope-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Abweichungsrechner",
+        "description": "Bei einem diskreten Datensatz, der eine Stichprobe oder eine Grundgesamtheit darstellt, berechnet der Rechner den Mittelwert, die Varianz und die Standardabweichung und zeigt den an der Berechnung beteiligten Arbeitsablauf an.",
+        "uri": "/de/abweichungsrechner/",
+        "image": "/variance-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "KGV-Rechner",
+        "description": "KGV-Rechner (kleinste gemeinsame Vielfache oder auf eng. „LCM Calculator“) zur Ermittlung der KGV von zwei oder mehr Zahlen. Zeigt Lösungen durch Primfaktorzerlegung, gemeinsame Vielfache, Kuchen/Leiter, GGT (eng. GCF), Division und Venn-Diagramm.",
+        "uri": "/de/kgv-rechner/",
+        "image": "/lcm-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Verhältnisrechner",
+        "description": "Der Verhältnisrechner vereinfacht Verhältnisse, indem er Verhältnisse auf die kleinsten Terme bringt. Findet fehlende Werte in Proportionen und vergleicht zwei gegebene Verhältnisse, um festzustellen, ob sie gleich sind.",
+        "uri": "/de/verhältnisrechner/",
+        "image": "/ratio-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Prozentrechner für prozentuale Erhöhung",
+        "description": "Prozentsteigerungsrechner zur Ermittlung der Steigerung von einer Zahl zur anderen, zur Berechnung der Wachstumsrate und zur Berechnung der prozentualen Preissteigerung.",
+        "uri": "/de/prozentrechner-für-prozentuale-erhöhung/",
+        "image": "/percentage-increase-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für lange Division mit Restwerten",
+        "description": "Der Rechner für lange Divisionen führt lange Divisionen mit Resten durch. Zeigt die Lösung mit Schritten und die Antwort als Quotient und Rest und als gemischte Zahl an.",
+        "uri": "/de/rechner-für-lange-division-mit-restwerten/",
+        "image": "/long-division-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Dreiecksrechner",
+        "description": "Der Dreiecksrechner ermittelt alle Dreiecksmaße - Seitenlängen, Dreieckswinkel, Fläche, Umfang, Halbmesser, Höhen, Mediane, Innenradius und Umkreisradius.",
+        "uri": "/de/dreiecksrechner/",
+        "image": "/triangle-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Promille-Rechner",
+        "description": "Der Promille-Rechner liefert eine genaue Schätzung Ihres aktuellen Blutalkoholspiegels auf der Grundlage mehrerer wichtiger Eingaben und persönlicher Merkmale. ",
+        "uri": "/de/promille-rechner/",
+        "image": "/bac-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kombinationsrechner",
+        "description": "Combinations Calculator berechnet die Anzahl der Möglichkeiten, r Ergebnisse aus n Möglichkeiten auszuwählen, wenn die Reihenfolge der gewählten Elemente in der Teilmenge keine Rolle spielt.",
+        "uri": "/de/kombinationsrechner/",
+        "image": "/combinations-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für prozentuale Veränderungen",
+        "description": "Prozentualer Veränderungsrechner zur Ermittlung der prozentualen Zu- oder Abnahme, zur Berechnung der Veränderungsrate und zur Berechnung der Preisänderung über einen bestimmten Zeitraum.",
+        "uri": "/de/rechner-für-prozentuale-veränderungen/",
+        "image": "/percentage-change-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Volumenberechner",
+        "description": "Der Online-Volumenberechner führt Berechnungen für 11 verschiedene geometrische Formen durch. Das Tool unterstützt verschiedene Maßeinheiten und demonstriert die Lösungsschritte.",
+        "uri": "/de/volumenberechner/",
+        "image": "/volume-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für wissenschaftliche Notation",
+        "description": "Der Rechner für wissenschaftliche Notation konvertiert Zahlen in wissenschaftliche Notation, Standardform, technische Notation, wissenschaftliche E-Notation und Wortform und ermittelt die Größenordnung.",
+        "uri": "/de/rechner-für-wissenschaftliche-notation/",
+        "image": "/scientific-notation-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Datumsrechner",
+        "description": "Kostenloser Rechner zur mühelosen Ermittlung der Differenz zwischen Daten. Einfaches Addieren oder Subtrahieren von Tagen zu einem beliebigen Datum, mit oder ohne Feiertage und Wochenenden.",
+        "uri": "/de/datumsrechner/",
+        "image": "/date-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Geschwindigkeits-Entfernung-Zeit-Rechner",
+        "description": "Der Geschwindigkeits-Distanz-Zeit-Rechner hilft bei der Ermittlung von Geschwindigkeit, Distanz und Zeit mit den Formeln d&#x3D;st, s&#x3D;d/t, t&#x3D;d/s. Einfach zu bedienender und intuitiver Geschwindigkeitsrechner.",
+        "uri": "/de/geschwindigkeits-entfernung-zeit-rechner/",
+        "image": "/speed-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für den größten gemeinsamen Teiler",
+        "description": "Der Rechner für den größten gemeinsamen Teiler ermittelt den GCF einer Reihe von Zahlen und aller Teiler dieser Zahlen. Lösungen mit Schritten zur Ermittlung des GCF werden ebenfalls demonstriert.",
+        "uri": "/de/rechner-für-den-größten-gemeinsamen-teiler/",
+        "image": "/gcf-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Finanzrechner",
+        "description": "Sie können kostenlose Finanzrechner online benutzen, um den zukünftigen Wert (FV), die Zinseszinsperiode (N), den Zinssatz (I/Y), die periodische Zahlung (PMT) und den Gegenwartswert (PV) Ihrer Investitionen zu berechnen.",
+        "uri": "/de/finanzrechner/",
+        "image": "/financial-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zahlungsrechner",
+        "description": "Bestimmen Sie den monatlichen Zahlungsbetrag oder den Zeitraum für die Rückzahlung eines Kredits mit fester Laufzeit oder fester Rate mit unserem kostenlosen Zahlungsrechner.",
+        "uri": "/de/zahlungsrechner/",
+        "image": "/payment-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Bruch-zu-Dezimal-Rechner",
+        "description": "Der Bruch-zu-Dezimal-Rechner ermöglicht es dem Benutzer, Brüche in Dezimalstellen umzuwandeln und dabei die Rundungsoptionen festzulegen.",
+        "uri": "/de/bruch-zu-dezimal-rechner/",
+        "image": "/fraction-to-decimal-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Empfängnisrechner",
+        "description": "Dieser Empfängnisrechner berechnet Ihr Empfängnisdatum auf der Grundlage des Datums Ihrer letzten Periode, Ihres Ultraschalldatums oder Ihres Entbindungstermins.",
+        "uri": "/de/empfängnisrechner/",
+        "image": "/conception-date-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Binärrechner",
+        "description": "Binärrechner für die Umwandlung von Binär- in Dezimalzahlen, von Dezimal- in Binärzahlen, für binäre Operationen - Addition, Subtraktion, Multiplikation, Division.",
+        "uri": "/de/binärrechner/",
+        "image": "/binary-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Makro-Rechner",
+        "description": "Dieser Makronährstoff-Rechner berechnet den Makronährstoffbedarf in Abhängigkeit von Alter, körperlichen Eigenschaften, Trainingszustand und Körpergewicht.",
+        "uri": "/de/makro-rechner/",
+        "image": "/macro-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Umsatzsteuer-Rechner",
+        "description": "Sie können unseren kostenlosen Umsatzsteuerrechner verwenden, um die Gesamtkosten eines Produkts einschließlich aller Gebühren und Steuern zu ermitteln. Informieren Sie sich auch über die Umsatzsteuersätze in verschiedenen US-Bundesstaaten.",
+        "uri": "/de/umsatzsteuer-rechner/",
+        "image": "/sales-tax-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Stunden und Minuten Rechner",
+        "description": "Mit diesem Online Stundenrechner kann man ganz einfach per Knopfdruck Stunden und Minuten zählen.",
+        "uri": "/de/stunden-und-minuten-rechner/",
+        "image": "/hours-and-minutes-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Flächenrechner",
+        "description": "Flächenrechner zur Ermittlung des Flächeninhalts der folgenden Formen - Rechteck, Dreieck, Kreis, Sektor, Ellipse, Trapez und Parallelogramm.",
+        "uri": "/de/flächenrechner/",
+        "image": "/area-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zinsrechner",
+        "description": "Mit diesem kostenlosen Zinsrechner können Sie Akkumulationspläne, Endsalden und aufgelaufene Zinsen berechnen.",
+        "uri": "/de/zinsrechner/",
+        "image": "/interest-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Durchschnittsberechnung",
+        "description": "Der Durchschnittsrechner hilft, den Durchschnitt oder das arithmetische Mittel eines Datensatzes zu finden. Er zeigt auch die Berechnungsschritte und andere wichtige Statistiken an.",
+        "uri": "/de/durchschnittsberechnung/",
+        "image": "/average-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Beton-Rechner",
+        "description": "Schätzen Sie die richtige Menge an Beton für Heimwerkerprojekte. Mit dem Betonrechner können Sie berechnen, wie viele Säcke Betonmischung Sie für Auffahrtsplatten, Terrassenfundamente, Treppen und Heimwerkerprojekte kaufen müssen.",
+        "uri": "/de/beton-rechner/",
+        "image": "/concrete-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Römische Zahlen Konverter",
+        "description": "Dieser Römische Zahlen Konverter wandelt römische Zahlen in arabische Zahlen um und konvertiert arabische Zahlen in römische Zahlen, von 1 bis 3.999.999.",
+        "uri": "/de/römische-zahlen-konverter/",
+        "image": "/roman-numeral-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kraftstoffkosten-Rechner",
+        "description": "Dieser kostenlose Benzinkostenrechner berechnet die Treibstoffkosten einer Reise anhand verschiedener Maßeinheiten in Abhängigkeit von der Treibstoffeffizienz, der Entfernung und dem Benzinpreis.",
+        "uri": "/de/kraftstoffkosten-rechner/",
+        "image": "/gas-cost-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Faktorisierungsrechner",
+        "description": "Der Faktorisierungsrechner findet alle Faktoren und Faktorpaare von positiven und negativen Zahlen. Der Faktor-Rechner findet Teiler von ganzen Zahlen, die nicht Null sind.",
+        "uri": "/de/faktorisierungsrechner/",
+        "image": "/factoring-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zähler für signifikante Zahlen",
+        "description": "Signifikante Zahlen sind in verschiedenen Situationen wichtig. Hier bestimmen wir die Regeln der Signifikanzzahlen und wie wir sie in der realen Welt anwenden können.",
+        "uri": "/de/zähler-für-signifikante-zahlen/",
+        "image": "/sig-fig-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für Mittelwert, Median, Modus und Bereich",
+        "description": "Mit dem Rechner für Mittelwert, Median, Modus und Bereich können Sie diese Statistiken schnell und bequem ermitteln. In diesem Artikel erfahren Sie, wie Sie die Ergebnisse dieses Rechners nutzen können.",
+        "uri": "/de/rechner-für-mittelwert-median-modus-und-bereich/",
+        "image": "/mean-median-mode-range-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Z-Score-Rechner",
+        "description": "Der Z-Score-Rechner hilft, den z-Score einer Normalverteilung zu ermitteln, zwischen z-Score und Wahrscheinlichkeit umzurechnen und die Wahrscheinlichkeit zwischen 2 z-Scores zu ermitteln.",
+        "uri": "/de/z-score-rechner/",
+        "image": "/z-score-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Permutations-Rechner",
+        "description": "Der Permutationsrechner hilft dabei, die Anzahl der Möglichkeiten zu bestimmen, eine geordnete Teilmenge von r Elementen aus einer Menge von n Elementen zu erhalten.",
+        "uri": "/de/permutations-rechner/",
+        "image": "/permutation-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Prozentualer Differenzrechner",
+        "description": "Prozentualer Differenzrechner zur Ermittlung der prozentualen Differenz zwischen zwei Zahlen. Der Rechner wird verwendet, um zwei positive Werte zu vergleichen.",
+        "uri": "/de/prozentualer-differenzrechner/",
+        "image": "/percentage-difference-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Körpertyp-Rechner",
+        "description": "Entdecke deine Körperform mit unserem einfachen und genauen Körpertyp-Rechner. Lerne mit unserem hilfreichen Leitfaden, wie du deinen einzigartigen Proportionen schmeicheln kannst.",
+        "uri": "/de/körpertyp-rechner/",
+        "image": "/body-type-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Wahrscheinlichkeitsrechner",
+        "description": "Der Wahrscheinlichkeitsrechner kann die Wahrscheinlichkeit von zwei Ereignissen und die Normalverteilungswahrscheinlichkeit ermitteln. Erfahren Sie mehr über die Gesetze und Berechnungen der Wahrscheinlichkeit.",
+        "uri": "/de/wahrscheinlichkeitsrechner/",
+        "image": "/probability-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Quartil-Rechner",
+        "description": "Der Quartilsrechner hilft bei der Ermittlung des ersten (Q1), zweiten (Q2) und dritten (Q3) Quartils, des Interquartilsbereichs, der Minimal- und Maximalwerte und des Bereichs eines Datensatzes.",
+        "uri": "/de/quartil-rechner/",
+        "image": "/quartile-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für rechtwinklige Dreiecke",
+        "description": "Der Rechner für rechtwinklige Dreiecke findet fehlende Dreiecksmaße. Er berechnet Seitenlängen, Winkel, Umfang, Fläche, Höhe-zu-Hypotenuse, Innenradius und Umfangsradius.",
+        "uri": "/de/rechner-für-rechtwinklige-dreiecke/",
+        "image": "/right-triangle-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Tipp-Rechner",
+        "description": "Kostenloser Trinkgeldrechner, mit dem man weiß, wie viel Trinkgeld man geben sollte, wenn man Dienstleistungen von verschiedenen Unternehmen und Arbeitnehmern erhält. Dieses Tool berechnet auch, wie man eine Rechnung und das Trinkgeld zwischen einer Gruppe von Personen aufteilt.",
+        "uri": "/de/tipp-rechner/",
+        "image": "/tip-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zinssatz-Rechner",
+        "description": "Kostenloser Online-Rechner zur Schätzung des Zinssatzes und der Gesamtzinskosten eines Tilgungsdarlehens mit festem monatlichen Rückzahlungsbetrag",
+        "uri": "/de/zinssatz-rechner/",
+        "image": "/interest-rate-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kalorienverbrauchs-Rechner",
+        "description": "Verfolge deinen Kalorienverbrauch mit unserem kostenlosen Kalorienrechner. Schätze schnell deinen Kalorienverbrauch anhand von Aktivität und Dauer.",
+        "uri": "/de/kalorienverbrauchs-rechner/",
+        "image": "/calories-burned-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für gemischte Zahlen zu unechtem Bruch",
+        "description": "Umrechner für gemischte Zahlen in unechte Brüche zum Umwandeln gemischter Zahlen, die aus einer ganzen Zahl und einem echten Bruch bestehen, in unechte Brüche.",
+        "uri": "/de/rechner-für-gemischte-zahlen-zu-unechtem-bruch/",
+        "image": "/mixed-fraction-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Höhenumrechner",
+        "description": "Mit dem Tool zum Umrechnen von Körpergröße können Sie ganz einfach Körpergröße in cm umrechnen. Konvertieren Sie zwischen US-Einheiten und metrischen Einheiten.",
+        "uri": "/de/höhenumrechner/",
+        "image": "/height-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Arbeitsstunden-Rechner",
+        "description": "Der Arbeitszeitrechner hilft Angestellten, die Anzahl der wöchentlich geleisteten Arbeitsstunden genau zu berechnen, mit Einstellungen zur Berücksichtigung von Pausen, stündlicher Rundung und Militärzeit.",
+        "uri": "/de/arbeitsstunden-rechner/",
+        "image": "/work-hours-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Stichprobenumfangsberechnung",
+        "description": "Mit diesem Stichprobenumfangsrechner können Sie den Mindeststichprobenumfang und die Fehlermarge berechnen. Erfahren Sie mehr über den Stichprobenumfang, die Fehlerspanne und das Konfidenzintervall.",
+        "uri": "/de/stichprobenumfangsberechnung/",
+        "image": "/sample-size-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für die Umrechnung von Brüche in Prozentwerte",
+        "description": "Der Bruch-zu-Prozent-Rechner wandelt echte und unechte Brüche in Prozentwerte um. Der Rechner verwendet den Bruch-Dezimal-Prozent-Algorithmus.",
+        "uri": "/de/rechner-für-die-umrechnung-von-brüche-in-prozentwerte/",
+        "image": "/fraction-to-percent-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für den kleinsten gemeinsamen Nenner",
+        "description": "Der Rechner für den kleinsten gemeinsamen Nenner (eng. Least Common Denominator Calculator, eng. LCD-Rechner) ermittelt den kleinsten gemeinsamen Nenner von ganzen Zahlen, gemischten Zahlen und Brüchen.",
+        "uri": "/de/rechner-für-den-kleinsten-gemeinsamen-nenner/",
+        "image": "/lcd-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Eiweiß-Rechner",
+        "description": "Auf der Grundlage bestimmter Statistiken und Empfehlungen sagt dieser kostenlose Eiweißrechner voraus, wie viel Eiweiß eine Person pro Tag braucht, um gesund zu sein.",
+        "uri": "/de/eiweiß-rechner/",
+        "image": "/protein-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Modulo-Rechner",
+        "description": "Der Modulo-Rechner findet den Rest der Division zweier rationaler/irrationaler positiver/negativer Zahlen. Sie können auch herausfinden, wie Sie den Modulo manuell ermitteln können.",
+        "uri": "/de/modulo-rechner/",
+        "image": "/modulo-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Dichte-Rechner",
+        "description": "Dieser Volumenrechner verwendet eine Dichteformel ρ &#x3D; m/V, um die Dichten verschiedener Stoffe und Objekte zu ermitteln. Er berechnet den dritten Wert für zwei gegebene Werte - Dichte, Masse oder Volumen einer Substanz.",
+        "uri": "/de/dichte-rechner/",
+        "image": "/density-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Mittelwert-Rechner",
+        "description": "Der Mittelwert-Rechner oder Durchschnitts-Rechner hilft Ihnen, den Durchschnittswert eines Datensatzes zu ermitteln. Er teilt die Summe der Datenwerte durch die Anzahl der Datenwerte, um den Durchschnitt (Mittelwert) zu ermitteln.",
+        "uri": "/de/mittelwert-rechner/",
+        "image": "/mean-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kreisrechner",
+        "description": "Der Kreisrechner ermittelt fehlende Merkmale eines Kreises. Er enthält einen Radius-Rechner, einen Umfangs-Rechner, einen Durchmesser-Rechner und einen Kreisflächen-Rechner.",
+        "uri": "/de/kreisrechner/",
+        "image": "/circle-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Hypotheken-Rechner",
+        "description": "Berechnen Sie mit unserem kostenlosen Hypothekenrechner Ihre monatliche Rate, die Gesamtkosten für die Immobilie und den Tilgungszeitraum mit Optionen für Steuern, PMI, HOA und vorzeitige Zahlungen.",
+        "uri": "/de/hypotheken-rechner/",
+        "image": "/mortgage-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Persönlicher Darlehens-Rechner",
+        "description": "Nachdem die Gebühren, Versicherungen und Zinsen eines Privatkredits berücksichtigt wurden, berechnet dieser kostenlose Rechner für Privatkredite die monatliche Rate, die tatsächlichen Kreditkosten und den effektiven Jahreszins (APR).",
+        "uri": "/de/persönlicher-darlehens-rechner/",
+        "image": "/personal-loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Gleichwertige Brüche Rechner",
+        "description": "Gleichwertiger oder äquivalenter Bruchrechner zur Berechnung äquivalenter Brüche von positiven und negativen gemischten Zahlen, ganzen Zahlen, echten und unechten Brüchen.",
+        "uri": "/de/gleichwertige-brüche-rechner/",
+        "image": "/equivalent-fractions-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für wissenschaftliche Schreibweise",
+        "description": "Der Rechner für wissenschaftliche Notation konvertiert Zahlen in wissenschaftliche Notation, elektronische Notation, technische Notation und addiert, subtrahiert, multipliziert oder dividiert sie.",
+        "uri": "/de/rechner-für-wissenschaftliche-schreibweise/",
+        "image": "/scientific-notation-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zukunftswert-Rechner",
+        "description": "Kostenloser Zukunftswert-Rechner, der die Formel FV &#x3D; PV (1 + I/Y)ⁿ verwendet, um den Zukunftswert einer Investition mit periodischen Einzahlungen zu ermitteln.",
+        "uri": "/de/zukunftswert-rechner/",
+        "image": "/future-value-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für die Addition von Brüchen",
+        "description": "Rechner für das Addieren von Brüchen zum Addieren und Subtrahieren von echten und unechten Brüchen. Der Rechner führt Operationen mit bis zu neun vorgegebenen Brüchen durch.",
+        "uri": "/de/rechner-für-die-addition-von-brüchen/",
+        "image": "/adding-fractions-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für die Umrechnung von Dezimal in Prozent",
+        "description": "Der Dezimal-zu-Prozent-Rechner wandelt Dezimalzahlen in Prozentwerte und ganze Zahlen in Prozentwerte um, indem er sie mit 100% multipliziert oder das Dezimalkomma verschiebt.",
+        "uri": "/de/rechner-für-die-umrechnung-von-dezimal-in-prozent/",
+        "image": "/decimal-to-percent-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Periodenrechner",
+        "description": "Mit unserem kostenlosen Periodenrechner kannst du mehr über deinen Menstruationszyklus herausfinden und genau vorhersagen, wann deine nächste Regelblutung kommen wird.",
+        "uri": "/de/periodenrechner/",
+        "image": "/period-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Meter zu Fuß Umrechner",
+        "description": "Rechnen Sie Meter in Fuß und Zoll um, indem Sie einen Meter zu Fuß-Rechner benutzen. Wählen Sie Dezimalstellen oder Bruchteile eines Zolls zum Runden und Berechnen.",
+        "uri": "/de/meter-zu-fuß-umrechner/",
+        "image": "/meters-to-feet-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Hypothekentilgungsrechner",
+        "description": "Der kostenlose Hypothekenrückzahlungsrechner hilft bei der Einschätzung der Möglichkeiten, eine Hypothek schneller abzubezahlen, z. B. durch zusätzliche Zahlungen, zweiwöchentliche Zahlungen oder die vollständige Abzahlung des Kredits.",
+        "uri": "/de/hypothekentilgungsrechner/",
+        "image": "/mortgage-payment-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Hex-Rechner",
+        "description": "Der Online-Hex-Rechner führt hexadezimale Rechenoperationen und Umrechnungen durch. Hex-Addition, Hex-Subtraktion, Hex-Multiplikation, Hex-Division wurden schnell &amp; einfach",
+        "uri": "/de/hex-rechner/",
+        "image": "/hex-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Tankvolumen-Rechner",
+        "description": "Der Tankvolumen-Rechner ermittelt das Gesamtvolumen verschiedener Tankformen in Gallonen, Litern und Kubikmetern. Er berechnet das Flüssigkeitsvolumen von teilweise gefüllten Tanks.",
+        "uri": "/de/tankvolumen-rechner/",
+        "image": "/tank-volume-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Standard-Formular-Rechner",
+        "description": "Der Standardform-Rechner wandelt jede Zahl in Standardform oder wissenschaftliche Notation um. Er akzeptiert die Zahlennotation, die e-Notation und die wissenschaftliche Notation.",
+        "uri": "/de/standard-formular-rechner/",
+        "image": "/standard-form-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Mathematischer Gleichungslöser",
+        "description": "Der PEMDAS-Rechner löst mathematische Ausdrücke mit der Reihenfolge der Operationen - Klammern, Exponenten, Multiplikation, Division, Addition und Subtraktion.",
+        "uri": "/de/mathematischer-gleichungslöser/",
+        "image": "/math-equation-solver/assets/images/icon-96.png"
+    },
+    {
+        "title": "APR-Rechner",
+        "description": "APR-Rechner, der die Formel APR &#x3D; ((I + F) / P) / N verwendet, kann Kreditnehmern helfen, die wahren Kosten von Krediten zu verstehen und zu wissen, wie man den effektiven Jahreszins für einen Kredit berechnet.",
+        "uri": "/de/apr-rechner/",
+        "image": "/apr-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für kinetische Energie",
+        "description": "Der Rechner für kinetische Energie ermittelt auf einfache Weise kinetische Energie, Masse oder Geschwindigkeit mit der Formel KE &#x3D; 1/2 mv². Einfach zu benutzender KE-Rechner.",
+        "uri": "/de/rechner-für-kinetische-energie/",
+        "image": "/kinetic-energy-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kubikwurzel-Rechner",
+        "description": "Der Kubikwurzelrechner findet die reale Kubikwurzel von positiven und negativen Zahlen sowie die imaginären Kubikwurzeln der angegebenen Zahl.",
+        "uri": "/de/kubikwurzel-rechner/",
+        "image": "/cube-root-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Return on Investment (ROI)-Rechner",
+        "description": "Kostenloser ROI-Rechner, der Anlegern bei der Berechnung von Investitionsrendite, Investitionsgewinn und annualisierten ROI-Raten hilft.",
+        "uri": "/de/return-on-investment-roi-rechner/",
+        "image": "/roi-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kubikyards-Rechner",
+        "description": "Kubikmeter-Rechner berechnet Kubikmeter, Fuß, Meter für Landschaftsmaterialien. Geben Sie Messungen in Yards und Fuß ein und erhalten Sie Volumenumrechnungen.",
+        "uri": "/de/kubikyards-rechner/",
+        "image": "/cubic-yards-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für arithmetische und geometrische Reihenfolgen",
+        "description": "Rechner für Zahlenfolgen zur Ermittlung des n-ten Terms von arithmetischen, geometrischen und Fibonacci-Folgen. Der Rechner ermittelt auch die Summe der Terme einer Folge.",
+        "uri": "/de/rechner-für-arithmetische-und-geometrische-reihenfolgen/",
+        "image": "/arithmetic-geometric-sequence-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Quadratwurzel-Rechner",
+        "description": "Der Quadratwurzelrechner findet die Quadratwurzeln positiver und negativer Zahlen, identifiziert die Hauptwurzel und bestimmt, ob die Zahl ein perfektes Quadrat ist.",
+        "uri": "/de/quadratwurzel-rechner/",
+        "image": "/square-root-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "2D Entfernungsberechnung",
+        "description": "Der 2D-Abstandsrechner ermittelt den Abstand zwischen zwei Punkten in einer Ebene auf der Grundlage ihrer Koordinaten. Der Rechner verwendet die euklidische Abstandsformel.",
+        "uri": "/de/2d-entfernungsberechnung/",
+        "image": "/distance-formula-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Primfaktorzerlegung-Rechner",
+        "description": "Der Primfaktorzerlegungsrechner findet die Primfaktoren einer Zahl. Der Rechner demonstriert den Primfaktorenbaum und alle Faktoren der Zahl.",
+        "uri": "/de/primfaktorzerlegung-rechner/",
+        "image": "/prime-factorization-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für Geschäftskredite",
+        "description": "Kostenloser Rechner für Geschäftskredite, mit dem Unternehmer die monatlichen Zahlungen abschätzen, Kreditzinsen berechnen und die Gesamtkosten des Geschäftskredits verstehen können.",
+        "uri": "/de/rechner-für-geschäftskredite/",
+        "image": "/business-loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Quoten-Wahrscheinlichkeits-Rechner",
+        "description": "Der Quoten-Wahrscheinlichkeitsrechner kann die Gewinn- und Verlustquoten in die Gewinn- und Verlustwahrscheinlichkeit umrechnen. Lernen Sie die Unterschiede zwischen Quoten und Wahrscheinlichkeiten kennen.",
+        "uri": "/de/quoten-wahrscheinlichkeits-rechner/",
+        "image": "/odds-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Margenrechner",
+        "description": "Kostenloser Margenrechner, der die Margenformel ((R - C) / R) × 100 verwendet, um Unternehmen dabei zu helfen, sowohl die Marge als auch den prozentualen Aufschlag auf der Grundlage von Kosten und Verkaufspreis schnell zu berechnen.",
+        "uri": "/de/margenrechner/",
+        "image": "/margin-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für die Geschwindigkeit",
+        "description": "Dieser kostenlose Online-Temporechner berechnet die Zeit, die Entfernung und das Tempo bei der Eingabe von zwei variablen Werten",
+        "uri": "/de/rechner-für-die-geschwindigkeit/",
+        "image": "/pace-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Ovulationsrechner",
+        "description": "Sie sind sich nicht sicher, wann Sie Ihren Eisprung haben? Verwenden Sie diesen kostenlosen Ovulationsrechner, um Ihre fruchtbarsten Tage abzuschätzen und zu wissen, wann Sie am wahrscheinlichsten schwanger werden.",
+        "uri": "/de/ovulationsrechner/",
+        "image": "/ovulation-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Integer-Rechner",
+        "description": "Der Rechner zum Addieren und Subtrahieren von ganzen Zahlen ermöglicht das Addieren und Subtrahieren von positiven und negativen ganzen Zahlen und Dezimalzahlen und demonstriert den Lösungsalgorithmus.",
+        "uri": "/de/integer-rechner/",
+        "image": "/integer-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Army-Körperfettrechner",
+        "description": "Der Army-Körperfettrechner bietet Benutzern eine genaue Schätzung ihres Körperfettanteils unter Verwendung der Standards der U.S. Army.",
+        "uri": "/de/army-körperfettrechner/",
+        "image": "/army-body-fat-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "401K-Rechner",
+        "description": "Kostenloser 401k-Rentenrechner, der die 401k-Wachstumsformel verwendet, kann Benutzern helfen, für die Rente zu planen und das Wachstum von 401k zu berechnen.",
+        "uri": "/de/401k-rechner/",
+        "image": "/401k-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Autokredit-Rechner",
+        "description": "Der kostenlose Autokredit-Rechner verwendet die Formel PMT &#x3D; (R × A) / (1 - (1+R)⁻ⁿ), um Käufern dabei zu helfen, Autozahlungen zu berechnen, Zinssätze zu analysieren und die Gesamtkosten eines Autokredits zu verstehen.",
+        "uri": "/de/autokredit-rechner/",
+        "image": "/car-loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Datumsumrechner für römische Ziffern",
+        "description": "Der Datumsumrechner für römische Ziffern kann Daten von arabischen in römische Ziffern und zurück konvertieren. Erhalten Sie ein beliebiges Datum in römischen oder arabischen Ziffern.",
+        "uri": "/de/datumsumrechner-für-römische-ziffern/",
+        "image": "/roman-numeral-date-converter/assets/images/icon-96.png"
+    },
+    {
+        "title": "Mietobjekt-Rechner",
+        "description": "Kostenloser Rechner für Mietobjekte, der die Formel NPV &#x3D; [CF^1 / (1 + R^1)] - PC verwendet. Ein ROI-Rechner für Mietobjekte, der bei der Analyse und dem Vergleich von Mietobjekten hilft.",
+        "uri": "/de/mietobjekt-rechner/",
+        "image": "/rental-property-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zeit-zu-Dezimal-Rechner",
+        "description": "Der Zeit-zu-Dezimal-Rechner kann das Zeitformat von hh:mm:ss in dezimale Stunden, Minuten und Sekunden umwandeln. Lernen Sie, Stunden in die Dezimalform umzurechnen.",
+        "uri": "/de/zeit-zu-dezimal-rechner/",
+        "image": "/time-to-decimal-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Signifikanzzahlen-Rechner",
+        "description": "Der Significant Figure Rounder rundet Zahlen auf die gewünschte Anzahl signifikanter Zahlen. Er arbeitet mit einem Standard-Zahlenformat, E-Notation und wissenschaftlicher Notation.",
+        "uri": "/de/signifikanzzahlen-rechner/",
+        "image": "/significant-figures-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für die Gewichtszunahme in der Schwangerschaft",
+        "description": "Dieser Rechner für die Gewichtszunahme in der Schwangerschaft gibt einen empfohlenen Plan für die wöchentliche Gewichtszunahme auf der Grundlage des Körpergewichts der Benutzerin vor der Schwangerschaft und der von der IOM angegebenen Parameter.",
+        "uri": "/de/rechner-für-die-gewichtszunahme-in-der-schwangerschaft/",
+        "image": "/pregnancy-weight-gain-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Fuß- und Zoll-Rechner",
+        "description": "Ein Fuß- und Zoll-Rechner hilft bei mathematischen Problemen. Addieren Sie Fuß und Zoll, subtrahieren, multiplizieren oder dividieren Sie sie mit Leichtigkeit.",
+        "uri": "/de/fuß-und-zoll-rechner/",
+        "image": "/feet-and-inches-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Geschwindigkeitsberechnung",
+        "description": "Kostenloser Online-Geschwindigkeitsrechner zur Berechnung von v, u, a oder t mit Hilfe der Geschwindigkeitsformel. Berechnen Sie die Endgeschwindigkeit (v) anhand der Gleichung v &#x3D; u + at.",
+        "uri": "/de/geschwindigkeitsberechnung/",
+        "image": "/velocity-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kraft-Rechner",
+        "description": "Der einfach zu bedienende Kraftrechner hilft, die unbekannte Variable in der Kraftgleichung (F &#x3D; ma) zu bestimmen. Kraft &#x3D; Masse × Beschleunigung.",
+        "uri": "/de/kraft-rechner/",
+        "image": "/force-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Perzentil-Rechner",
+        "description": "Der Perzentil-Rechner hilft bei der Ermittlung von Perzentilwerten für einen Datensatz. Verwenden Sie diesen Perzentil-Rechner, um eine Tabelle zu erstellen, die jedes 5. Perzentil auflistet",
+        "uri": "/de/perzentil-rechner/",
+        "image": "/percentile-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Entfernungsberechnung",
+        "description": "Diese Rechner ermitteln den Abstand zwischen zwei Punkten auf einer 2D-Ebene, im 3D-Raum sowie entlang der Erdoberfläche mit Hilfe der Lambertschen Formeln.",
+        "uri": "/de/entfernungsberechnung/",
+        "image": "/distance-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Tagerechner",
+        "description": "Mit dem kostenlosen Tagerechner können Sie leicht herausfinden, wie viele Tage seit einem bestimmten Datum vergangen sind. Dieser Tagerechner kann Wochenenden und Feiertage einschließen oder ausschließen.",
+        "uri": "/de/tagerechner/",
+        "image": "/days-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Prozent-zu-Bruch-Rechner",
+        "description": "Der Prozent-zu-Bruch-Rechner wandelt die angegebenen Prozentwerte in Brüche um. Wenn der Prozentwert 100 übersteigt, führt der Rechner eine Umrechnung von Prozent in gemischte Zahlen durch.",
+        "uri": "/de/prozent-zu-bruch-rechner/",
+        "image": "/percent-to-fraction-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für den Satz des Pythagoras",
+        "description": "Der Rechner für den Satz des Pythagoras ermittelt die unbekannte Seitenlänge eines rechtwinkligen Dreiecks. Er berechnet auch Winkel, Fläche, Umfang und Höhe zur Hypotenuse.",
+        "uri": "/de/rechner-für-den-satz-des-pythagoras/",
+        "image": "/pythagorean-theorem-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Ruhestands-Rechner",
+        "description": "Ruhestandsrechner, der die Formel FV &#x3D; PV (1 + R)ⁿ verwendet, um den Benutzern bei der Planung des Ruhestands und der Berechnung des Ruhestandseinkommens zu helfen.",
+        "uri": "/de/ruhestands-rechner/",
+        "image": "/retirement-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Prozentualer Rückgang Rechner",
+        "description": "Der Rechner für die prozentuale Abnahme ermittelt die prozentuale Abnahme vom Ausgangswert zum Endwert und stellt fest, ob es sich bei der Änderung um eine Zunahme oder eine Abnahme handelt.",
+        "uri": "/de/prozentualer-rückgang-rechner/",
+        "image": "/percentage-decrease-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Barwert-Rechner",
+        "description": "Entschlüsseln Sie den wahren Wert Ihrer Investitionen mit unserem benutzerfreundlichen Barwert-Rechner. Treffen Sie jetzt klügere finanzielle Entscheidungen!",
+        "uri": "/de/barwert-rechner/",
+        "image": "/present-value-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Zylinder-Volumen-Rechner",
+        "description": "Dieser Rechner kann als Zylinder-Volumen-Rechner und Flächenrechner verwendet werden. Er ermittelt auch die Seiten-, Grund- und Deckfläche.",
+        "uri": "/de/zylinder-volumen-rechner/",
+        "image": "/cylinder-volume-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Proportionsberechnung",
+        "description": "Der Verhältnisrechner findet eine fehlende Verhältniszahl auf der Grundlage des gegebenen Verhältnisses. Der Rechner kann auch Verhältnisse skalieren, indem er sie vergrößert oder verkleinert.",
+        "uri": "/de/proportionsberechnung/",
+        "image": "/proportion-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für quadratische Gleichungen",
+        "description": "Der Rechner für quadratische Gleichungen ist ein kostenloses Tool, das eine detaillierte Lösung für quadratische Gleichungen liefert, indem es die Werte von a, b und c angibt.",
+        "uri": "/de/rechner-für-quadratische-gleichungen/",
+        "image": "/quadratic-equation-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Refinanzierungs-Rechner",
+        "description": "Dieser kostenlose und umfassende Refinanzierungsrechner hilft Ihnen bei der Berechnung der monatlichen Zahlungen, der Amortisation, des Gesamtkaufpreises und mehr.",
+        "uri": "/de/refinanzierungs-rechner/",
+        "image": "/refinance-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Dachdecker-Rechner",
+        "description": "Benutzen Sie einen kostenlosen Quadratmeter-Rechner, um die Größe Ihres Daches zu bestimmen und die richtige Menge an Dachschindeln für Ihre Arbeit zu finden. Schätzen Sie Kosten, Zeit und Arbeit für Heimwerker oder Bauunternehmer.",
+        "uri": "/de/dachdecker-rechner/",
+        "image": "/roofing-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "FHA-Darlehen-Rechner",
+        "description": "Mit dem FHA-Darlehensrechner können Sie die Zahlen eingeben und die monatlichen Zahlungen, die Zinsen und den über die Zeit gezahlten Gesamtbetrag berechnen.",
+        "uri": "/de/fha-darlehen-rechner/",
+        "image": "/fha-loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Annuitätenrechner",
+        "description": "Rentenrechner, der die Formel FV &#x3D; PV (1 + R)ⁿ verwendet, um Anlegern zu helfen, das Rentenwachstum im Laufe der Zeit zu berechnen und Rentenentscheidungen zu treffen.",
+        "uri": "/de/annuitätenrechner/",
+        "image": "/annuity-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Einfacher Investment-Rechner",
+        "description": "Kostenloser Investitionsrechner, der die Formel PV (1 + R)ⁿ verwendet, um Investoren dabei zu helfen, zu verstehen, wie man Investitionsrenditen berechnet und Investitionen analysiert.",
+        "uri": "/de/einfacher-investment-rechner/",
+        "image": "/simple-investment-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Kreditkarten-Rechner",
+        "description": "Kostenloser Online-Kreditkartenrechner, der den Nutzern wertvolle Informationen liefert, u. a. darüber, wie sie ihre Schulden minimieren können, und einen Kreditratenrechner mit empfohlenen Zahlungsbeträgen.",
+        "uri": "/de/kreditkarten-rechner/",
+        "image": "/credit-card-payoff-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Geburtsterminrechner",
+        "description": "Dieser Online-Geburtsterminrechner hilft werdenden Müttern bei der Berechnung ihres Geburtstermins auf der Grundlage ihrer letzten Regelblutung oder des Datums der Empfängnis.",
+        "uri": "/de/geburtsterminrechner/",
+        "image": "/due-date-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "Rechner für Wohnungskredite",
+        "description": "Dieser einfache Hypothekenrechner hilft Ihnen, die monatlichen Hypothekenzahlungen zu berechnen. Der Hypothekenrechner eignet sich sowohl für festverzinsliche als auch für variabel verzinsliche Hypothekendarlehen.",
+        "uri": "/de/rechner-für-wohnungskredite/",
+        "image": "/home-loan-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "EMI-Rechner",
+        "description": "Verwalten Sie Kredite effektiv mit einem EMI-Rechner. Berechnen Sie EMIs, Gesamtzinsen und bewerten Sie die Erschwinglichkeit. Treffen Sie fundierte Entscheidungen und sparen Sie Geld.",
+        "uri": "/de/emi-rechner/",
+        "image": "/emi-calculator/assets/images/icon-96.png"
+    },
+    {
+        "title": "SIP-Rechner",
+        "description": "Berechnen Sie SIP-Renditen, Wachstum und Vermögensaufbau mit unserem SIP-Rechner. Treffen Sie fundierte Investitionsentscheidungen.",
+        "uri": "/de/sip-rechner/",
+        "image": "/sip-calculator/assets/images/icon-96.png"
+    }
+]

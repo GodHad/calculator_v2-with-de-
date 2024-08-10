@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+ <head>
+  <title>
+   Finanzrechner
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <meta content="You can use free financial calculators online to estimate your investments’ future value (FV), compounding periods (N), interest rate (I/Y), periodic payment (PMT), and present value (PV)." name="description"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-regular.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-500.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-600.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="" href="./assets/fonts/inter-v12-latin-800.woff2" rel="preload" type="font/woff2"/>
+  <link href="./assets/css/main.min.css" rel="stylesheet"/>
+  <script type="text/javascript">
+   window._ = document.getElementById.bind(document);
+                window.$ = document.querySelector.bind(document);
+                window.$$ = document.querySelectorAll.bind(document);
+                window.defaultSystem = "imperial";
+                localStorage.setItem("theme", "light");
+  </script>
+  <script defer="" src="./assets/js/all-calculators.js">
+  </script>
+ </head>
+ <body style="background-color: transparent !important; min-height: 0 !important">
+  <div class="modal-window" style="opacity: 0; pointer-events: none;">
+   <div class="modal-share">
+    <div class="modal-share__container">
+     <div class="modal-share__header">
+      <label class="modal-share__button modal-share__button--active" for="share-widget">
+       Widget
+      </label>
+      <label class="modal-share__button" for="share-url">
+       Link
+      </label>
+      <label class="modal-share__button" for="share-text">
+       Text
+      </label>
+      <label class="modal-share__button" for="share-html">
+       HTML
+      </label>
+     </div>
+     <div class="modal-share__content modal-share__content--active">
+      <textarea class="modal-share__textarea" id="share-widget">
+<iframe class="financial-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://www.size.ly/embed/financial-calculator/de" style="height:200px;" width="100%"></iframe>
+<br/><center><a href="https://www.size.ly/financial-calculator/de" style="text-decoration:none;" target="_blank"><font font size="1" color="#333">https://www.size.ly/financial-calculator/de</font></a></center></textarea>
+      <div onclick="window.open('https://www.size.ly/embed/financial-calculator/de','Finanzrechner','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;" style="padding-top: 15px;color:#336BFF;cursor:pointer;">
+       Vorschau Finanzrechner Widget
+      </div>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-url">https://www.size.ly/financial-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-text">Sie können kostenlose Finanzrechner online benutzen, um den zukünftigen Wert (FV), die Zinseszinsperiode (N), den Zinssatz (I/Y), die periodische Zahlung (PMT) und den Gegenwartswert (PV) Ihrer Investitionen zu berechnen.: https://www.size.ly/financial-calculator/de</textarea>
+     </div>
+     <div class="modal-share__content">
+      <textarea class="modal-share__textarea" id="share-html">&lt;a href="https://www.size.ly/financial-calculator/de" title="Finanzrechner" target="_blank"&gt;Finanzrechner&lt;/a&gt;</textarea>
+     </div>
+    </div>
+    <div class="modal-share__footer">
+     <button class="button button--copy" onclick="copyWidget(this)">
+      In die Zwischenablage kopieren
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="calculator">
+   <div class="calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+     <div class="calculator-settings">
+      <div class="calculator-settings" id="calculator_form">
+       <div class="calculator-setting">
+        <div class="calculator-content col">
+         <div class="input-wrapper row">
+          <label class="input col">
+           <input id="find" type="hidden" value="fv"/>
+           <p class="input__title">
+            Finden
+           </p>
+           <button class="button-switcher button-switcher--active" id="find-1" onclick="switcher(this, 'find', 'disabled')" type="button" value="fv">
+            <span class="button-switcher__text button-switcher__text--active">
+             FV
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="find-2" onclick="switcher(this, 'find', 'disabled')" type="button" value="pmt">
+            <span class="button-switcher__text">
+             PMT
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="find-3" onclick="switcher(this, 'find', 'disabled')" type="button" value="iy">
+            <span class="button-switcher__text">
+             I/Y
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="find-4" onclick="switcher(this, 'find', 'disabled')" type="button" value="n">
+            <span class="button-switcher__text">
+             N
+            </span>
+           </button>
+          </label>
+          <label class="input col">
+           <p class="input__title">
+           </p>
+           <button class="button-switcher" id="find-5" onclick="switcher(this, 'find', 'disabled')" type="button" value="">
+            <span class="button-switcher__text">
+             PV
+            </span>
+           </button>
+          </label>
+         </div>
+         <div class="input-wrapper row find related-to-find-n">
+          <label class="input col">
+           <p class="input__title">
+            Anzahl der Perioden (N)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="number" placeholder="" type="text" value="15"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row find related-to-find-iy">
+          <label class="input col">
+           <p class="input__title">
+            Zinsen (I)
+           </p>
+           <div class="input-field row">
+            <input class="input-field__input" id="interest" placeholder="" type="text" value="15"/>
+            <span class="input-field__hint">
+             % per year
+            </span>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row find related-to-find-pv">
+          <label class="input col">
+           <p class="input__title">
+            Gegenwartswert (PV)
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="present" placeholder="" type="text" value="20000"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row find related-to-find-pmt">
+          <label class="input col">
+           <p class="input__title">
+            Periodische Zahlung (PMT)
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="payment" placeholder="" type="text" value="-1500"/>
+           </div>
+          </label>
+         </div>
+         <div class="input-wrapper row find related-to-find-fv disabled">
+          <label class="input col">
+           <p class="input__title">
+            Zukunftswert (FV)
+           </p>
+           <div class="input-field row">
+            <span class="input-field__hint">
+             $
+            </span>
+            <input class="input-field__input" id="future" placeholder="" type="text" value="-60000"/>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--options calculator-content--gray col">
+         <div class="calculator-content-head row">
+          <p class="calculator-content-head__title">
+           Optionen
+          </p>
+          <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+           <path clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF" fill-rule="evenodd">
+           </path>
+          </svg>
+         </div>
+         <div class="calculator-content-body col">
+          <div class="input-wrapper row">
+           <label class="input col">
+            <input id="periodic_payment" type="hidden" value="end"/>
+            <p class="input__title">
+             Periodische Zahlung am
+            </p>
+            <button class="button-switcher button-switcher--active" id="periodic_payment-1" onclick="switcher(this, 'periodic_payment', '')" type="button" value="end">
+             <span class="button-switcher__text button-switcher__text--active">
+              Ende
+             </span>
+            </button>
+           </label>
+           <label class="input col">
+            <p class="input__title">
+            </p>
+            <button class="button-switcher" id="periodic_payment-2" onclick="switcher(this, 'periodic_payment', '')" type="button" value="beginning">
+             <span class="button-switcher__text">
+              Anfang
+             </span>
+            </button>
+           </label>
+          </div>
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Anzahl der Perioden (P)
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="periods" placeholder="" type="text" value="1"/>
+             <span class="input-field__hint">
+              pro Jahr
+             </span>
+            </div>
+           </label>
+          </div>
+          <div class="input-wrapper row">
+           <label class="input col">
+            <p class="input__title">
+             Anzahl der Verbindungen
+                                                                                                (C)
+            </p>
+            <div class="input-field row">
+             <input class="input-field__input" id="compounds" placeholder="" type="text" value="1"/>
+             <span class="input-field__hint">
+              pro Jahr
+             </span>
+            </div>
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row">
+         <button aria-label="Teilen" class="button button--icon js-modal-open" data-modal="share">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+         </button>
+         <button class="button button--primary ml-auto" data-action="calculate" id="action-button" onclick="calculate(this);">
+          Berechnen
+         </button>
+        </div>
+        <script src="./assets/js/lib/chartjs/chart.min.js" type="text/javascript"></script>
+<script defer="" id="chartjs_script" src="./assets/js/calculator/financial-calculator/de/chart.js" type="text/javascript">
+        </script>
+        <script defer="" src="./assets/js/calculator/financial-calculator/de/calculator.js" type="text/javascript">
+        </script>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+     <div class="calculator-result col">
+      <div class="result-table__wrapper">
+       <table class="result-table">
+        <thead class="dark">
+         <tr>
+          <th class="dark indigo" colspan="2">
+           Ergebnis
+          </th>
+         </tr>
+        </thead>
+        <tbody class="result-table-row find related-to-find-pmt related-to-find-iy related-to-find-n related-to-find-pv">
+         <tr>
+          <th class="semibold">
+           FV
+          </th>
+          <td class="semibold animate" id="fv-result">
+           $-91,370.62
+          </td>
+         </tr>
+        </tbody>
+        <tbody class="result-table-row find related-to-find-fv related-to-find-iy related-to-find-n related-to-find-pv disabled">
+         <tr>
+          <th class="semibold">
+           PMT
+          </th>
+          <td class="semibold animate" id="pmt-result">
+           $-2,159.32
+          </td>
+         </tr>
+        </tbody>
+        <tbody class="result-table-row find related-to-find-fv related-to-find-pmt related-to-find-n related-to-find-pv disabled">
+         <tr>
+          <th class="semibold">
+           I/Y
+          </th>
+          <td class="semibold animate" id="iy-result">
+           12.61%
+          </td>
+         </tr>
+        </tbody>
+        <tbody class="result-table-row find related-to-find-fv related-to-find-pmt related-to-find-iy related-to-find-pv disabled">
+         <tr>
+          <th class="semibold">
+           N
+          </th>
+          <td class="semibold animate" id="n-result">
+           11.5
+          </td>
+         </tr>
+        </tbody>
+        <tbody class="result-table-row find related-to-find-fv related-to-find-pmt related-to-find-iy related-to-find-n disabled">
+         <tr>
+          <th class="semibold">
+           PV
+          </th>
+          <td class="semibold animate" id="pv-result">
+           $16,144.72
+          </td>
+         </tr>
+        </tbody>
+        <tbody class="result-table-sum animate">
+         <tr>
+          <th>
+           Summe aller periodischen Zahlungen
+          </th>
+          <td id="result-total-payments">
+           $-22,500.00
+          </td>
+         </tr>
+         <tr>
+          <th>
+           Gesamtzinsen
+          </th>
+          <td id="result-total-interest">
+           $93,870.62
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="table-cell table-cell--legend">
+       <div class="chart__donut-legend-item">
+        <div class="result-chart result-chart--yellow">
+        </div>
+        <p class="result-text result-text--small">
+         PV
+        </p>
+       </div>
+       <div class="chart__donut-legend-item">
+        <div class="result-chart result-chart--purple">
+        </div>
+        <p class="result-text result-text--small">
+         PMT
+        </p>
+       </div>
+       <div class="chart__donut-legend-item">
+        <div class="result-chart result-chart--sky">
+        </div>
+        <p class="result-text result-text--small">
+         Zinsen
+        </p>
+       </div>
+       <div class="chart__donut-legend-item">
+        <div class="result-chart result-chart--teal">
+        </div>
+        <p class="result-text result-text--small">
+         FV
+        </p>
+       </div>
+      </div>
+      <div class="chart-wrapper">
+       <canvas class="chart chart--financial" height="335px" id="chartFinancial">
+       </canvas>
+       <div class="chart__legend chart__legend--padding-horizontal" id="chart__legend">
+        <p class="result-text result-text--small">
+         0
+        </p>
+        <p class="result-text result-text--small">
+         2
+        </p>
+        <p class="result-text result-text--small">
+         4
+        </p>
+        <p class="result-text result-text--small">
+         6
+        </p>
+        <p class="result-text result-text--small">
+         8
+        </p>
+        <p class="result-text result-text--small">
+         10
+        </p>
+        <p class="result-text result-text--small">
+         12
+        </p>
+       </div>
+      </div>
+      <div class="result-table__dialog">
+       <button class="result-table__open">
+        <p class="result-table__open-text">
+         Zeitplan
+        </p>
+        <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+         <path clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#312E81" fill-rule="evenodd">
+         </path>
+        </svg>
+       </button>
+       <div class="result-table__wrapper">
+        <table class="result-table">
+         <thead>
+          <tr>
+           <th class="indigo text-center">
+            #
+           </th>
+           <th class="indigo">
+            PV
+           </th>
+           <th class="indigo">
+            PMT
+           </th>
+           <th class="indigo">
+            ZINSEN
+           </th>
+           <th class="indigo">
+            FV
+           </th>
+          </tr>
+         </thead>
+         <tbody id="annual-results">
+          <tr>
+           <td class="text-center">
+            1
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            2
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            3
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            4
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            5
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            6
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <th class="indigo text-center" colspan="5">
+            Ende Jahr 1
+           </th>
+          </tr>
+          <tr>
+           <td class="text-center">
+            1
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            2
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            3
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            4
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            5
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+          <tr>
+           <td class="text-center">
+            6
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+           <td>
+            $235,022.69
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+     <div class="calculator-result calculator-result--error col" id="error-box">
+      <div class="row">
+       <svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path class="dark:fill-red-200" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+									7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+									12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+									11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" fill-rule="evenodd">
+        </path>
+       </svg>
+       <p class="calculator-error__title">
+        Es gab einen Fehler bei Ihrer Berechnung.
+       </p>
+      </div>
+      <div class="col" id="error-list">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script async="" src="./assets/js/lib/math.min.js">
+  </script>
+  <script async="" src="./assets/js/app.js">
+  </script>
+  <script defer="" src="./assets/js/functions-de.js">
+  </script>
+ </body>
+</html>

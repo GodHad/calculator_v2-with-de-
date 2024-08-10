@@ -1,0 +1,3 @@
+function calculate(){const hours=+input.get('hours').val();const minutes=+input.get('minutes').val();const seconds=+input.get('seconds').val();if(!input.valid())return;const totalSeconds=hours*3600+minutes*60+seconds;const hoursDecimal=totalSeconds/3600;const minutesDecimal=totalSeconds/60;const result=`${plural(hoursDecimal.toFixed(4),'Stunden:Stunde:Stunden:Stunden:Stunden:Stunden')}<br>
+		oder ${plural(minutesDecimal.toFixed(4),'Minuten:Minute:Minuten:Minuten:Minuten:Minuten')}<br>
+		oder ${plural(totalSeconds,'Sekunden:Sekunde:Sekunden:Sekunden:Sekunden:Sekunden')}`;output.val(result).set('result');}

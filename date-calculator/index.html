@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Date Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="Free calculator to effortlessly evaluate the difference between dates. Easily add or subtract days from any date, with or without holidays and weekends.">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+<div class="modal-window" style="opacity: 0; pointer-events: none;">	
+	<div class="modal-share">
+		<div class="modal-share__container">
+			<div class="modal-share__header">
+				<button class="modal-share__button modal-share__button--active">Widget</button>
+				<button class="modal-share__button">Link</button>
+				<button class="modal-share__button">Text</button>
+				<button class="modal-share__button">HTML</button>
+			</div>
+			<div class="modal-share__content modal-share__content--active">
+				<textarea class="modal-share__textarea"
+					id="share-widget">
+<iframe class="date-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://calc.size.ly/embed/date-calculator/" style="height:200px;" width="100%"></iframe>
+	<br/><center><a href="https://www.size.ly/calculator/date-calculator/" style="text-decoration:none;" target="_blank"><font size="1" color="#333">Size.ly/Calculator</font></a></center></textarea>
+				<div onclick="window.open('https://calc.size.ly/embed/date-calculator/','Date Calculator','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;"
+					style="padding-top: 15px;color:#336BFF;cursor:pointer;">Preview Date Calculator Widget</div>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea" id="share-url">https://www.size.ly/calculator/date-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-text">Free calculator to effortlessly evaluate the difference between dates. Easily add or subtract days from any date, with or without holidays and weekends.: https://www.size.ly/calculator/date-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-html">&lt;a href="https://www.size.ly/calculator/date-calculator/" title="Date Calculator" target="_blank"&gt;Date Calculator&lt;/a&gt;</textarea>
+			</div>
+		</div>
+		<div class="modal-share__footer">
+			<button class="button button--copy" onclick="copyWidget(this)">Copy to Clipboard</button>
+		</div>
+	</div>
+</div>
+<div class="calculator">
+	<div class=" calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+        <div class="calculator-settings">
+            <div class="calculator-setting" id="calculator_form">
+                <div class="calculator-content calculator-content--bookmarks">
+                	<button class="tab-item tab-item--active" onclick="switchTab(event, 0)">Count Days</button>
+                	<button class="tab-item" onclick="switchTab(event, 1)">Add/Subtract</button>
+                </div>
+                <div class="calculator-content col tab tab--active" data-tab="0">
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                				<p class="input__title">Start Date</p>
+                		
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input datepicker_us imperial-system-item" placeholder="mm/dd/yyyy" data-inputmask="'mask': '99/99/9999', 'placeholder': 'mm/dd/yyyy'" data-target="start_date" id="start_date_us" onchange="updateDate(this)" value="10/15/1986" />
+                				<input type="text" class="input-field__input datepicker metric-system-item system-item-hidden" placeholder="yyyy-mm-dd" data-inputmask="'mask': '9999-99-99', 'placeholder': 'yyyy-mm-dd'" data-target="start_date" id="start_date" onchange="updateDate(this)" value="1986-10-15" />
+                				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                			<path d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M13.75 1.5625V3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M6.25 1.5625V3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M3.125 6.875H16.875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                		</svg>
+                			</div>
+                		
+                		</label>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                				<p class="input__title">End Date</p>
+                		
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input datepicker_us imperial-system-item" placeholder="mm/dd/yyyy" data-inputmask="'mask': '99/99/9999', 'placeholder': 'mm/dd/yyyy'" data-target="end_date" id="end_date_us" onchange="updateDate(this)" value="10/15/2022" />
+                				<input type="text" class="input-field__input datepicker metric-system-item system-item-hidden" placeholder="yyyy-mm-dd" data-inputmask="'mask': '9999-99-99', 'placeholder': 'yyyy-mm-dd'" data-target="end_date" id="end_date" onchange="updateDate(this)" value="2022-10-15" />
+                				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                			<path d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M13.75 1.5625V3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M6.25 1.5625V3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M3.125 6.875H16.875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                		</svg>
+                			</div>
+                		
+                		</label>
+                	</div>
+                </div>
+                <div class="calculator-content col tab" data-tab="1">
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                				<p class="input__title">Start Date</p>
+                		
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input datepicker_us imperial-system-item" placeholder="mm/dd/yyyy" data-inputmask="'mask': '99/99/9999', 'placeholder': 'mm/dd/yyyy'" data-target="start_date_two" id="start_date_two_us" onchange="updateDate(this)" value="10/15/1986" />
+                				<input type="text" class="input-field__input datepicker metric-system-item system-item-hidden" placeholder="yyyy-mm-dd" data-inputmask="'mask': '9999-99-99', 'placeholder': 'yyyy-mm-dd'" data-target="start_date_two" id="start_date_two" onchange="updateDate(this)" value="1986-10-15" />
+                				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                			<path d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M13.75 1.5625V3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M6.25 1.5625V3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path d="M3.125 6.875H16.875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                		</svg>
+                			</div>
+                		
+                		</label>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                			<input type="hidden" value="add" id="add_subtract"/>
+                			
+                			<button class="button-switcher button-switcher--active" type="button" onclick="switcher(this, 'add_subtract', '')" value="add" id="add_subtract-a">
+                					<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="js-add-button">
+                			<path fill='#9CA3AF' fill-rule="evenodd" clip-rule="evenodd" d="M10.25 3C10.8023 3 11.25 3.44772 11.25 4V9H16.25C16.8023 9 17.25 9.44772 17.25 10C17.25 10.5523 16.8023 11 16.25 11H11.25V16C11.25 16.5523 10.8023 17 10.25 17C9.69772 17 9.25 16.5523 9.25 16V11H4.25C3.69772 11 3.25 10.5523 3.25 10C3.25 9.44771 3.69772 9 4.25 9L9.25 9V4C9.25 3.44772 9.69772 3 10.25 3Z"></path>
+                		</svg>
+                				<span class="button-switcher__text button-switcher__text--active">Add</span>
+                			</button>
+                		</label>
+                		<label class="input col">
+                			
+                			<button class="button-switcher" type="button" onclick="switcher(this, 'add_subtract', '')" value="subtract" id="add_subtract-b">
+                					<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                			<path fill='#9CA3AF' fill-rule="evenodd" clip-rule="evenodd" d="M3.75 10C3.75 9.73478 3.85536 9.48043 4.04289 9.29289C4.23043 9.10536 4.48478 9 4.75 9H16.75C17.0152 9 17.2696 9.10536 17.4571 9.29289C17.6446 9.48043 17.75 9.73478 17.75 10C17.75 10.2652 17.6446 10.5196 17.4571 10.7071C17.2696 10.8946 17.0152 11 16.75 11H4.75C4.48478 11 4.23043 10.8946 4.04289 10.7071C3.85536 10.5196 3.75 10.2652 3.75 10Z"></path>
+                		</svg>
+                				<span class="button-switcher__text">Subtract</span>
+                			</button>
+                		</label>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col   ">
+                			<p class="input__title">Years</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="years" value="36"  />
+                			</div>
+                		
+                		
+                		</label>		<label class="input col   ">
+                			<p class="input__title">Months</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="months" value=""  />
+                			</div>
+                		
+                		
+                		</label>		<label class="input col   ">
+                			<p class="input__title">Weeks</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="weeks" value=""  />
+                			</div>
+                		
+                		
+                		</label>		<label class="input col   ">
+                			<p class="input__title">Days</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="days" value=""  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--options calculator-content--gray col tab tab--active" data-tab="0"  id="option_count_holidays" >
+                	<div class="calculator-content-head row">
+                		<p class="calculator-content-head__title">Holidays</p>
+                		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF"></path>
+                </svg>
+                	</div>
+                		<div class="calculator-content-body col">
+                				<label class="checkbox">
+                					<input type="checkbox" class="checkbox__input" id="count_holidays"   />
+                					<span class="checkbox__box"></span>
+                						<span class="checkbox__title">Count Holidays</span>
+                				</label>	<div class="input-wrapper input-wrapper--holidays row" id="count_field_a">
+                					<label class="input col  ">
+                						<p class="input__title">Holiday</p>
+                						<div class="input-field row">
+                							
+                							<input type="text" class="input-field__input" placeholder="" id="count_holiday_a" value="" />
+                							
+                						</div>
+                					</label>		<label class="input col   ">
+                						<p class="input__title">Month</p>
+                						<div class="input-field row">
+                							<input type="text" class="input-field__input" placeholder=""  id="count_month_a" value=""  />
+                						</div>
+                					
+                					
+                					</label>		<label class="input col   ">
+                						<p class="input__title">Day</p>
+                						<div class="input-field row">
+                							<input type="text" class="input-field__input" placeholder=""  id="count_day_a" value=""  />
+                						</div>
+                					
+                					
+                					</label>		<label class="input col">
+                						<button class="input-field input-field--clear row" id="count_clear_a"  disabled>
+                							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                						<path fill-rule="evenodd" clip-rule="evenodd" d="M4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L10 8.58579L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L11.4142 10L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L10 11.4142L5.70711 15.7071C5.31658 16.0976 4.68342 16.0976 4.29289 15.7071C3.90237 15.3166 3.90237 14.6834 4.29289 14.2929L8.58579 10L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z" fill="#9CA3AF"></path>
+                					</svg>
+                						</button>
+                					</label>	</div>
+                		</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--options calculator-content--gray col tab " data-tab="1"  id="option_exclude_holidays" >
+                	<div class="calculator-content-head row">
+                		<p class="calculator-content-head__title">Holidays</p>
+                		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF"></path>
+                </svg>
+                	</div>
+                		<div class="calculator-content-body col">
+                				<label class="checkbox">
+                					<input type="checkbox" class="checkbox__input" id="exclude_holidays"   />
+                					<span class="checkbox__box"></span>
+                						<span class="checkbox__title">Exclude Holidays</span>
+                				</label>	<div class="input-wrapper input-wrapper--holidays row" id="exclude_field_a">
+                					<label class="input col  ">
+                						<p class="input__title">Holiday</p>
+                						<div class="input-field row">
+                							
+                							<input type="text" class="input-field__input" placeholder="" id="exclude_holiday_a" value="" />
+                							
+                						</div>
+                					</label>		<label class="input col   ">
+                						<p class="input__title">Month</p>
+                						<div class="input-field row">
+                							<input type="text" class="input-field__input" placeholder=""  id="exclude_month_a" value=""  />
+                						</div>
+                					
+                					
+                					</label>		<label class="input col   ">
+                						<p class="input__title">Day</p>
+                						<div class="input-field row">
+                							<input type="text" class="input-field__input" placeholder=""  id="exclude_day_a" value=""  />
+                						</div>
+                					
+                					
+                					</label>		<label class="input col">
+                						<button class="input-field input-field--clear row" id="exclude_clear_a"  disabled>
+                							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                						<path fill-rule="evenodd" clip-rule="evenodd" d="M4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L10 8.58579L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L11.4142 10L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L10 11.4142L5.70711 15.7071C5.31658 16.0976 4.68342 16.0976 4.29289 15.7071C3.90237 15.3166 3.90237 14.6834 4.29289 14.2929L8.58579 10L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z" fill="#9CA3AF"></path>
+                					</svg>
+                						</button>
+                					</label>	</div>
+                		</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab tab--active" data-tab="0">
+					<button class="button button--icon js-modal-open" data-modal="share">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+							<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+							<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+							<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</button>
+                
+                
+                		<button class="system-switcher system-switcher--format" onclick="toggleSystem(this)">
+                			<div class="system-switcher__circle"></div>
+                			<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M7.84254 5.61418C7.84254 4.72269 8.56524 4 9.45673 4C10.7869 4 11.5462 5.51856 10.7481 6.58269L7.84254 10.4567H11.4745M3 5.29135L4.08967 4.41961C4.30105 4.2505 4.61418 4.401 4.61418 4.6717V10.4567" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                			<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M2 5.61418C2 4.72269 2.72269 4 3.61418 4C4.94434 4 5.70362 5.51856 4.90553 6.58269L2 10.4567H5.63191M11.1086 8.51971H7.64964V7.87404L10.4168 4H11.1086V8.51971ZM11.1086 8.51971H12.4922M11.1086 8.51971V10.4567" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                		</button>
+                
+                		<script type="text/javascript">
+                			$$(".imperial-system-item, .metric-system-item").forEach(function(element, index){
+                				element.classList.remove("system-item-hidden");
+                			});
+                			$$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function(element, index){
+                				element.classList.add("system-item-hidden");
+                			});
+                			if(defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
+                		</script>
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+                </div>
+                
+                
+                
+                	<link rel="stylesheet" href="./assets/css/air-datepicker.css" />
+                	<script type="text/javascript" src="./assets/js/lib/air-datepicker.js" id="datepicker_script"></script>
+                
+                	<script type="text/javascript" src="./assets/js/calculator/date-calculator/calculator.js"></script>
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab " data-tab="1">
+						<button class="button button--icon js-modal-open" data-modal="share">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</button>
+                
+                
+                		<button class="system-switcher system-switcher--format" onclick="toggleSystem(this)">
+                			<div class="system-switcher__circle"></div>
+                			<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M7.84254 5.61418C7.84254 4.72269 8.56524 4 9.45673 4C10.7869 4 11.5462 5.51856 10.7481 6.58269L7.84254 10.4567H11.4745M3 5.29135L4.08967 4.41961C4.30105 4.2505 4.61418 4.401 4.61418 4.6717V10.4567" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                			<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M2 5.61418C2 4.72269 2.72269 4 3.61418 4C4.94434 4 5.70362 5.51856 4.90553 6.58269L2 10.4567H5.63191M11.1086 8.51971H7.64964V7.87404L10.4168 4H11.1086V8.51971ZM11.1086 8.51971H12.4922M11.1086 8.51971V10.4567" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                		</button>
+                
+                		<script type="text/javascript">
+                			$$(".imperial-system-item, .metric-system-item").forEach(function(element, index){
+                				element.classList.remove("system-item-hidden");
+                			});
+                			$$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function(element, index){
+                				element.classList.add("system-item-hidden");
+                			});
+                			if(defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
+                		</script>
+                
+                
+                	<button class="button button--primary ml-auto" onclick="convert(this)">Calculate</button>
+                </div>
+                
+                
+                
+                	<link rel="stylesheet" href="./assets/css/air-datepicker.css" />
+                	<script type="text/javascript" src="./assets/js/lib/air-datepicker.js" id="datepicker_script"></script>
+                
+                
+                <script src="./assets/js/calculator/date-calculator/helpers.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+        <div class="calculator-result calculator-result--error col" id="error-box">
+        	<div class="row">
+        		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        	<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+        						7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+        						12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+        						11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+        </svg>
+        		<p class="calculator-error__title">There was an error with your calculation.</p>
+        	</div>
+        	<div class="col" id="error-list">
+        	</div>
+        </div>        <span id="calculator_result"><style>
+    .result-age--range .holiday {
+		position: relative;
+		z-index: 1;
+	}
+    html.dark .result-age--range .holiday {
+        color: #000 !important;
+    }
+    .result-age--range .holiday::before {
+        background: #FEF8C3 !important;
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+        z-index: -1;
+        height: 1.25rem;
+        width: 1.25rem;
+    }
+    .result-age--range .current::before {
+        background: #5B21B6 !important;
+	}
+    .result-age--range .current {
+        color: #fff !important;
+    }
+</style>
+<div class="calculator-result col tab tab--active" data-tab="0">
+	<p class="table-cell table-cell--dark table-cell--only-title">Result</p>
+	<div class="table-cell table-cell--age table-cell--only row">
+		<div class="col result-age__text">
+			<p class="result-text">36 years</p>
+			<p class="result-text">or 864 months</p>
+			<p class="result-text">or 1,878 weeks 3 days</p>
+			<p class="result-text">or 13,149 days</p>
+			<p class="result-text">or 315,576 hours</p>
+			<p class="result-text">or 18,934,560 minutes</p>
+			<p class="result-text">or 1,136,073,600 seconds</p>
+		</div>
+		<div class="row table-cell--date-count table-cell--date-left">
+			<div class="col result-age result-age--small result-age--range result-start-date">
+				<p class="date-title">From <span class="date-title date-title--date">15 Oct 1986<span></span></span></p>
+				<div>
+					<p>M</p>
+					<p>T</p>
+					<p>W</p>
+					<p>T</p>
+					<p>F</p>
+					<p>S</p>
+					<p>S</p>
+				</div>
+				<div class="result-age--days">
+					<p>29</p>
+					<p>30</p>
+					<p class="active">1</p>
+					<p class="active">2</p>
+					<p class="active">3</p>
+					<p class="active">4</p>
+					<p class="active">5</p>
+					<p class="active">6</p>
+					<p class="active">7</p>
+					<p class="active">8</p>
+					<p class="active">9</p>
+					<p class="active">10</p>
+					<p class="active">11</p>
+					<p class="active">12</p>
+					<p class="active">13</p>
+					<p class="active">14</p>
+					<p class="active current">15</p>
+					<p class="active current-between">16</p>
+					<p class="active current-between">17</p>
+					<p class="active current-between">18</p>
+					<p class="active current-between">19</p>
+					<p class="active current-between">20</p>
+					<p class="active current-between">21</p>
+					<p class="active current-between">22</p>
+					<p class="active current-between">23</p>
+					<p class="active current-between">24</p>
+					<p class="active current-between">25</p>
+					<p class="active current-between">26</p>
+					<p class="active current-between">27</p>
+					<p class="active current-between">28</p>
+					<p class="active current-between">29</p>
+					<p class="active current-between">30</p>
+					<p class="active current-between">31</p>
+					<p class="current-between">1</p>
+					<p class="current-between">2</p>
+					<p class="current-between">3</p>
+					<p class="current-between">4</p>
+					<p class="current-between">5</p>
+					<p class="current-between">6</p>
+					<p class="current-between">7</p>
+					<p class="current-between">8</p>
+					<p class="current-between">9</p>
+				</div>
+			</div>
+			<div class="col result-age result-age--small result-age--range result-end-date">
+				<p class="date-title">To <span class="date-title date-title--date">15 Oct 2022</span></p>
+				<div>
+					<p>M</p>
+					<p>T</p>
+					<p>W</p>
+					<p>T</p>
+					<p>F</p>
+					<p>S</p>
+					<p>S</p>
+				</div>
+				<div class="result-age--days">
+					<p class="current-between">26</p>
+					<p class="current-between">27</p>
+					<p class="current-between">28</p>
+					<p class="current-between">29</p>
+					<p class="current-between">30</p>
+					<p class="active current-between">1</p>
+					<p class="active current-between">2</p>
+					<p class="active current-between">3</p>
+					<p class="active current-between">4</p>
+					<p class="active current-between">5</p>
+					<p class="active current-between">6</p>
+					<p class="active current-between">7</p>
+					<p class="active current-between">8</p>
+					<p class="active current-between">9</p>
+					<p class="active current-between">10</p>
+					<p class="active current-between">11</p>
+					<p class="active current-between">12</p>
+					<p class="active current-between">13</p>
+					<p class="active current-between">14</p>
+					<p class="active current">15</p>
+					<p class="active">16</p>
+					<p class="active">17</p>
+					<p class="active">18</p>
+					<p class="active">19</p>
+					<p class="active">20</p>
+					<p class="active">21</p>
+					<p class="active">22</p>
+					<p class="active">23</p>
+					<p class="active">24</p>
+					<p class="active">25</p>
+					<p class="active">26</p>
+					<p class="next active">27</p>
+					<p class="next active">28</p>
+					<p class="next active">29</p>
+					<p class="next active">30</p>
+					<p class="next active">31</p>
+					<p class="next">1</p>
+					<p class="next">2</p>
+					<p class="next">3</p>
+					<p class="next">4</p>
+					<p class="next">5</p>
+					<p class="next">6</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="calculator-result col tab" data-tab="1">
+	<p class="table-cell table-cell--dark table-cell--only-title">Result</p>
+	<div id="el"></div>
+	<div class="table-cell table-cell--age table-cell--date table-cell--only row">
+		<div class="col result-age result-age--small result-age--range result-start-date-2">
+			<p class="date-title">From <span class="date-title date-title--date">15 Oct 1986<span></span></span></p>
+			<div>
+				<p>M</p>
+				<p>T</p>
+				<p>W</p>
+				<p>T</p>
+				<p>F</p>
+				<p>S</p>
+				<p>S</p>
+			</div>
+			<div class="result-age--days">
+				<p>29</p>
+				<p>30</p>
+				<p class="active">1</p>
+				<p class="active">2</p>
+				<p class="active">3</p>
+				<p class="active">4</p>
+				<p class="active">5</p>
+				<p class="active">6</p>
+				<p class="active">7</p>
+				<p class="active">8</p>
+				<p class="active">9</p>
+				<p class="active">10</p>
+				<p class="active">11</p>
+				<p class="active">12</p>
+				<p class="active">13</p>
+				<p class="active">14</p>
+				<p class="active current">15</p>
+				<p class="active current-between">16</p>
+				<p class="active current-between">17</p>
+				<p class="active current-between">18</p>
+				<p class="active current-between">19</p>
+				<p class="active current-between">20</p>
+				<p class="active current-between">21</p>
+				<p class="active current-between">22</p>
+				<p class="active current-between">23</p>
+				<p class="active current-between">24</p>
+				<p class="active current-between">25</p>
+				<p class="active current-between">26</p>
+				<p class="active current-between">27</p>
+				<p class="active current-between">28</p>
+				<p class="active current-between">29</p>
+				<p class="active current-between">30</p>
+				<p class="active current-between">31</p>
+				<p class="current-between">1</p>
+				<p class="current-between">2</p>
+				<p class="current-between">3</p>
+				<p class="current-between">4</p>
+				<p class="current-between">5</p>
+				<p class="current-between">6</p>
+				<p class="current-between">7</p>
+				<p class="current-between">8</p>
+				<p class="current-between">9</p>
+			</div>
+		</div>
+		<div class="col result-age result-age--small result-age--range result-end-date-2">
+			<p class="date-title">To <span class="date-title date-title--date">15 Oct 2022</span></p>
+			<div>
+				<p>M</p>
+				<p>T</p>
+				<p>W</p>
+				<p>T</p>
+				<p>F</p>
+				<p>S</p>
+				<p>S</p>
+			</div>
+			<div class="result-age--days">
+				<p class="current-between">26</p>
+				<p class="current-between">27</p>
+				<p class="current-between">28</p>
+				<p class="current-between">29</p>
+				<p class="current-between">30</p>
+				<p class="active current-between">1</p>
+				<p class="active current-between">2</p>
+				<p class="active current-between">3</p>
+				<p class="active current-between">4</p>
+				<p class="active current-between">5</p>
+				<p class="active current-between">6</p>
+				<p class="active current-between">7</p>
+				<p class="active current-between">8</p>
+				<p class="active current-between">9</p>
+				<p class="active current-between">10</p>
+				<p class="active current-between">11</p>
+				<p class="active current-between">12</p>
+				<p class="active current-between">13</p>
+				<p class="active current-between">14</p>
+				<p class="active current">15</p>
+				<p class="active">16</p>
+				<p class="active">17</p>
+				<p class="active">18</p>
+				<p class="active">19</p>
+				<p class="active">20</p>
+				<p class="active">21</p>
+				<p class="active">22</p>
+				<p class="active">23</p>
+				<p class="active">24</p>
+				<p class="active">25</p>
+				<p class="active">26</p>
+				<p class="next active">27</p>
+				<p class="next active">28</p>
+				<p class="next active">29</p>
+				<p class="next active">30</p>
+				<p class="next active">31</p>
+				<p class="next">1</p>
+				<p class="next">2</p>
+				<p class="next">3</p>
+				<p class="next">4</p>
+				<p class="next">5</p>
+				<p class="next">6</p>
+			</div>
+		</div>
+	</div>
+</div>
+</span>
+    </div>
+</div>
+
+</div>
+
+<script async src="./assets/js/lib/math.min.js"></script>
+<script async src="./assets/js/app.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>

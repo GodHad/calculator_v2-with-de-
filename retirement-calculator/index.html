@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Retirement Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="Retirement savings calculator that uses the formula FV &#x3D; PV (1 + R)^n to help users plan for retirement and calculate retirement income.">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+<div class="modal-window" style="opacity: 0; pointer-events: none;">	
+	<div class="modal-share">
+		<div class="modal-share__container">
+			<div class="modal-share__header">
+				<button class="modal-share__button modal-share__button--active">Widget</button>
+				<button class="modal-share__button">Link</button>
+				<button class="modal-share__button">Text</button>
+				<button class="modal-share__button">HTML</button>
+			</div>
+			<div class="modal-share__content modal-share__content--active">
+				<textarea class="modal-share__textarea"
+					id="share-widget">
+<iframe class="retirement-calculator iframe" frameborder="0" onload='javascript:(function(e){e.style.height=e.contentWindow.document.body.scrollHeight+15+"px";}(this));' src="https://calc.size.ly/embed/retirement-calculator/" style="height:200px;" width="100%"></iframe>
+	<br/><center><a href="https://www.size.ly/calculator/retirement-calculator/" style="text-decoration:none;" target="_blank"><font size="1" color="#333">Size.ly/Calculator</font></a></center></textarea>
+				<div onclick="window.open('https://calc.size.ly/embed/retirement-calculator/','Retirement Calculator','width=600,height=580,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');return false;"
+					style="padding-top: 15px;color:#336BFF;cursor:pointer;">Preview Retirement Calculator Widget</div>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-url">https://www.size.ly/calculator/retirement-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-text">Retirement savings calculator that uses the formula FV = PV (1 + R)^n to help users plan for retirement and calculate retirement income.: https://www.size.ly/calculator/retirement-calculator/</textarea>
+			</div>
+			<div class="modal-share__content">
+				<textarea class="modal-share__textarea"
+					id="share-html">&lt;a href="https://www.size.ly/calculator/retirement-calculator/" title="Retirement Calculator" target="_blank"&gt;Retirement Calculator&lt;/a&gt;</textarea>
+			</div>
+		</div>
+		<div class="modal-share__footer">
+			<button class="button button--copy" onclick="copyWidget(this)">Copy to Clipboard</button>
+		</div>
+	</div>
+</div>
+<div class="calculator">
+	<div class=" calculator__container calculator__container--main row">
+    <div class="calculator-aside col">
+        <div class="calculator-settings">
+            <div class="calculator-setting" id="calculator_form">
+                <div class="calculator-content col">
+                	<div class="input-wrapper row">
+                		<label class="input col ">
+                			
+                			<div class="dropdown-wrapper">
+                				<div class="input-field row " tabindex="0">
+                					<select class="input-field__text" onchange="switchTab(this)" id="retirement-calculator">
+                							<option value="How much to retire" >
+                							How much to retire
+                							</option>
+                							<option value="How to save for retirement?" >
+                							How to save for retirement?
+                							</option>
+                							<option value="How much can be withdrawn?" >
+                							How much can be withdrawn?
+                							</option>
+                							<option value="How long can your money last?" >
+                							How long can your money last?
+                							</option>
+                					</select>
+                				</div>
+                			</div>
+                		</label>	</div>
+                
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Current Age</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="current_age" value="35"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>		<label class="input col   ">
+                			<p class="input__title">Planned Retirement</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="planned_retirement" value="65"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Life Expectancy</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="life_expectancy" value="85"  />
+                					<span class="input-field__hint">79 in U.S. on average</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Expected Social Security Income</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="expected_social_security_income" value="1200"  />
+                					<span class="input-field__hint">per month</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Other Income After Retirement</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="other_income_after_retirement" value="300"  />
+                					<span class="input-field__hint">per month</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Average Investment Return</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="average_investment_return" value="6"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Inflation Rate (Annual)</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="inflation_rate" value="3"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Your Current Income</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="current_income" value="70000"  />
+                					<span class="input-field__hint">per year</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Income Needed After Retirement</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="income_needed_after_retirement" value="70"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Your current retirement savings</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="current_income_savings" value=""  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab tab--active" data-tab="0">
+                		<label class="input col   ">
+                			<p class="input__title">Future retirement savings</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="future_retirement_savings" value="10"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                
+                	<div class="input-wrapper row tab" data-tab="1">
+                		<label class="input col   ">
+                			<p class="input__title">Current Age</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="current_age_2" value="35"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>		<label class="input col   ">
+                			<p class="input__title">Planned Retirement</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="planned_retirement_2" value="65"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="1">
+                		<label class="input col   ">
+                			<p class="input__title">Amount Needed at the Retirement Age</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="amount_needed" value="800000"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="1">
+                		<label class="input col   ">
+                			<p class="input__title">Your Retirement Savings Now</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="retirement_saving" value="30000"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="1">
+                		<label class="input col   ">
+                			<p class="input__title">Average Investment Return</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="average_Investment_return_2" value="6"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Current Age</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="current_age_3" value="35"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>		<label class="input col   ">
+                			<p class="input__title">Planned Retirement</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="planned_retirement_3" value="65"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Life Expectancy</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="life_expectancy_2" value="85"  />
+                					<span class="input-field__hint">79 in U.S. on average</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Your Retirement Savings Now</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="retirement_saving_2" value="30000"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Annual Contribution</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="annual_contribution" value="6000"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Monthly Contribution</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="monthly_contribution" value=""  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Average Investment Return</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="average_Investment_return_3" value="6"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="2">
+                		<label class="input col   ">
+                			<p class="input__title">Inflation Rate (Annual)</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="inflation_rate_2" value="3"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                
+                	<div class="input-wrapper row tab" data-tab="3">
+                		<label class="input col   ">
+                			<p class="input__title">The Amount You Have</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="amount_have" value="600000"  />
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="3">
+                		<label class="input col   ">
+                			<p class="input__title">You Plan to Withdraw</p>
+                			<div class="input-field row">
+                					<span class="input-field__hint">$</span>
+                				<input type="text" class="input-field__input" placeholder=""  id="plan_withdraw" value="5000"  />
+                					<span class="input-field__hint">per month</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row tab" data-tab="3">
+                		<label class="input col   ">
+                			<p class="input__title">Average Investment Return</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="average_Investment_return_4" value="6"  />
+                					<span class="input-field__hint">%</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab tab--active" data-tab="0">
+					<button class="button button--icon js-modal-open" data-modal="share">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+							<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+							<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+							<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</button>
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+                </div>
+                
+                	<script type="text/javascript" src="./assets/js/calculator/retirement-calculator/chart.js" id="chartjs_script"></script>
+                
+                
+                
+                	<script type="text/javascript" src="./assets/js/calculator/retirement-calculator/calculator.js"></script>
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab " data-tab="1">
+						<button class="button button--icon js-modal-open" data-modal="share">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 6C21 7.65685 19.6569 9 18 9C16.8255 9 15.8087 8.32508 15.3161 7.34193C15.1138 6.93815 15 6.48237 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z" fill="white"></path>
+								<path d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 17.5176 15.1138 17.0619 15.3161 16.6581C15.8087 15.6749 16.8255 15 18 15C19.6569 15 21 16.3431 21 18Z" fill="white"></path>
+								<path d="M9 12C9 12.4824 8.88616 12.9381 8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581C8.88616 11.0619 9 11.5176 9 12Z" fill="white"></path>
+								<path d="M8.68387 13.3419C8.88616 12.9381 9 12.4824 9 12C9 11.5176 8.88616 11.0619 8.68387 10.6581M8.68387 13.3419C8.19134 14.3251 7.17449 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.17449 9 8.19134 9.67492 8.68387 10.6581M8.68387 13.3419L15.3161 16.6581M8.68387 10.6581L15.3161 7.34193M15.3161 7.34193C15.8087 8.32508 16.8255 9 18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 6.48237 15.1138 6.93815 15.3161 7.34193ZM15.3161 16.6581C15.1138 17.0619 15 17.5176 15 18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15C16.8255 15 15.8087 15.6749 15.3161 16.6581Z" stroke="#336BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</button>
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate2(this)">Calculate</button>
+                </div>
+                
+                
+                
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab " data-tab="2">
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate3(this)">Calculate</button>
+                </div>
+                
+                
+                
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row tab " data-tab="3">
+                
+                
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate4(this)">Calculate</button>
+                </div>
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="calculator-main col" id="result-container">
+        <div class="calculator-result calculator-result--error col" id="error-box">
+        	<div class="row">
+        		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        	<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+        						7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+        						12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+        						11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+        </svg>
+        		<p class="calculator-error__title">There was an error with your calculation.</p>
+        	</div>
+        	<div class="col" id="error-list">
+        	</div>
+        </div>        <span id="calculator_result"><div class="calculator-result col tab tab--active" data-tab="0">
+	<p class="table-cell table-cell--table-dark table-cell--only-title">Result</p>
+	<div class="table-cell table-cell--age table-cell--only row">
+		<div class="col chart__text">
+			<p class="result-text" id="total-saving">$553,407 at Age 65</p>
+			<p class="result-text result-text--small-loan" id="needed-total">Savings Needed at 65: $1,516,653</p>
+			<p class="result-text result-text--small-loan" id="total-without-inflation">Equivalent Purchase Power Now: $624,841</p>
+			<p class="result-text result-text--small-loan" id="lifestyle-after-retirement">Lifestyle after Retirement: $55,198</p>
+		</div>
+		<div class="chart-wrapper chart-wrapper--donut chart-wrapper--donut-row">
+			<canvas id="chartLoanSimple" class="chart chart--donut" height="200px"></canvas>
+			<div class="chart__donut-legend chart__donut-legend--col">
+				<div class="chart__donut-legend-item">
+					<div class="result-chart result-chart--yellow"></div>
+					<p class="result-text result-text--small">You will have</p>
+				</div>
+				<div class="chart__donut-legend-item">
+					<div class="result-chart result-chart--purple"></div>
+					<p class="result-text result-text--small">You will need</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="result-table__wrapper">
+		<table class="result-table">
+			<thead class="dark">
+			<tr>
+				<th class="dark indigo" colspan="3" id="monthly-income-savings">MONTHLY INCOME AFTER RETIREMENT (IF SAVED $553,407):
+				</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th></th>
+				<th>ACTUAL AMOUNT</th>
+				<th>TODAY'S MONEY</th>
+			</tr>
+			<tr>
+				<th>Total</th>
+				<td id="total-monthly">$4,600</td>
+				<td id="total-monthly-2">$1,895</td>
+			</tr>
+			<tr>
+				<th>From Savings</th>
+				<td id="monthly-from-saving">$3,100</td>
+				<td id="monthly-from-saving-2">$1,277</td>
+			</tr>
+			<tr>
+				<th>From Social Security</th>
+				<td id="monthly-from-social">$1,200</td>
+				<td id="monthly-from-social-2">$494</td>
+			</tr>
+			<tr>
+				<th>From Other Income</th>
+				<td id="monthly-from-other">$300</td>
+				<td id="monthly-from-other-2">$124</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="result-table">
+			<thead class="dark">
+			<tr>
+				<th class="dark indigo" colspan="3" id="monthly-income-needed">MONTHLY INCOME AFTER RETIREMENT (IF SAVED $1,516,653):
+				</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th></th>
+				<th>ACTUAL AMOUNT</th>
+				<th>TODAY'S MONEY</th>
+			</tr>
+			<tr>
+				<th>Total</th>
+				<td id="total-monthly-needed">$9,911</td>
+				<td id="total-monthly-needed-2">$4,083</td>
+			</tr>
+			<tr>
+				<th>From Savings</th>
+				<td id="monthly-from-saving-needed">$8,411</td>
+				<td id="monthly-from-saving-needed-2">$3,465</td>
+			</tr>
+			<tr>
+				<th>From Social Security</th>
+				<td id="monthly-from-social-needed">$1,200</td>
+				<td id="monthly-from-social-needed-2">$494</td>
+			</tr>
+			<tr>
+				<th>From Other Income</th>
+				<td id="monthly-from-other-needed">$300</td>
+				<td id="monthly-from-other-needed-2">$124</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="calculator-result col tab" data-tab="1">
+	<div class="result-table__wrapper">
+		<table class="result-table">
+			<thead class="dark">
+			<tr>
+				<th class="dark indigo" colspan="2" id="monthly-payment-2">IF YOU SAVE EVERY MONTH UNTIL 65</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>Amount to Save Every Month</th>
+				<td id="save-every-month">$644.11</td>
+			</tr>
+			<tr>
+				<th>Total Principal</th>
+				<td id="save-every-month-principal">$261,880.23</td>
+			</tr>
+			<tr>
+				<th>Total Interest</th>
+				<td id="save-every-month-interest">$538,119.77</td>
+			</tr>
+			<tr>
+				<th class="dark indigo" colspan="2" id="yearly-payment-2">IF YOU SAVE EVERY YEAR UNTIL 65</th>
+			</tr>
+			<tr>
+				<th>Amount to Save Every Year</th>
+				<td id="save-every-year">$7,939.66</td>
+			</tr>
+			<tr>
+				<th>Total Principal</th>
+				<td id="save-every-year-principal">$268,189.86</td>
+			</tr>
+			<tr>
+				<th>Total Interest</th>
+				<td id="save-every-year-interest">$531,810.14</td>
+			</tr>
+			<tr>
+				<th class="dark indigo" colspan="2">IF YOU HAVE IT NOW</th>
+			</tr>
+			<tr>
+				<th>Additional Amount Needed</th>
+				<td id="you-have">$109,288.10</td>
+			</tr>
+			<tr>
+				<th>Total Principal</th>
+				<td id="you-have-principal">$139,288.10</td>
+			</tr>
+			<tr>
+				<th>Total Interest</th>
+				<td id="you-have-interest">$660,711.90</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="calculator-result col tab" data-tab="2">
+	<div class="result-table__wrapper">
+		<table class="result-table">
+			<thead class="dark">
+			<tr>
+				<th class="dark indigo" colspan="2">Result</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th id="balance-retirement-title">Balance at the retirement age of 65</th>
+				<td id="balance-retirement">$646,653.85</td>
+			</tr>
+			<tr>
+				<th>Equivalent to current purchase power of</th>
+				<td id="today-balance-retirement">$266,412.83</td>
+			</tr>
+			<tr>
+				<th id="withdraw-monthly-title">The amount you can withdraw monthly at 65 and increase 3% annually
+				</th>
+				<td id="withdraw-monthly">$3,573.24</td>
+			</tr>
+			<tr>
+				<th>Equivalent to current purchase power of</th>
+				<td id="today-withdraw-monthly">$1,472.13</td>
+			</tr>
+			<tr>
+				<th id="withdraw-monthly-title-65-85">The amount you can withdraw monthly from 65 to 85</th>
+				<td id="withdraw-monthly-65-85">$4,573.73</td>
+			</tr>
+			<tr>
+				<th id="withdraw-monthly-title-65">At age 65, equivalent to current purchase power of</th>
+				<td id="withdraw-monthly-65">$1,884.32</td>
+			</tr>
+			<tr>
+				<th id="withdraw-monthly-title-85">At age 85, equivalent to current purchase power of</th>
+				<td id="withdraw-monthly-85">$1,043.30</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="calculator-result col tab" data-tab="3">
+	<div class="result-table__wrapper">
+		<div class="result" id="result-4-wrap">
+			<p class="table-cell table-cell--table-dark table-cell--only-title">Result</p>
+			<div class="table-cell table-cell--age table-cell--only row">
+				<div class="col result-text" id="result-4">If withdraw $5,000 per month, $600,000 can last 15 years and 0.7 months.
+				</div>
+			</div>
+		</div>
+		<table class="result-table" id="result-table-4">
+			<thead class="dark">
+			<tr>
+				<th class="dark indigo">WITHDRAW LENGTH</th>
+				<th class="dark indigo">WITHDRAW AMOUNT</th>
+			</tr>
+			</thead>
+			<tbody id="withdraw-table">
+			<tr>
+				<th>5 years</th>
+				<td>$11,555.39/month</td>
+			</tr>
+			<tr>
+				<th>10 years</th>
+				<td>$6,613.44/month</td>
+			</tr>
+			<tr>
+				<th>15 years</th>
+				<td>$5,011.76/month</td>
+			</tr>
+			<tr>
+				<th>20 years</th>
+				<td>$4,243.75/month</td>
+			</tr>
+			<tr>
+				<th>25 years</th>
+				<td>$3,807.73/month</td>
+			</tr>
+			<tr>
+				<th>30 years</th>
+				<td>$3,536.22/month</td>
+			</tr>
+			<tr>
+				<th>35 years</th>
+				<td>$3,357.34/month</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</span>
+    </div>
+</div>
+
+</div>
+
+<script async src="./assets/js/lib/math.min.js"></script>
+<script async src="./assets/js/app.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>
