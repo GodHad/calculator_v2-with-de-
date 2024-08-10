@@ -148,6 +148,9 @@ calculators.forEach(route => {
     app.get('/embed/' + route, (req, res) => {
         res.sendFile(path.join(__dirname, route, 'index.html'));
     })    
+    app.get('/embed/' + route + '/de', (req, res) => {
+        res.sendFile(path.join(__dirname, route, 'index-de.html'));
+    })
 });
 
 app.listen(port, () => {
