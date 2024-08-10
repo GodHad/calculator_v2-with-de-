@@ -1235,7 +1235,7 @@ html.dark .button--secondary {
 }
 .calculator-content--basic button:not(.button-switcher).basic-button--active.purple,
 .calculator-content--scientific button:not(.button-switcher).basic-button--active.purple {
-  border-color: #7C3AED;
+  border-color: #336BFF;
 }
 .calculator-content--basic button:not(.button-switcher).gray,
 .calculator-content--scientific button:not(.button-switcher).gray {
@@ -4083,10 +4083,10 @@ html.dark .calculator-content__geometry path[fill="#F5F3FF"], html.dark .calcula
 html.dark .calculator-content__geometry path[fill="#fff"], html.dark .calculator-content__geometry circle[fill="#fff"], html.dark .calculator-content__geometry rect[fill="#fff"], html.dark .calculator-content__geometry ellipse[fill="#fff"] {
   fill: #1F2937;
 }
-html.dark .calculator-content__geometry rect[stroke="#7C3AED"], html.dark .calculator-content__geometry circle[stroke="#7C3AED"], html.dark .calculator-content__geometry path[stroke="#7C3AED"], html.dark .calculator-content__geometry ellipse[stroke="#7C3AED"] {
+html.dark .calculator-content__geometry rect[stroke="#336BFF"], html.dark .calculator-content__geometry circle[stroke="#336BFF"], html.dark .calculator-content__geometry path[stroke="#336BFF"], html.dark .calculator-content__geometry ellipse[stroke="#336BFF"] {
   stroke: #A78BFA;
 }
-html.dark .calculator-content__geometry path[fill="#7C3AED"] {
+html.dark .calculator-content__geometry path[fill="#336BFF"] {
   fill: #A78BFA;
 }
 .calculator-content--small {
@@ -4442,7 +4442,7 @@ html.dark .result-chart--yellow {
   background-color: #D97706;
 }
 html.dark .result-chart--purple {
-  background-color: #7C3AED;
+  background-color: #336BFF;
 }
 html.dark .result-chart--sky {
   background-color: #0284C7;

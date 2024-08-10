@@ -24,7 +24,7 @@ const colors = {
 		fractionColor: '#EDE9FE',
 	},
 	dark: {
-		purple: '#7C3AED',
+		purple: '#336BFF',
 		yellow: '#D97706',
 		sky: '#0284C7',
 		blue: '#101E47',
