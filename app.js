@@ -129,7 +129,8 @@ const calculators = [
     "volume-calculator",
     "work-hours-calculator",
     "z-score-calculator",
-    "area-calculator"
+    "area-calculator",
+    "shoes-calculator"
 ];
 app.use(cors("*"));
 const publicPath = path.resolve(__dirname, 'public', 'assets');
